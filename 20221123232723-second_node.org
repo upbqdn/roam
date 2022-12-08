@@ -1,0 +1,65 @@
+:PROPERTIES:
+:ID:       62d31f31-cb9c-4f77-bbe4-d85f6259c9d0
+:END:
+#+title: Cartesian Product
+#+hugo_tags: math
+
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+
+
+See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
+
+As per [[.theorem-1][Theorem 1]].
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* Bar
+** bara
+See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
+
+As per [[.theorem-1][Theorem 1]].
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+
+*** Subsubsection
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* Foo
+See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
+
+As per [[.theorem-1][Theorem 1]].
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+
+#+BEGIN_section
+<<.theorem-1>> *Theorem 1.*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
+
+As per [[.theorem-1][Theorem 1]].
