@@ -2,4 +2,4 @@
 #+EXPORT_FILE_NAME: about
 
 I'm Marek. Welcome to the public repository of my notes. You can contact me at
-18h96zsho@mozmail.com.
+[[18h96zsho@mozmail.com]].
