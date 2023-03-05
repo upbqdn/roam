@@ -1,7 +1,0 @@
-:PROPERTIES:
-:ID:       63866a13-dad5-4386-9fd5-56ef4b9e8132
-:END:
-#+title: new one
-#+hugo_tags: test
-
-Weird is syzygy has syzygied syzygies

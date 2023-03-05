@@ -10,10 +10,6 @@
 $\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
 #+END_section
 
-
-
-See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
-
 As per [[.theorem-1][Theorem 1]].
 
 This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
@@ -23,10 +19,7 @@ This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node
 \[ a=-\sqrt{2}. \]/
 #+END_section
 
-See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
-
 As per [[.theorem-1][Theorem 1]].
-This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
 
 #+BEGIN_section
 <<.theorem-1>> *[[.theorem-1][Theorem 1]]*
@@ -34,32 +27,3 @@ This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node
 \[ a=-\sqrt{2}. \]/
 #+END_section
 
-* Bar /If $a^2=b$ and \( b=2 \), then the solution must be either $a=+\sqrt{2}$ or  $a=-\sqrt{2}$./
-** bara
-See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
-
-As per [[.theorem-1][Theorem 1]].
-This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
-
-*** Subsubsection
-#+BEGIN_section
-<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
-/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
-\[ a=-\sqrt{2}. \]/
-#+END_section
-
-* Foo
-See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
-
-As per [[.theorem-1][Theorem 1]].
-This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
-
-#+BEGIN_section
-<<.theorem-1>> *Theorem 1.*
-/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
-\[ a=-\sqrt{2}. \]/
-#+END_section
-
-See [[id:63866a13-dad5-4386-9fd5-56ef4b9e8132][new one]].
-
-As per [[.theorem-1][Theorem 1]].

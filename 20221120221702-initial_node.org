@@ -2,7 +2,6 @@
 :ID:       a1e0390c-d97c-45cf-993d-4db4ea99332f
 :END:
 #+title: Initial Node
-#+hugo_tags: zulu
+#+hugo_tags: test
 
-This is my very first Org Roam node.
-As said in [[file:20221123232723-second_node.org::.theorem-1][Theorem 1]].
+As said in [[id:62d31f31-cb9c-4f77-bbe4-d85f6259c9d0][Theorem 1]].
