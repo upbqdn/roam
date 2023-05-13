@@ -27,3 +27,81 @@ As per [[.theorem-1][Theorem 1]].
 \[ a=-\sqrt{2}. \]/
 #+END_section
 
+* Subtitle
+** Subsubtitle
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* foo
+** bar
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* foofoo
+** vbar
+
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* a
+** b

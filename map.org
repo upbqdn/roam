@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       c55eb7f2-3db1-4eb4-a437-b0c30da69b51
+:END:
+#+title: Map
+#+date: [2023-05-14 Sun 00:30]
+#+hugo_lastmod: [2023-05-14 Sun 00:58]
+#+hugo_tags: math definitions
+
+#+BEGIN_section
+<<.df-2>> *[[.df-2][Definition 2]].* Let $A$ and $B$ be sets. A *map* is a set
+  $\varphi \subseteq$ [[file:second_node.org::.df-1][$A \times B$]] such that for each $a \in A$
+  there is exactly one $b \in B$ with $\left( a, b \right) \in \varphi$.
+#+END_section
