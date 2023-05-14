@@ -22,8 +22,9 @@ This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node
 \[ a=-\sqrt{2}. \]/
 #+END_section
 
-#+macro: youtube @@html:<iframe src="https://www.youtube-nocookie.com/embed/$1" width="100%" style="aspect-ratio: 16 / 9;" allowfullscreen></iframe>@@
-{{{youtube(v_jDFgS2AqE)}}}
+#+macro: yt @@html:<iframe id="vid" src="https://www.youtube-nocookie.com/embed/$1" allowfullscreen></iframe>@@
+
+{{{yt(v_jDFgS2AqE)}}}
 
 
 As per [[.theorem-1][Theorem 1]].
