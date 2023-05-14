@@ -1,7 +1,125 @@
 :PROPERTIES:
 :ID:       a1e0390c-d97c-45cf-993d-4db4ea99332f
 :END:
-#+title: Initial Node
-#+hugo_tags: test
+#+title: Test Node
+#+hugo_tags:
+#+bibliography: ref.bib
+#+cite_export: csl
 
-As said in [[id:62d31f31-cb9c-4f77-bbe4-d85f6259c9d0][Theorem 1]].
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]] [cite:@iva].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+CAPTION: foobar
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+This is weird.
+\\
+\\
+
+# CAPTION: syzygy.
+#+NAME: foo
+<<.snip-3>>
+#+begin_src rust -n
+fn main() -> Foo {
+    println!("ffoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoooo");
+}
+#+end_src
+#+begin_center
+*[[.snip-3][/Snippet/ 3]]:* /hello world./
+#+end_center
+\\
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* Subtitle
+** Subsubtitle
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* foo
+** bar
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+* foofoo
+** vbar
+
+#+BEGIN_section
+<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
+*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
+$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+As per [[.theorem-1][Theorem 1]].
+
+#+BEGIN_section
+<<.theorem-1>> *[[.theorem-1][Theorem 1]]*
+/If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or
+\[ a=-\sqrt{2}. \]/
+#+END_section
+
+#+print_bibliography:
