@@ -12,7 +12,7 @@
 $\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
 #+END_section
 
-As per [[.theorem-1][Theorem 1]] [cite:@iva].
+As per [[.theorem-1][Theorem 1]]. [cite:check @rijndael; @aumasson]
 
 This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node]].
 #+CAPTION: foobar
@@ -32,7 +32,7 @@ This is weird.
 <<.snip-3>>
 #+begin_src rust -n
 fn main() -> Foo {
-    println!("ffoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoooo");
+    println!("ffoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoofoof");
 }
 #+end_src
 #+begin_center
