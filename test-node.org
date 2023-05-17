@@ -24,8 +24,15 @@ This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node
 
 #+macro: yt @@html:<iframe id="vid" src="https://www.youtube-nocookie.com/embed/$1" allowfullscreen></iframe>@@
 
-{{{yt(v_jDFgS2AqE)}}}
+{{{yt(XqZsoesa55w)}}}
 
+Foo
+
+@@html:
+<iframe src="https://www.youtube-nocookie.com/embed/XqZsoesa55w"
+        id="vid" allowfullscreen>
+</iframe>
+@@
 
 As per [[.theorem-1][Theorem 1]].
 This is weird.
