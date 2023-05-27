@@ -1,9 +1,9 @@
 :PROPERTIES:
-:ID:       699a2728-5425-4eaf-8136-5aa0f0ee34a9
+:ID:     cartesian-product
 :END:
 #+title: Cartesian Product
 #+date: [2023-05-14 Sun 02:01]
-#+hugo_lastmod: [2023-05-14 Sun 02:02]
+#+hugo_lastmod: [2023-05-27 Sat 22:03]
 #+hugo_tags: math definitions
 
 #+BEGIN_section
