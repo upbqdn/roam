@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:       ring
+:END:
+#+title: Ring
+#+date: [2023-08-03 Thu 01:44]
+#+hugo_lastmod: [2023-08-05 Sat 01:27]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags:  definitions algebraic-structures math
+
+#+BEGIN_def
+<<.df-6>> *[[.df-6][Definition 6]]*. A *ring* is a set $R$ with two [[id:binary-operation][binary operations]]
+$\left( a, b \right) \mapsto a + b$ and $\left( a, b \right) \mapsto a \cdot b$, referred to as
+addition and multiplication, such that the following axioms hold:
+1. The set $R$ is an Abelian [[id:group][group]] under addition with the *additive identity*
+   $0$.
+2. The set $R$ is a [[id:monoid][monoid]] under multiplication with the *multiplicative
+   identity* $1$.
+3. Distributivity: $a \cdot \left( b + c \right) = a \cdot b + a \cdot c$ and $\left( a + b
+   \right) \cdot c = a \cdot c + b \cdot c$ for all $a, b, c \in R$.
+A ring is a *commutative ring* if it is a commutative [[id:monoid][monoid]] under
+multiplication.
+#+END_def
+
+#+BEGIN_re
+<<.rem-8>> *[[.rem-8][Remark 8]]*.
+1. The inverse under addition in a ring is the *additive inverse*, and the
+   inverse under multiplication is the *multiplicative inverse*.
+2. We usually omit the symbol for multiplication, and instead of $a \cdot b$, we
+   write $ab$.
+3. We can think of subtraction in a ring as addition of the additive inverse.
+4. We can't think of division as multiplication by the multiplicative inverse
+   since not every element has it's multiplicative inverse.
+6. Axiom 3. describes the left and right distributive laws.
+#+END_re
+
+#+BEGIN_ex
+<<.ex-9>> *[[.ex-9][Example 9]]*.
+1. The sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ are rings with their standard
+   addition and multiplication.
+2. The natural numbers do not form a ring since not all elements have their
+   additive inverse in this set.
+3. The set of integers modulo $n \in \mathbb{Z}$, denoted $\mathbb{Z}_n$, is a ring.
+#+END_ex
