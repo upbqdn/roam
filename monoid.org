@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:       monoid
+:END:
+#+title: Monoid
+#+date: [2023-08-02 Wed 15:10]
+#+hugo_lastmod: [2023-08-05 Sat 01:31]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags: math definitions algebraic-structures
+
+#+BEGIN_def
+<<.df-4>> *[[.df-4][Definition 4]]*. A *monoid* is a set $M$ with a [[id:binary-operation][binary operation]]
+$\left( a, b \right) \mapsto a \circ b$ such that the following two axioms hold:
+1. Associativity: $\left( a \circ b \right) \circ c = a \circ \left( b \circ c \right)$ for all
+   $a, b, c \in M$.
+2. Identity: There is an *identity element* $e \in M$ such that $e \circ a = a \circ e =
+   a$ for all $a \in M$.
+A monoid is a *commutative monoid* if, in addition to 1. and 2., the following
+axiom also holds:
+3. [@3] Commutativity: $a \circ b = b \circ a$ for all $a, b \in M$.
+#+END_def
+
+#+BEGIN_rem
+<<.rem-10>> *[[.rem-10][Remark 10]]*.
+1. Since $\circ$ is a binary operation, the resulting element, $a \circ b$ is always in
+   $M$ for all $a , b \in M$. We say that $M$ is closed under $\circ$ or that $\circ$ is
+   closed on $M$.
+2. For simplicity, we usually refer to the set $M$ as the monoid with the
+   associated operation being implicit. We use this convention for other
+   algebraic structures as well, even when there are multiple operations
+   associated with the structure.
+3. We usually refer to the identity element as the identity.
+#+END_rem
