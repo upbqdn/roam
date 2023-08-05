@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       binary-operation
+:END:
+#+title: Binary Operation
+#+date: [2023-08-02 Wed 01:34]
+#+hugo_lastmod: [2023-08-03 Thu 18:08]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags: math definitions
+
+#+BEGIN_def
+<<.df-3>> *[[.df-3][Definition 3]]*. Let $A$ be a set. A *binary operation* is a
+[[id:map][map]] from [[id:cartesian-product][$A \times A$]] to $A$.
+#+END_def
