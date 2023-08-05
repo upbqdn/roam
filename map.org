@@ -3,11 +3,11 @@
 :END:
 #+title: Map
 #+date: [2023-05-14 Sun 00:30]
-#+hugo_lastmod: [2023-05-27 Sat 22:03]
+#+hugo_lastmod: [2023-08-03 Thu 18:08]
 #+hugo_tags: math definitions
 
-#+BEGIN_section
-<<.df-2>> *[[.df-2][Definition 2]].* Let $A$ and $B$ be sets. A *map* is a set
+#+BEGIN_def
+<<.df-2>> *[[.df-2][Definition 2]]*. Let $A$ and $B$ be sets. A *map* is a set
   $\varphi \subseteq$ [[id:cartesian-product][$A \times B$]] such that for each $a \in A$
   there is exactly one $b \in B$ with $\left( a, b \right) \in \varphi$.
-#+END_section
+#+END_def
