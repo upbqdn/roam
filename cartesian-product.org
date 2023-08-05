@@ -3,11 +3,11 @@
 :END:
 #+title: Cartesian Product
 #+date: [2023-05-14 Sun 02:01]
-#+hugo_lastmod: [2023-05-27 Sat 22:03]
+#+hugo_lastmod: [2023-08-03 Thu 18:31]
 #+hugo_tags: math definitions
 
-#+BEGIN_section
-<<.df-1>> *[[.df-1][Definition 1]].* Let $A_1, \ldots, A_n$ be sets. Then the
-*Cartesian product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples
-$\left( a_1, \ldots, a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
-#+END_section
+#+BEGIN_def
+<<.df-1>> *[[.df-1][Definition 1]]*. Let $A_1, \ldots, A_n$ be sets. Then the *Cartesian
+product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples $\left( a_1, \ldots,
+a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
+#+END_def
