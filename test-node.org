@@ -26,7 +26,21 @@ This node references the [[id:a1e0390c-d97c-45cf-993d-4db4ea99332f][Initial Node
 
 {{{yt(XqZsoesa55w)}}}
 
-Foo
+Here's a lovely plot:
+
+@@html:
+<iframe src="/data/BTC.html"
+        class="plot" allowfullscreen>
+</iframe>
+@@
+
+Here's a another one:
+
+@@html:
+<iframe src="/data/BTC.html"
+        class="plot" allowfullscreen>
+</iframe>
+@@
 
 @@html:
 <iframe src="https://www.youtube-nocookie.com/embed/XqZsoesa55w"
