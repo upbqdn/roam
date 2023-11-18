@@ -25,6 +25,22 @@
     "arnold"
     "aumasson"
     "f4"
-    "fglm"))
+    "fglm"
+    "Nakamoto"
+    "Bitcoin-Protocol"
+    "zk1"
+    "zk2"
+    "PoS"
+    "smart-contracts-btc"
+    "smart-contracts-eth"
+    "LN"
+    "transactions"
+    "blocks"
+    "addresses"
+    "script"
+    "satoshi:quote"
+    "bip0032"
+    "brown2010sec"
+    "brown2009sec"))
  '(or :bibtex :latex))
 
