@@ -1,0 +1,184 @@
+:PROPERTIES:
+:ID:       a006dea5-472d-49f3-99af-6838d9ba1ac9
+:END:
+#+title: Intro to Bitcoin
+#+slug: bitcoin
+#+date: [2023-09-27 Wed 15:41]
+#+hugo_lastmod: [2023-10-01 Sun 14:17]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags: blog
+
+We can see Bitcoin as a peer-to-peer network of cooperating nodes. These nodes
+listen for transactions, order them into subsequent blocks, and publish these
+blocks on the network. Users use digital signatures to prove ownership of funds
+when creating transactions, and nodes use a proof of work system based on
+hashing to rule out double-spending. These techniques bring trust to the whole
+history of transactions without the need for a central authority, and this trust
+allows users to exchange value. Let us now unveil the fundamentals of this
+system.
+
+* Brief History
+The initial era of Bitcoin is somewhat mysterious. The domain [[https://www.bitcoin.org][bitcoin.org]] was
+registered on the 18th of August 2008. On the 31st of October, Satoshi Nakamoto,
+whose identity is unknown, published a paper describing a peer-to-peer
+electronic version of cash named [[https://bitcoin.org/bitcoin.pdf][/Bitcoin/]] and subsequently released an
+open-source implementation. On the 3rd of January 2009, the [[sec:Chain-of-Blocks][/genesis block/]] was
+mined, which brought the Bitcoin network into existence. The first transaction
+was made on the 12th of January 2009. Since then, the network and code base have
+kept growing, and Satoshi Nakamoto disappeared from the Internet. To this day,
+there has been no successful attack that would deprive the owner of the funds
+they possess.
+
+* Brief Overview
+If we wink at the [[https://en.bitcoin.it/wiki/Protocoldocumentation][Bitcoin Protocol]] as much as we can, we can reduce it to the
+following steps:
+- Clients broadcast new transactions.
+- Some nodes gather incoming transactions into a block and start finding a proof
+  of work for this block.
+- Once a node finds the proof of work for the block, the node broadcasts the
+  block in the network.
+- All other nodes verify the block and accept it only if all transactions in it
+  are valid and not already spent.
+- Nodes express their acceptance of the received block by starting to create
+  another block on top of the received one. They do so by inserting the hash of
+  the received block into the one currently being created.
+
+* Wallets and Addresses
+Before we start our discussion on transactions, let us discuss Bitcoin wallets
+and their addresses. We will regard a wallet as a public/private key pair. Note
+that this definition differs from the usual notion where wallets refer to whole
+software suites that handle Bitcoin for their users.
+
+A user generates a wallet on their own, and they can generate and handle any
+number of them. The public key of a wallet represents its address. The user
+keeps the private key secret, and they can use it to manipulate the funds
+belonging to the wallet. The user then shares the address so other users who
+possess Bitcoin can send their funds to this address by broadcasting a
+transaction. We describe this process in sections [[Chain of Transactions]] and
+[[Chain of Blocks]]. Besides mining, there is no other way to obtain Bitcoin. Note
+that there is no need to register anywhere. Also, note that the wallet is all
+the user needs to access their funds. This means the user is not bound to any
+device while using Bitcoin. If the user wishes, they can generate a new wallet,
+even with no internet connection, share the wallet address, retain the key pair,
+and then dispose of the device they used. The user can subsequently travel to
+the other side of the world only with the key pair and then use it to access
+their funds on any device with a Bitcoin client installed. This is possible due
+to the public nature of the blockchain that we describe later on. However, the
+user loses the funds forever if they lose the private key. Also, once the
+private key gets exposed to an adversary, this adversary instantly gains
+complete control over the funds.
+
+Another property of Bitcoin is that transactions are irreversible. This means
+that once a user sends their funds to the wrong address (even an address that
+has no associated private key), and this transaction gets written to the
+blockchain, there is no way to revert the transaction, given the blockchain
+operates as expected.
+
+A [[https://en.bitcoin.it/wiki/Address][Bitcoin address]] is a string of length between 26 and 35 of alphanumeric
+characters, beginning with the number =1=, =3= or the string =bc1=. The latter
+type is case insensitive, while the two preceding ones are case sensitive. No
+address contains the uppercase letter =O=, uppercase letter =I=, lowercase
+letter =l= and the number =0= to prevent visual ambiguity. An example of a
+Bitcoin address is
+#+begin_center
+  =1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2= \\
+  or \\
+  =bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq=.
+#+end_center
+
+Modern Bitcoin clients (usually called wallets) implement so-called
+/hierarchical deterministic/ [[https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki][(/HD/) wallets]] for deriving the key pairs from a
+/seed/ according to [[https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki][BIP-0032]]. This approach makes Bitcoin wallets more
+user-friendly and has no impact on the Bitcoin protocol. The seed is a random
+128-bit number that can be encoded into a human-readable format. The seed is
+then called a /seed phrase/ and consists of 12 English words that the user has
+to keep secret. The wallet can then deterministically create a virtually
+unlimited number of addresses. The same seed can also be used on multiple
+devices so the user can control the exact set of addresses on any of these
+devices. The user doesn't have to retain any of the private keys. It is crucial
+to generate the seed at random to prevent the possibility of a collision with
+another seed. In the case of a collision, the consequences are that both users
+end up with the same set of key pairs.
+
+* Privacy
+We can't consider Bitcoin private or untraceable since all of its transactions
+(containing addresses and Bitcoin amounts) are public. If we focus on a
+particular address, we can see all incoming and outgoing transactions that are
+already in the blockchain and observe any future transactions. Conversely, we
+can see all source and destination addresses if we focus on a particular
+transaction. Combining these two approaches allows us to track and backtrack all
+transactions associated with any address. It is also possible to see how much
+funds each address holds---there are online blockchain trackers that offer all
+the details at a glance to anyone. If we manage to associate someone's identity
+with a specific address, that user's privacy is lost. The information about the
+complete transaction history is immutably and publicly stored in the blockchain
+forever.
+
+It is possible to prevent potential network surveillance or censorship by using
+the Tor network to connect to the Bitcoin network. Some clients have this
+functionality inbuilt.
+
+* Chain of Transactions
+<<sec:Chain-of-Transactions>>
+
+All transactions in the blockchain are public, and anyone can verify their
+validity. Transactions~\cite{transactions} in Bitcoin have the following content
+(simplified):
+
+\begin{description}
+\item [hash of itself] Every transaction is identified by its hash.  The
+  implementation uses SHA-256.
+\item [input] Contains the following:
+  \begin{description}
+  \item [previous transaction] A hash referencing the previous transaction.
+  \item [signature] The hash of the current transaction is signed with the
+    private key of the owner.
+  \end{description}
+\item [output] Contains the following:
+  \begin{description}
+  \item [value] The amount of bitcoins that the sender is willing to send.
+  \item [receiver's address] The public key of the receiver's Bitcoin address.
+  \end{description}
+\end{description}
+
+This transaction structure creates a chain of transactions since the input
+references the previous transaction. We can notice that the transaction also
+contains the receiver's address and that the whole transaction is signed
+(containing the hash of the previous transactions). This in fact creates a chain
+of trust~---~the receiver (and anyone else) can verify that the sender owned the
+funds that are being sent in the following way:
+
+The receiver looks at the transaction referenced in the input, and gets the
+sender's public key from it. Subsequently, they verify that the signature of the
+current transaction is valid. If this is true, we can be sure that the funds are
+transferred (to the owner of the public key specified in the output) only by the
+owner of the private key that corresponds to the public key stored in the output
+of the referenced previous transaction.
+
+A simplified chain of transactions is depicted in Figure~\ref{fig:transactions}.
+
+\begin{figure}[!htb]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{./images/blocks}
+    \caption{Outline of transactions and their ordering.~\cite{Nakamoto}}\label{fig:transactions}
+  \end{center}
+\end{figure}
+
+Transactions can have multiple inputs and multiple outputs. This allows the
+value to be split and combined. All inputs are summed up, and this sum has to be
+spent in the outputs.~\footnote{Unused funds are used as an incentive for
+  miners, see Section~\ref{sec:Chain-of-Blocks}.} If we don't want to use all
+the funds specified in the input, we can simply send it back to the same wallet
+that we currently use for the transfer.
+
+The approach described above doesn't rule out double-spending. The owner could
+transfer their funds multiple times. To prevent this, we could introduce a
+global authority that would check every transaction. Bitcoin addresses this
+issue without the need for such an authority.
+
+* Chain of Blocks
+<<sec:Chain-of-Blocks>>
+
+
+#+print_bibliography:
