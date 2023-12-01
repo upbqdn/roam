@@ -3,7 +3,7 @@
 :END:
 #+title: Ideal
 #+date: [2023-08-06 Sun 19:19]
-#+hugo_lastmod: [2023-09-25 Mon 01:07]
+#+hugo_lastmod: [2023-12-01 Fri 14:43]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math definitions
@@ -18,7 +18,7 @@ The ideal $I$ is *proper* if $I \ne R$.
 
 #+BEGIN_rem
 <<.rem-12>> *[[.rem-12][Remark 12]]*. [[.df-11][Definition 11]] says that if $R$ is a commutative [[id:ring][ring]],
-and $\emptyset \neq I \subseteq R$ , then $I$ is an [[.df-11][ideal]] of $R$ if:
+and $\emptyset \neq I \subseteq R$, then $I$ is an [[.df-11][ideal]] of $R$ if:
 1. The set $I$ is closed under addition.
 2. The set $I$ is closed under multiplication by any $r \in R$.
 #+END_rem
