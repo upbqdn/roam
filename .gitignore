@@ -1,3 +1,5 @@
+/data/*.mp4
+
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~

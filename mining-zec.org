@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       3866728e-fbf4-4e27-ad68-ce2f2b9abd82
+:END:
+#+title: Zcash Mining
+#+date: [2024-01-13 Sat 18:55]
+#+hugo_lastmod: [2024-01-13 Sat 22:09]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags: blog
+
+#+begin_center
+<<.vid-q>>
+#+attr_html: :controls t
+#+begin_video
+<source src="/data/mining.mp4" type="video/mp4"><track src="/data/mining.vtt" label="English" kind="subtitles" srclang="en" default/>
+#+end_video
+*[[.vid-q][/Video/ q]]:* /Mining Zcash at home./
+#+end_center
