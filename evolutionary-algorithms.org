@@ -2,8 +2,8 @@
 :ID:       a1cd8394-a9be-4f78-b4ed-9d02082c110d
 :END:
 #+title: Evolutionary Algorithms
-#+date: [2026-02-12 Thu]
-#+hugo_lastmod: [2026-02-12 Thu 23:32]
+#+date: <2017-05-17 Wed>
+#+hugo_lastmod: [2026-02-12 Thu 23:42]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
