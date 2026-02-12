@@ -9,7 +9,7 @@
 #+hugo_tags: math definitions
 
 #+BEGIN_df
-<<.df-11>> *[[.df-11][Definition 11]]*. Let \(R\) be a commutative [[id:ring][ring]] and \(\emptyset \ne I \subseteq R\). Then
+<<.df-m>> *[[.df-m][Definition m]]*. Let \(R\) be a commutative [[id:ring][ring]] and \(\emptyset \ne I \subseteq R\). Then
 \(I\) is an *ideal* of \(R\) if:
 1. The sum \(a + b\) is in \(I\) for all \(a, b \in I\).
 2. The product \(ar\) is in \(I\) for all \(a \in I\) and \(r \in R\).
@@ -17,14 +17,14 @@ The ideal \(I\) is *proper* if \(I \ne R\).
 #+END_df
 
 #+BEGIN_rem
-<<.rem-12>> *[[.rem-12][Remark 12]]*. [[.df-11][Definition 11]] says that if \(R\) is a commutative [[id:ring][ring]],
-and \(\emptyset \neq I \subseteq R\), then \(I\) is an [[.df-11][ideal]] of \(R\) if:
+<<.rem-c>> *[[.rem-c][Remark c]]*. [[.df-m][Definition m]] says that if \(R\) is a commutative [[id:ring][ring]],
+and \(\emptyset \neq I \subseteq R\), then \(I\) is an [[.df-m][ideal]] of \(R\) if:
 1. The set \(I\) is closed under addition.
 2. The set \(I\) is closed under multiplication by any \(r \in R\).
 #+END_rem
 
 #+BEGIN_pr
-<<.pr-13>> *[[.pr-13][Proposition 13]]*. Let \(I\) be an [[.df-11][ideal]] of a commutative [[id:ring][ring]] \(R\).
+<<.pr-p>> *[[.pr-p][Proposition p]]*. Let \(I\) be an [[.df-m][ideal]] of a commutative [[id:ring][ring]] \(R\).
 Then:
 1. The equation \(a \cdot 0 = 0 \cdot a = 0\) holds for all \(a \in R\).
 2. The element \(0\) is in \(I\).

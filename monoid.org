@@ -9,7 +9,7 @@
 #+hugo_tags: math definitions algebraic-structures
 
 #+BEGIN_def
-<<.df-4>> *[[.df-4][Definition 4]]*. A *monoid* is a set $M$ with a [[id:binary-operation][binary operation]]
+<<.df-r>> *[[.df-r][Definition r]]*. A *monoid* is a set $M$ with a [[id:binary-operation][binary operation]]
 $\left( a, b \right) \mapsto a \circ b$ such that the following two axioms hold:
 1. Associativity: $\left( a \circ b \right) \circ c = a \circ \left( b \circ c \right)$ for all
    $a, b, c \in M$.
@@ -21,7 +21,7 @@ axiom also holds:
 #+END_def
 
 #+BEGIN_rem
-<<.rem-10>> *[[.rem-10][Remark 10]]*.
+<<.rem-k>> *[[.rem-k][Remark k]]*.
 1. Since $\circ$ is a binary operation, the resulting element, $a \circ b$ is always in
    $M$ for all $a , b \in M$. We say that $M$ is closed under $\circ$ or that $\circ$ is
    closed on $M$.

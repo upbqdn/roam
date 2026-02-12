@@ -9,6 +9,6 @@
 #+hugo_tags: math definitions
 
 #+BEGIN_def
-<<.df-3>> *[[.df-3][Definition 3]]*. Let $A$ be a set. A *binary operation* is a
+<<.df-d>> *[[.df-d][Definition d]]*. Let $A$ be a set. A *binary operation* is a
 [[id:map][map]] from [[id:cartesian-product][$A \times A$]] to $A$.
 #+END_def

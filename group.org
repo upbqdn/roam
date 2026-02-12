@@ -9,7 +9,7 @@
 #+hugo_tags: math definitions algebraic-structures
 
 #+BEGIN_def
-<<.df-5>> *[[.df-5][Definition 5]]*. A *group* $G$ is a [[id:monoid][monoid]] in which all $a \in G$ have an
+<<.df-f>> *[[.df-f][Definition f]]*. A *group* $G$ is a [[id:monoid][monoid]] in which all $a \in G$ have an
   *inverse* element $b \in G$ with $a \circ b = b \circ a = e$. A group $G$ is an *Abelian
   group* if it is a commutative [[id:monoid][monoid]].
 #+END_def
