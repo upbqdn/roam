@@ -11,7 +11,6 @@
 These bad boyz have been chugging since 2023.
 
 #+begin_center
-<<.vid-q>>
 #+attr_html: :controls t
 #+begin_video
 <source src="/data/mining/mining.mp4" type="video/mp4"><track src="/data/mining/mining.vtt" label="English" kind="subtitles" srclang="en" default/>
