@@ -29,7 +29,7 @@ Video
 
 #+attr_html: :controls t
 #+begin_video
-<source src="/data/mining.mp4" type="video/mp4">
+<source src="/data/mining/mining.mp4" type="video/mp4">
 #+end_video
 
 Here's  another one:

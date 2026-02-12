@@ -1,18 +1,132 @@
 :PROPERTIES:
 :ID:       3866728e-fbf4-4e27-ad68-ce2f2b9abd82
 :END:
-#+title: Zcash Mining
+#+title: Mining Zcash
 #+date: [2024-01-13 Sat 18:55]
-#+hugo_lastmod: [2024-01-13 Sat 22:09]
+#+hugo_lastmod: [2026-02-12 Thu 14:46]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
+
+These bad boyz have been chugging since 2023.
 
 #+begin_center
 <<.vid-q>>
 #+attr_html: :controls t
 #+begin_video
-<source src="/data/mining.mp4" type="video/mp4"><track src="/data/mining.vtt" label="English" kind="subtitles" srclang="en" default/>
+<source src="/data/mining/mining.mp4" type="video/mp4"><track src="/data/mining/mining.vtt" label="English" kind="subtitles" srclang="en" default/>
 #+end_video
-*[[.vid-q][/Video/ q]]:* /Mining Zcash at home./
 #+end_center
+
+Software-wise, the machines are a disaster unless we pretend that the GPL
+doesn't exist. The machines don't have SSH access, but the control boards expose
+a UART port, and you can get root access if you have a Flipper Zero lying
+around. The password is root.
+
+If anyone's interested in seeing what's inside the machines --- I recently
+managed to fix yet another failure of ASIC mining hw. The Z15 machine has three
+hashboards, each of which has three ASICs. This is what the hashboard looks
+like. The hole in the PCB is due to a previous failure in the power circuitry.
+
+[[file:/data/mining/hashboard.jpg]]
+
+The same failure happened again on the same board. This is what it looked like
+on the other side of the board.
+
+[[file:/data/mining/burn-back.jpg]]
+
+And this is what it looked like under the heatsink.
+
+[[file:/data/mining/burn-heatsink.jpg]]
+
+I removed the SMDs related to the affected ASIC and drilled out the burned part
+to get rid of the s/c.
+
+[[file:/data/mining/drilled.jpg]]
+
+You can see that the ASIC came off as I removed its heatsink. The other day, I
+had to use some weird thermal epoxy glue instead of thermal paste since all the
+thermal pastes I found dissolved in oil.
+
+However, the s/c wouldn't go away, so it was time to take out my new thermal
+camera. I connected the board to a regulated power supply, set the voltage to
+12V, and limited the current to 10A. Here's what I got.
+
+#+attr_html: :controls t
+#+begin_video
+<source src="/data/mining/thermal-1.mp4" type="video/mp4">
+#+end_video
+
+After more drilling, the mf still wouldn't go away, so I took another video.
+Btw, drilling a PCB is no fun. I was essentially burning the material away and
+subsequently inhaling it instead of drilling it. It seemed to be a four-layer
+PCB.
+
+#+attr_html: :controls t
+#+begin_video
+<source src="/data/mining/thermal-2.mp4" type="video/mp4">
+#+end_video
+
+After some more drilling and cleaning, the s/c disappeared. I connected some
+signal paths on the PCB by making some educated and some completely random
+guesses, and I used the thermal camera again to check that at least the last
+ASIC still worked. And it did!
+
+#+attr_html: :controls t
+#+begin_video
+<source src="/data/mining/thermal-3.mp4" type="video/mp4">
+#+end_video
+
+By the way, this is how I started in 2017 as a kid. There are six water-cooled
+Nvidia 1080 Ti graphics cards at the bottom. They were upside down in case of a
+leak. The glass on the right was catching one. The GPUs were mining ZEC until
+ASICs took over, then ETH.
+
+[[file:/data/mining/gpu-rig.jpg]]
+
+I was using distilled water, but life started forming in it quickly. I solved it
+by adding some windshield washer fluid I found. Nothing wanted to work
+initially, but in the end, the GPUs were mining until ETH switched to PoS.
+
+Right above the GPUs was a little control room -- or at least a cabinet. The two
+buttons on the bottom left were the UI for my family. The transparent food
+container beside the UI was a case for a transformer with live AC, powering the
+blue relays sitting on top.
+
+[[file:/data/mining/control-room.jpg]]
+
+The tank wrapped in a towel was an expansion tank for the cooling system. The
+Arduino in the middle talked to the computer and controlled a "cooling backend"
+via the relays.
+
+This was the cooling backend. The insulated garden hoses from the previous
+photos, acting as pipes, were connected to the white boiler, which served as a
+heat exchanger. The heat from the GPUs was being routed to the house's heating
+system.
+
+[[file:/data/mining/cooling-backend.jpg]]
+
+Making the systems talk to each other was fun, as you can tell from the
+plumbing. I needed to teach the legacy system new tricks, and long story short,
+it fucking worked! The GPUs were helping with heating at all times, and they
+were happy when the furnace was at full blast.
+
+Most of this is gone, though. The ASICs from the video replaced the GPUs and the
+furnace. All the plumbing is gone. Only the boiler and the electric heater
+didn't move. Deprecation in Zcash runs deep.
+
+What might be surprising is that the mining setup has a positive effect on CO2
+emissions in this case. Unlike the furnace, the machines have essentially zero
+emissions. The latest proper data on energy source distribution I have is
+for 2023.
+
+In that year, the ASICs consumed 32MWh. The solar system directly offset 1/3 of
+that and pushed three additional MWh to the grid. The graph below describes the
+production of the solar system for each month of that year.
+
+[[file:/data/mining/solar.jpg]]
+
+The remaining 20 MWh were sourced like this. The house doesn't use any other
+heating.
+
+[[file:/data/mining/energy-sources.jpg]]
