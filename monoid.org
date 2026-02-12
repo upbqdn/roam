@@ -9,7 +9,7 @@
 #+hugo_tags: math definitions algebraic-structures
 
 #+BEGIN_def
-<<.df-r>> *[[.df-r][Definition r]]*. A *monoid* is a set $M$ with a [[id:binary-operation][binary operation]]
+<<.def-r>> *[[.def-r][Definition r]]*. A *monoid* is a set $M$ with a [[id:binary-operation][binary operation]]
 $\left( a, b \right) \mapsto a \circ b$ such that the following two axioms hold:
 1. Associativity: $\left( a \circ b \right) \circ c = a \circ \left( b \circ c \right)$ for all
    $a, b, c \in M$.

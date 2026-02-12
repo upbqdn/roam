@@ -9,7 +9,7 @@
 #+hugo_tags:  definitions algebraic-structures math
 
 #+BEGIN_def
-<<.df-g>> *[[.df-g][Definition g]]*. A *ring* is a set $R$ with two [[id:binary-operation][binary operations]]
+<<.def-g>> *[[.def-g][Definition g]]*. A *ring* is a set $R$ with two [[id:binary-operation][binary operations]]
 $\left( a, b \right) \mapsto a + b$ and $\left( a, b \right) \mapsto a \cdot b$, referred to as
 addition and multiplication, such that the following axioms hold:
 1. The set $R$ is an Abelian [[id:group][group]] under addition with the *additive identity*
@@ -24,21 +24,21 @@ multiplication.
 
 #+BEGIN_re
 <<.rem-e>> *[[.rem-e][Remark e]]*.
-1. The inverse under addition in a [[.df-g][ring]] is the *additive inverse*, and the
+1. The inverse under addition in a [[.def-g][ring]] is the *additive inverse*, and the
    inverse under multiplication is the *multiplicative inverse*.
 2. We usually omit the symbol for multiplication, and instead of $a \cdot b$, we
    write $ab$.
-3. We can think of subtraction in a [[.df-g][ring]] as addition of the additive inverse.
+3. We can think of subtraction in a [[.def-g][ring]] as addition of the additive inverse.
 4. We can't think of division as multiplication by the multiplicative inverse
    since not every element has it's multiplicative inverse.
 6. Axiom 3. describes the left and right distributive laws.
 #+END_re
 
 #+BEGIN_ex
-<<.ex-j>> *[[.ex-j][Example j]]*.
-1. The sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ are [[.df-g][rings]] with their standard
+<<.exp-j>> *[[.exp-j][Example j]]*.
+1. The sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ are [[.def-g][rings]] with their standard
    addition and multiplication.
-2. The natural numbers do not form a [[.df-g][ring]] since not all elements have their
+2. The natural numbers do not form a [[.def-g][ring]] since not all elements have their
    additive inverse in this set.
-3. The set of integers modulo $n \in \mathbb{Z}$, denoted $\mathbb{Z}_n$, is a [[.df-g][ring]].
+3. The set of integers modulo $n \in \mathbb{Z}$, denoted $\mathbb{Z}_n$, is a [[.def-g][ring]].
 #+END_ex

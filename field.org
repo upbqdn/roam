@@ -9,7 +9,7 @@
 #+hugo_tags:  math definitions algebraic-structures
 
 #+BEGIN_def
-<<.df-8>> *[[.df-8][Definition 8]]*. A *field* $\mathbb{F}$ is a [[id:ring][ring]] where the set
+<<.def-8>> *[[.def-8][Definition 8]]*. A *field* $\mathbb{F}$ is a [[id:ring][ring]] where the set
 $\mathbb{F} \setminus \set{0}$ is an Abelian [[id:group][group]] under multiplication with the
 *multiplicative identity* 1.
 #+END_def

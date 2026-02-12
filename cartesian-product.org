@@ -7,7 +7,7 @@
 #+hugo_tags: math definitions
 
 #+BEGIN_def
-<<.df-b>> *[[.df-b][Definition b]]*. Let $A_1, \ldots, A_n$ be sets. Then the *Cartesian
+<<.def-b>> *[[.def-b][Definition b]]*. Let $A_1, \ldots, A_n$ be sets. Then the *Cartesian
 product* $A_1 \times \cdots \times A_n$ is the set of all ordered \(n\)-tuples $\left( a_1, \ldots,
 a_n \right)$ such that $a_i \in A_i$ for $1 \leq i \leq n$.
 #+END_def
