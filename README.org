@@ -5,4 +5,4 @@ I'm Marek. Welcome to the public repository of my notes. Please note that this
 website currently contains only a small fraction of my notes, and some are
 incomplete. Hopefully, there will be a time when I can add more.
 
-You can contact me at [[mailto:hi@marek.onl][hi@marek.onl]].
+You can contact me at [[mailto:m@rek.onl][m@rek.onl]] or at [[https://signal.me/#eu/1-bBGq8AH71rgbox0YKBIW7wvb23EB47--xk2QdjSGuc0QJiE1dPXYosqb_isGDT][marek.92]] on Signal.
