@@ -3,7 +3,7 @@
 :END:
 #+title: Evolutionary Algorithms
 #+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-02-12 Thu 23:42]
+#+hugo_lastmod: [2026-02-12 Thu 23:52]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -20,9 +20,8 @@ table:nth-of-type(2) td { text-align: left; }
 
 The standard way to design an analog amplifier is to calculate the values of its
 components by mathematical formulas. This post shows how to automate this
-process and make a computer determine the values on its own.
-
-* Evolutionary Algorithms
+process and make a computer determine the values on its own. We'll take our
+initial inspiration from the quote below.
 
 #+begin_quote
 /Owing to this struggle for life, variations, however slight and from whatever
@@ -36,13 +35,14 @@ have called this principle, by which each slight variation, if useful, is
 preserved, by the term Natural Selection./ --- Darwin, 1859 [cite:@Darwin].
 #+end_quote
 
-In biological evolution, species are selected depending on their relative success
-in surviving and reproducing within their environment and mutations play a
-crucial role in this process as they are the key to the adaptation of the species
-[cite:@natural-computing-algorithms]. This concept has been used as a metaphor in
-computer science and it inspired the formation of a whole new area of artificial
-intelligence called Evolutionary Computation. This area mainly deals with an
-/optimization problem/ which we discuss in the following section.
+In biological evolution, species are selected depending on their relative
+success in surviving and reproducing within their environment and mutations play
+a crucial role in this process as they are the key to the adaptation of the
+species [cite:@natural-computing-algorithms]. This concept has been used as a
+metaphor in computer science and it inspired the formation of a whole new area
+of artificial intelligence called Evolutionary Computation. This area mainly
+deals with an /optimization problem/ which we discuss in the following section.
+
 
 ** Optimization Problem
 
