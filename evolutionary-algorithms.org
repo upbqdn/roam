@@ -3,7 +3,7 @@
 :END:
 #+title: Evolutionary Algorithms
 #+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-02-12 Thu 23:52]
+#+hugo_lastmod: [2026-02-12 Thu 23:58]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -34,6 +34,8 @@ of any species which are periodically born, but a small number can survive. I
 have called this principle, by which each slight variation, if useful, is
 preserved, by the term Natural Selection./ --- Darwin, 1859 [cite:@Darwin].
 #+end_quote
+
+* Prologue
 
 In biological evolution, species are selected depending on their relative
 success in surviving and reproducing within their environment and mutations play
@@ -360,7 +362,7 @@ evaluate the amplifier's quality.
 #+begin_center
 <<.lst-9>> *[[.lst-9][Listing 9]]*. Description of the common emitter amplifier using the SPICE syntax.
 #+end_center
-#+begin_src spice
+#+begin_src text
 amplifier
 .model bc547c NPN (BF=730 NE=1.4 ISE=29.5F IKF=80M IS=60F
        + VAF=25 ikr=12m BR=10 NC=2 VAR=10 RB=280 RE=1 RC=40
@@ -901,7 +903,7 @@ Second stage:
 |-----------------+-----------------+------------------+------------------+------------------+------------------+------------------|
 |              22 |             298 |             3.37 |             9.24 |             80.5 |              351 |              139 |
 
-* Conclusion
+* Epilogue
 
 This post showed the capabilities of evolutionary algorithms, namely evolution
 strategies, in designing analog amplifiers. The first phase was to implement
