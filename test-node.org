@@ -35,7 +35,7 @@ Video
 Here's  another one:
 
 @@html:
-<iframe src="/data/BTC.html"
+<iframe src="/data/btc/BTC.html"
         class="plot" allowfullscreen>
 </iframe>
 @@
@@ -128,7 +128,7 @@ As per [[.theorem-b][Theorem b]].
 Here's a lovely plot:
 
 @@html:
-<iframe src="/data/BTC.html"
+<iframe src="/data/btc/BTC-dark.html"
         class="plot" allowfullscreen>
 </iframe>
 @@
