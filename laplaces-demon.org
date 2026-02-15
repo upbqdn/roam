@@ -3,35 +3,26 @@
 :END:
 #+title: Laplace's Demon
 #+date: [2017-12-06 Wed]
-#+hugo_lastmod: [2026-02-11 Wed 21:30]
+#+hugo_lastmod: [2026-02-15 Sun 20:24]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
 
-Neo, the main character from the Matrix movie, didn't like the idea of fate
-because he wanted to be able to make his own choices, and we all like to believe
-that we have freedom of choice. Let's see if science has anything to say about
-this freedom.
+Neo, the main character from The Matrix, didn't like the idea of fate because he
+wanted to be able to make his own choices. Let's see what Pierre-Simon Laplace
+had to say about such free will back in 1814.
 
-We will need the term /determinism/. When we have some deterministic system, it
-means that the current state exactly predicts the next one. If the Universe was
-deterministic, it would mean that our destiny would be exactly predicted. This
-is what Einstein believed in, and that is the reason why he said that "God
-doesn't play dice with the world."
-
-At the turn of the 17th and 18th century, Isaac Newton published three
-revolutionary books called /Philosophiae Naturalis Principia Mathematica (The
-Mathematical Principles of Natural Philosophy)/ [cite:@principia] or simply
-/Principia/, which are considered one of the most important works in the history
-of science and which formed the foundation of classical mechanics and many other
-physical fields. In Principia, Newton originally wrote:
+At the turn of the 17th and 18th century, Isaac Newton published a work in three
+books called /Philosophiae Naturalis Principia Mathematica (The Mathematical
+Principles of Natural Philosophy)/ [cite:@principia] or simply /Principia/.
+There, he originally wrote:
 
 #+begin_quote
 /Lex II: Mutationem motus proportionalem esse vi motrici impressae, et fieri
 secundum lineam rectam qua vis illa imprimitur./
 #+end_quote
 
-Which can be translated into modern English as follows:
+Which we can translate into English as follows:
 
 #+begin_quote
 /The change of momentum of a body is proportional to the impulse impressed on the
@@ -40,14 +31,13 @@ body, and happens along the straight line on which that impulse is impressed./
 
 We can express this idea mathematically as $p' = F$, where $p'$ is the time
 derivative of momentum $p$ and $F$ is the force which represents the impulse
-that Newton referred to. Since momentum $p$ is defined as $p = mv$ where $m$ is
-the mass of the body and $v$ is its velocity, which is defined as $v =
-\frac{x}{t}$ where $x$ is a position change of the body and $t$ is the duration
-of the change, we can write $p = m \cdot \frac{x}{t}$. When we derive this formula
-with respect to time $t$, we get $F = \frac{dp}{dt} = ma$, which is known as
-Newton's second law of motion, where $a$ is the acceleration of the body (a
-change of the velocity $v$ of the body during a certain time). If we need to
-consider various directions of the force $F$ and acceleration $a$, we can use
+that Newton referred to. Since momentum $p$ is defined as $p = mv$, where $m$ is
+the mass of the body and $v$ is its velocity (the time derivative of position
+$x$, i.e. $v = \frac{dx}{dt}$), we can take the derivative of momentum with
+respect to time: $F = \frac{dp}{dt} = m\frac{dv}{dt} = ma$, where $a$ is the
+acceleration of the body (the time derivative of velocity, i.e.
+$a = \frac{dv}{dt}$). This is known as Newton's second law of motion. If we need
+to consider various directions of the force $F$ and acceleration $a$, we can use
 vectors $\vec{F} = m\vec{a}$. Newton also proposed the concept of derivatives so
 that we can actually solve and use the equations above. These ideas give us a
 very strong apparatus for calculating the movements of physical objects. If we
@@ -59,12 +49,19 @@ well as the future. In other words, there's no place for any random accident in
 the moving process. That's also what Newton's second law tells us, and that's
 what Laplace noticed approximately 100 years later.
 
-As far as we know, our known Universe consists of elementary particles, and
-everything started with the Big Bang 13.8 billion years ago. That means that the
-initial conditions were apparently given, and if the elementary particles
-behaved according to Newton's laws, the Universe would probably be fully
-deterministic. This idea is known as Laplace's demon, who outlined it in his
-work named /A philosophical essay on probabilities/ [cite:@laplace] in 1814:
+We will now need the term /determinism/. When we have a deterministic system, it
+means that the current state exactly predicts the next one. If the Universe were
+deterministic, it would mean that our destiny would be exactly predicted. This
+is also what Einstein believed, and that is why he said that "God does not play
+dice" when he was trying to show that the apparent randomness in quantum
+mechanics must have hidden deterministic variables underneath.
+
+As far as we know, our Universe consists of elementary particles, and everything
+started with the Big Bang 13.8 billion years ago. That means that the initial
+conditions were apparently given, and if the elementary particles behaved
+according to Newton's laws, the Universe would probably be fully deterministic.
+This idea is known as Laplace's demon, a concept he outlined in his work named
+/A philosophical essay on probabilities/ [cite:@laplace] in 1814:
 
 #+begin_quote
 /We may regard the present state of the universe as the effect of its past and
@@ -77,54 +74,56 @@ nothing would be uncertain and the future just like the past would be present
 before its eyes./ [cite:@laplace]
 #+end_quote
 
-When meteorologists got their first computers at the beginning of the sixties,
-they thought that they would be able to make exact weather forecasts for a very
-long time. Unfortunately, it turned out that this is a very difficult task. Even
-though the weather is a deterministic system without any random elements
-involved, it is not easily predictable. This fact was explored by Edward Lorenz
-in 1961 when he was simulating the weather evolution in a computer. After a very
-slight change in the input values, the simulated evolution was completely
-different. This is known as the Butterfly effect, since Lorenz had a talk named
-/Does the flap of a butterfly's wings in Brazil set off a tornado in Texas?/
-[cite:@lorenz-butterfly] This effect applies every time you throw dice, and
-that's why we are not able to predict the weather for more than a few days even
-with the most advanced technology we have today. However, the Butterfly effect
-doesn't weaken Laplace's demon, but it creates so-called deterministic chaos.
-Lorenz summarized it in one sentence: /Chaos: When the present determines the
-future, but the approximate present does not approximately determine the future./
-[cite:@lorenz-chaos]
+When meteorologists got their first computers in the early 1960s, they thought
+that they would be able to make exact weather forecasts for a very long time.
+Unfortunately, it turned out that this is a very difficult task. Even though the
+weather is a deterministic system without any random elements involved, it is not
+easily predictable. This fact was explored by Edward Lorenz in 1961 when he was
+simulating weather evolution on a computer. After a very slight change in the
+input values, the simulated evolution was completely different. This is known as
+the Butterfly effect, after a talk Lorenz gave titled /Does the flap of a
+butterfly's wings in Brazil set off a tornado in Texas?/
+[cite:@lorenz-butterfly] The same sensitivity to initial conditions applies
+every time you throw dice, and that's why we are not able to predict the weather
+for more than a few days even with the most advanced technology we have today.
+However, the Butterfly effect doesn't weaken Laplace's demon; it only creates
+so-called deterministic chaos. Lorenz summarized it in one sentence: /Chaos:
+When the present determines the future, but the approximate present does not
+approximately determine the future./ [cite:@lorenz-chaos]
 
-Quantum theory is a very strong rival against the demon. It claims that the
-subatomic world behaves according to the laws of quantum mechanics and not
-Newton's laws. This means, inter alia, that we cannot measure exact values but
-only the probability of the values. This is not due to poor technology. It is
+Quantum theory is perhaps the strongest challenge to the demon. It claims that
+the subatomic world behaves according to the laws of quantum mechanics and not
+Newton's laws. This means, inter alia, that certain properties of particles do
+not have definite values until they are measured — we can only calculate the
+probability of obtaining a given value. This is not due to poor technology. It is
 because it is impossible in principle. One of the reasons for this is
-Heisenberg's uncertainty principle. It states that the more we know the position
-of any particle, the less we are able to know the exact momentum of the same
-particle and vice versa. Another example is that by any measurement, we are
-always influencing the measured system from the outside and therefore changing
-its state externally. So the system will behave differently in the future in
-comparison to the previous state. However, the fact that it is not possible to
-know all the details does not mean that there are no details. Quantum theory
-shows us that there cannot be any "intelligent entity" inside our Universe which
-would know the exact status and which would be able to calculate the future or
-the past.
+Heisenberg's uncertainty principle. It states that the more precisely we know the
+position of any particle, the less precisely we can know its momentum, and vice
+versa. This is not a limitation of measurement — it reflects a fundamental
+property of nature. Under the standard interpretation of quantum mechanics,
+conjugate properties like position and momentum simply cannot both be precisely
+defined at the same time. However, whether this means the details genuinely
+don't exist (as the Copenhagen interpretation holds) or are merely inaccessible
+to any observer (as hidden-variable theories suggest) remains debated. Either
+way, quantum theory shows us that there cannot be any "intelligent entity"
+inside our Universe which would know the exact state of all particles and which
+would be able to calculate the future or the past.
 
-Stephen Hawking has also applied his mind to the question whether God plays dice
-or not. [cite:@hawking-dice] The concept of black holes has been known for
-years, and any mass or energy which falls into a black hole is lost forever
+Stephen Hawking also applied his mind to the question of whether God plays dice
+or not. [cite:@hawking-dice] The concept of black holes had been known for
+decades, and any mass or energy which falls into a black hole is lost forever
 without any chance to escape, so information in the Universe is lost. However,
-Stephen Hawking proved that black holes are not eventually so black and that
-they do send out particles at a steady rate. These particles don't come directly
-from the black hole, but they are always created in pairs around the hole.
-During this creation, a whole pair can escape or be absorbed, but also one
-particle from this pair can escape while the other is absorbed. This
-vaporization reduces the size of the black hole, and in the end, the black hole
-disappears. The great fact was that there is no way to predict the speed and
-position of the escaped particle without knowing about the forsaken one. This
-seemed to be the obvious funeral of Laplace's demon; but in 2005, Hawking
-admitted that black holes nevertheless may produce information about their inner
-state, thus the demon has been resurrected.
+Hawking proved that black holes are not entirely so black and that they do send
+out particles at a steady rate. These particles don't come directly from the
+black hole, but are created in pairs near the event horizon. During this
+creation, a whole pair can escape or be absorbed, but also one particle from a
+pair can escape while the other is absorbed. This vaporization reduces the size
+of the black hole, and in the end, the black hole disappears. Crucially, there
+is no way to predict the speed and position of the escaped particle without
+knowing about the absorbed one. This seemed to be the obvious funeral of
+Laplace's demon; but in 2005, Hawking conceded that black holes may after all
+preserve information about what fell into them — though this rescues information
+conservation, not determinism itself.
 
 What would it mean if we thought about the Universe being deterministic? The
 philosophical consequences are surprisingly fascinating. There wouldn't be any
@@ -132,26 +131,24 @@ place for uncertainty or accident; everything would have its reason. That seems
 fine, everything is explainable, but when we think more deeply, it gets
 terrifying and emotionally frustrating. It would be worse than the Matrix for
 Neo because there wouldn't be any difference between living beings and machines.
-Our every step or thought would have been strictly set 14 billion years ago.
+Our every step or thought would have been strictly set 13.8 billion years ago.
 Ethics, good and evil, or responsibility would be just illusions. There wouldn't
 be any difference between life and lifeless; everything would be just a soulless
 result of moving atoms. We would be just actors on the stage of a big theater
-with no influence or chance to change anything. This philosophical position must
-be frustrating even for dispassionate atheists because there wouldn't be any
-escape. On the other hand, we might feel comfortable because it would give us
-certainty that we can't mess up anything. If you got arrested for drinking and
-driving, you could argue that it was not your responsibility. You could say that
-elementary particles were responsible and you couldn't do anything. Also, when
-we fall in love with somebody and it seems like an accident, we can only be
-thankful that the tiny particles decided to move in the right direction 14
-billion years ago.
+with no influence or chance to change anything. On the other hand, we might feel
+comfortable because it would give us certainty that we can't mess up anything.
+If you got arrested for drinking and driving, you could argue that it was not
+your responsibility. You could say that elementary particles were responsible and
+you couldn't do anything. Also, when we fall in love with somebody and it seems
+like an accident, we can only be thankful that the tiny particles decided to
+move in the right direction 13.8 billion years ago.
 
-What about God? What is interesting is that people who believe in God have a
-strong argument to rule out the possibility of a deterministic Universe. If God
-did create this theater, we could assume that he gave us the freedom of will.
-Otherwise it would have been boring for him to observe us during such an
-artificial performance. And even if God really didn't play dice, let's keep our
-free will and thoughts and let's hope that they're really not just an illusion.
-Science has given rise to the demon and hopefully it will also destroy it.
+What about God? What is interesting is that people who believe in God may argue
+against a deterministic Universe. If God did create this theater, we could
+assume that he gave us freedom of will. Otherwise it would have been boring for
+him to observe us during such an artificial performance. And even if God really
+does not play dice, let's keep our free will and thoughts and let's hope that
+they're really not just an illusion. Science has given rise to the demon and
+hopefully it will also destroy it.
 
 #+print_bibliography:
