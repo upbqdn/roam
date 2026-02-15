@@ -1,0 +1,129 @@
+:PROPERTIES:
+:ID:       316b2121-af2f-4dc3-97ee-298a2b8bc920
+:END:
+#+title: Treaps
+#+date: [2018-05-13 Sun]
+#+hugo_lastmod: [2026-02-15 Sun 19:40]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags: blog
+
+A treap is a data structure in the form of a self-balanced binary search tree,
+which is suitable for storing ordered data more effectively than a standard BST
+[cite:@treaps].
+
+Every node contains a randomly generated priority, a unique key and optionally
+a value that the key represents. Nodes in a treap follow the heap-ordering
+property with respect to priorities: the priority of any non-leaf node is
+greater than or equal to the priority of its descendants. Considering only the
+keys, nodes follow the order of a standard BST, meaning that the key of the left
+child is less than the key of the current node and the key of the right child is
+greater. The word treap is a blend of tree and heap.
+
+The fact that the priorities are generated randomly ensures that with high
+probability the height of the treap is proportional to the logarithm of the
+number of its nodes \(n\), and therefore the standard search, insert, and delete
+operations have logarithmic time complexity with high probability as well.
+[[.tab-9][Table 9]] summarizes the time complexity of the operations. The
+space complexity of a treap is \(O(n)\).
+
+#+begin_center
+<<.tab-9>> *[[.tab-9][Table 9]]*. Time complexity of standard operations on treaps.
+#+end_center
+| Operation              | Average        | Worst case |
+|------------------------+----------------+------------|
+| Insert                 | \(O(\log n)\)  | \(O(n)\)   |
+| Search                 | \(O(\log n)\)  | \(O(n)\)   |
+| Delete                 | \(O(\log n)\)  | \(O(n)\)   |
+| Min. & max. element    | \(O(\log n)\)  | \(O(n)\)   |
+| Next & prev. element   | \(O(\log n)\)  | \(O(n)\)   |
+
+* Operations
+
+The following subsections describe the standard treap operations in detail. The
+time complexity of every operation depends on the shape of the treap. In the
+worst case, the treap can degenerate into a linked list, meaning every operation
+takes time linearly proportional to the number of nodes, i.e., \(O(n)\). This
+could happen if we were storing a growing sequence of keys and had a poor
+generator that also produced a growing sequence of priorities.
+
+However, with high probability (provided we have a solid random number generator
+for the priorities), the treap will form a balanced BST as mentioned in the
+previous section. We could even store a growing sequence of keys.
+
+** Insert
+
+To insert a new node into the treap, we first randomly generate its priority.
+Then we use the search operation to find a leaf position for the node and insert
+it. If the keys match during the search, the node cannot be inserted.
+
+If the newly inserted node has a higher priority than its parent, we need to
+perform rotations until the heap property is satisfied again. We use the left
+rotation for right children and the right rotation for left children. This
+brings the node up by one level, and we continue rotating until the heap
+property holds, i.e., every parent has a higher priority than its children.
+
+This is the key mechanism that keeps the treap balanced and provides its
+logarithmic properties.
+
+*** Rotations in a treap
+
+Rotations in a treap are performed the same way as in a standard BST. The left
+rotation works as follows: consider a pointer to the current node, which has two
+children. We store the pointer to the right child in a temporary variable and
+then set the current node's right pointer to point to the left child of the
+right child. Then we set the left pointer of the temporarily stored node to
+point to the current node and return the temporary pointer.
+
+The returned pointer represents the new current node after the left rotation.
+Right rotations are performed the same way with the logic inverted. Both
+rotations take constant time.
+
+** Search
+
+To search, we apply the standard binary search algorithm, ignoring priorities.
+
+We start at the root and compare its key to the one we are looking for. If the
+searched key is greater, we move to the right child. If it is smaller, we move
+to the left child. Otherwise --- when the keys match --- we have found it. If
+there is no child to move to, the key is not in the treap.
+
+*** Min. and max. element
+
+The minimum is obtained by following left children from the root until there are
+no more. The last such node is the minimum; we can ignore both priorities and
+key values. For the maximum, we follow right children instead.
+
+*** Next and previous element
+
+The next and previous operations are complementary, just like rotations or the
+min and max operations. We obtain the next element of a node X by finding its
+in-order successor: if X has a right child, the next element is the minimum of
+the subtree rooted at that right child. If X has no right child, the next node
+is one of its ancestors, and we need to search from the root (assuming we don't
+store parent pointers). In this case, we walk down the tree, comparing the key
+of X with the current node's key. If X's key is smaller, we go left and store
+the current node in a temporary variable. If X's key is larger, we go right
+without storing. We repeat these steps until the keys match or there is no node
+left to visit. The node stored in the temporary variable is the next node
+after X.
+
+These operations can be used to iterate over the treap. Since the average time
+complexity to get the next node is \(O(\log n)\), the overall complexity of a
+full traversal is \(O(n \log n)\), given that the treap has \(n\) nodes.
+
+This approach is also dynamic, meaning we can pause the iteration, insert or
+delete any number of nodes, and continue iterating over the new state of the
+treap.
+
+** Delete
+
+If the node being deleted is a leaf, we simply remove it. If it has one child,
+we remove the node and replace it with the child. If the node has two children,
+we need to push it all the way down the treap until it has one or no children,
+and then remove it as in the previous cases. We push the node down using
+rotations: if the left child has a higher priority than the right one, we use
+the right rotation; otherwise we use the left rotation. Each rotation brings the
+node one level down. We continue rotating until the node can be deleted.
+
+#+print_bibliography:
