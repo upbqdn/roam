@@ -3,7 +3,7 @@
 :END:
 #+title: Evolutionary Algorithms
 #+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-02-12 Thu 23:58]
+#+hugo_lastmod: [2026-02-15 Sun 20:27]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -19,9 +19,9 @@ table:nth-of-type(2) td { text-align: left; }
 #+end_export
 
 The standard way to design an analog amplifier is to calculate the values of its
-components by mathematical formulas. This post shows how to automate this
-process and make a computer determine the values on its own. We'll take our
-initial inspiration from the quote below.
+components analytically. This post shows how to automate this process and make a
+computer determine the values on its own. We'll take our initial inspiration
+from the quote below.
 
 #+begin_quote
 /Owing to this struggle for life, variations, however slight and from whatever
