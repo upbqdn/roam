@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (TeX-add-style-hook
  "ref"
  (lambda ()
@@ -41,6 +43,17 @@
     "satoshi:quote"
     "bip0032"
     "brown2010sec"
-    "brown2009sec"))
+    "brown2009sec"
+    "principia"
+    "laplace"
+    "hawking-dice"
+    "lorenz-butterfly"
+    "lorenz-chaos"
+    "natural-computing-algorithms"
+    "introduction-to-evolutionary-computing"
+    "the-art-of-electronics"
+    "evolutionary-algorithms"
+    "Darwin"
+    "treaps"))
  '(or :bibtex :latex))
 
