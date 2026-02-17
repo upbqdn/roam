@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 310" width="340" height="310" font-family="serif">
+  <style>
+    text { font-size: 16px; }
+    .label { font-style: italic; }
+    .note { font-size: 13px; }
+    .brace { fill: none; stroke: #000; stroke-width: 1.5; }
+  </style>
+
+  <!-- Grid offset: x=40, y=40 -->
+  <!-- Cell size: 55x55 -->
+
+  <!-- Grid cells -->
+  <g stroke="#000" stroke-width="1.5" fill="none">
+    <!-- Row 0 (top) -->
+    <rect x="40" y="40" width="55" height="55"/>
+    <rect x="95" y="40" width="55" height="55"/>
+    <rect x="150" y="40" width="55" height="55"/>
+    <rect x="205" y="40" width="55" height="55"/>
+    <!-- Row 1 -->
+    <rect x="40" y="95" width="55" height="55"/>
+    <rect x="95" y="95" width="55" height="55"/>
+    <rect x="150" y="95" width="55" height="55"/>
+    <rect x="205" y="95" width="55" height="55"/>
+    <!-- Row 2 -->
+    <rect x="40" y="150" width="55" height="55"/>
+    <rect x="95" y="150" width="55" height="55"/>
+    <rect x="150" y="150" width="55" height="55"/>
+    <rect x="205" y="150" width="55" height="55"/>
+    <!-- Row 3 (bottom) -->
+    <rect x="40" y="205" width="55" height="55"/>
+    <rect x="95" y="205" width="55" height="55"/>
+    <rect x="150" y="205" width="55" height="55"/>
+    <rect x="205" y="205" width="55" height="55"/>
+  </g>
+
+  <!-- Cell labels (column-major: s0-s3 in col 0, s4-s7 in col 1, etc.) -->
+  <g text-anchor="middle" dominant-baseline="central" class="label">
+    <!-- Column 0 -->
+    <text x="67.5" y="67.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">0</tspan></text>
+    <text x="67.5" y="122.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">1</tspan></text>
+    <text x="67.5" y="177.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">2</tspan></text>
+    <text x="67.5" y="232.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">3</tspan></text>
+    <!-- Column 1 -->
+    <text x="122.5" y="67.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">4</tspan></text>
+    <text x="122.5" y="122.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">5</tspan></text>
+    <text x="122.5" y="177.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">6</tspan></text>
+    <text x="122.5" y="232.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">7</tspan></text>
+    <!-- Column 2 -->
+    <text x="177.5" y="67.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">8</tspan></text>
+    <text x="177.5" y="122.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">9</tspan></text>
+    <text x="177.5" y="177.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">10</tspan></text>
+    <text x="177.5" y="232.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">11</tspan></text>
+    <!-- Column 3 -->
+    <text x="232.5" y="67.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">12</tspan></text>
+    <text x="232.5" y="122.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">13</tspan></text>
+    <text x="232.5" y="177.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">14</tspan></text>
+    <text x="232.5" y="232.5"><tspan font-style="italic">s</tspan><tspan font-size="12" dy="4">15</tspan></text>
+  </g>
+
+  <!-- Top brace for c=4 -->
+  <path class="brace" d="M 45,32 C 45,22 45,18 55,18 L 140,18 C 150,18 150,10 150,8 C 150,10 150,18 160,18 L 245,18 C 255,18 255,22 255,32"/>
+  <text text-anchor="middle" x="150" y="10" font-style="italic">c = 4</text>
+
+  <!-- Right brace for r=4 -->
+  <path class="brace" d="M 268,45 C 278,45 282,45 282,55 L 282,140 C 282,150 290,150 292,150 C 290,150 282,150 282,160 L 282,245 C 282,255 278,255 268,255"/>
+  <text text-anchor="start" x="298" y="154" font-style="italic">r = 4</text>
+
+  <!-- Notes below -->
+  <g class="note" text-anchor="middle">
+    <text x="150" y="280"><tspan font-style="italic">s</tspan><tspan font-size="10" dy="3">i</tspan><tspan dy="-3"> </tspan><tspan dx="2">&#x2208; GF(2</tspan><tspan font-size="10" dy="-5">e</tspan><tspan dy="5">),  </tspan><tspan font-style="italic">n</tspan><tspan dx="2">&#x2208; {1, &#x2026;, 10}</tspan></text>
+  </g>
+</svg>

@@ -2,23 +2,23 @@
 :ID:       ring
 :END:
 #+title: Ring
-#+date: [2023-08-03 Thu 01:44]
+#+date: [2020-01-30 Thu]
 #+hugo_lastmod: [2023-08-06 Sun 21:18]
 #+bibliography: ref.bib
 #+cite_export: csl
-#+hugo_tags:  definitions algebraic-structures math
+#+hugo_tags: math
 
 #+BEGIN_def
-<<.def-g>> *[[.def-g][Definition g]]*. A *ring* is a set $R$ with two [[id:binary-operation][binary operations]]
+<<.def-g>> *[[.def-g][Definition g]]*. A *ring* is a set $R$ with two [[file:group.org::.def-d][binary operations]]
 $\left( a, b \right) \mapsto a + b$ and $\left( a, b \right) \mapsto a \cdot b$, referred to as
 addition and multiplication, such that the following axioms hold:
-1. The set $R$ is an Abelian [[id:group][group]] under addition with the *additive identity*
+1. The set $R$ is an Abelian [[file:group.org::.def-e][group]] under addition with the *additive identity*
    $0$.
-2. The set $R$ is a [[id:monoid][monoid]] under multiplication with the *multiplicative
+2. The set $R$ is a [[file:group.org::.def-r][monoid]] under multiplication with the *multiplicative
    identity* $1$.
 3. Distributivity: Equations $a \cdot \left( b + c \right) = a \cdot b + a \cdot c$ and
    $\left( a + b \right) \cdot c = a \cdot c + b \cdot c$ hold for all $a, b, c \in R$.
-A ring is a *commutative ring* if it is a commutative [[id:monoid][monoid]] under
+A ring is a *commutative ring* if it is a commutative [[file:group.org::.def-r][monoid]] under
 multiplication.
 #+END_def
 
@@ -42,3 +42,9 @@ multiplication.
    additive inverse in this set.
 3. The set of integers modulo $n \in \mathbb{Z}$, denoted $\mathbb{Z}_n$, is a [[.def-g][ring]].
 #+END_ex
+
+Since we will not encounter any rings that are not commutative, we adopt the
+convention that by a [[.def-g][ring]], we will mean a commutative ring. The only
+difference between [[.def-g][rings]] and [[file:field.org::.def-8][fields]] is that in a field,
+every element other than \(0\) has its multiplicative inverse. Note that every
+[[file:field.org::.def-8][field]] is a ring as well.

@@ -3,12 +3,12 @@
 :END:
 #+title: Mining Zcash
 #+date: [2024-01-13 Sat 18:55]
-#+hugo_lastmod: [2026-02-12 Thu 14:46]
+#+hugo_lastmod: [2026-02-17 Tue 12:12]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
 
-These bad boyz have been chugging since 2023.
+These bad boyz have been chugging since late 2022.
 
 #+begin_center
 #+attr_html: :controls t
@@ -17,15 +17,16 @@ These bad boyz have been chugging since 2023.
 #+end_video
 #+end_center
 
+Below is a copilation of random posts I wrote about it on social media.
+
 Software-wise, the machines are a disaster unless we pretend that the GPL
 doesn't exist. The machines don't have SSH access, but the control boards expose
 a UART port, and you can get root access if you have a Flipper Zero lying
 around. The password is root.
 
-If anyone's interested in seeing what's inside the machines --- I recently
-managed to fix yet another failure of ASIC mining hw. The Z15 machine has three
-hashboards, each of which has three ASICs. This is what the hashboard looks
-like. The hole in the PCB is due to a previous failure in the power circuitry.
+There are three hashboards in each machine, and this is what the hashboard looks
+like. The hole in the PCB is due to a previous failure in the power circuitry,
+as I mentioned in the video.
 
 [[file:/data/mining/hashboard.jpg]]
 

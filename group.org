@@ -2,14 +2,56 @@
 :ID:       group
 :END:
 #+title: Group
-#+date: [2023-08-03 Thu 01:06]
+#+date: [2020-01-30 Thu]
 #+hugo_lastmod: [2023-08-03 Thu 17:56]
 #+bibliography: ref.bib
 #+cite_export: csl
-#+hugo_tags: math definitions algebraic-structures
+#+hugo_tags: math
 
 #+BEGIN_def
-<<.def-f>> *[[.def-f][Definition f]]*. A *group* $G$ is a [[id:monoid][monoid]] in which all $a \in G$ have an
-  *inverse* element $b \in G$ with $a \circ b = b \circ a = e$. A group $G$ is an *Abelian
-  group* if it is a commutative [[id:monoid][monoid]].
+<<.def-b>> *[[.def-b][Definition b]]*. Let \(A_1, \ldots, A_n\) be sets. The *Cartesian
+product* \(A_1 \times \cdots \times A_n\) is the set of all ordered \(n\)-tuples
+\((a_1, \ldots, a_n)\) such that \(a_i \in A_i\) for \(1 \le i \le n\).
 #+END_def
+
+#+BEGIN_def
+<<.def-n>> *[[.def-n][Definition n]]*. Let \(A\) and \(B\) be sets. A *map* is a set
+\(\varphi \subseteq A \times B\) such that for each \(a \in A\) there is exactly
+one \(b \in B\) with \((a, b) \in \varphi\).
+#+END_def
+
+#+BEGIN_def
+<<.def-d>> *[[.def-d][Definition d]]*. Let \(A\) be a set. A *binary operation* is a
+[[.def-n][map]] from \(A \times A\) to \(A\).
+#+END_def
+
+#+BEGIN_def
+<<.def-r>> *[[.def-r][Definition r]]*. A *monoid* is a set \(M\) with a [[.def-d][binary operation]]
+\((a, b) \mapsto a \circ b\) that satisfies axioms 1. and 2. below. A monoid is a
+*commutative monoid* if axiom 3. also holds.
+1. Associativity: \((a \circ b) \circ c = a \circ (b \circ c)\) for all
+   \(a, b, c \in M\).
+2. Identity: There is an *identity element* \(e \in M\) such that \(e \circ a = a \circ e =
+   a\) for all \(a \in M\).
+3. Commutativity: \(a \circ b = b \circ a\) for all \(a, b \in M\).
+#+END_def
+
+#+BEGIN_rem
+<<.rem-k>> *[[.rem-k][Remark k]]*.
+1. Since \(\circ\) is a binary operation, the resulting element, \(a \circ b\) is always in
+   \(M\) for all \(a, b \in M\). We say that \(M\) is closed under \(\circ\) or that \(\circ\) is
+   closed on \(M\).
+2. For simplicity, we usually refer to the set \(M\) as the monoid with the
+   associated operation being implicit. We use this convention for other
+   algebraic structures as well, even when there are multiple operations
+   associated with the structure.
+3. We usually refer to the identity element as the identity.
+#+END_rem
+
+#+BEGIN_def
+<<.def-f>> *[[.def-f][Definition f]]*. A *group* \(G\) is a [[.def-r][monoid]] in which all \(a \in G\) have an
+*inverse* element \(b \in G\) with \(a \circ b = b \circ a = e\). A group \(G\) is an *Abelian
+group* if it is a commutative [[.def-r][monoid]].
+#+END_def
+
+Note that Abelian groups are commutative groups.

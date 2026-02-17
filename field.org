@@ -2,14 +2,52 @@
 :ID:       field
 :END:
 #+title: Field
-#+date: [2023-08-03 Thu 17:45]
+#+date: [2020-01-30 Thu]
 #+hugo_lastmod: [2023-08-03 Thu 18:20]
 #+bibliography: ref.bib
 #+cite_export: csl
-#+hugo_tags:  math definitions algebraic-structures
+#+hugo_tags: math
 
 #+BEGIN_def
-<<.def-8>> *[[.def-8][Definition 8]]*. A *field* $\mathbb{F}$ is a [[id:ring][ring]] where the set
-$\mathbb{F} \setminus \set{0}$ is an Abelian [[id:group][group]] under multiplication with the
+<<.def-8>> *[[.def-8][Definition 8]]*. A *field* $\mathbb{F}$ is a [[file:ring.org::.def-g][ring]] where the set
+$\mathbb{F} \setminus \set{0}$ is an Abelian [[file:group.org::.def-e][group]] under multiplication with the
 *multiplicative identity* 1.
 #+END_def
+
+#+BEGIN_rem
+<<.rem-bz>> *[[.rem-bz][Remark bz]]*. Fields with a finite number of elements are *finite
+fields* and are often denoted \(\mathbb{F}_q\) or \(\mathrm{GF}(q)\), where \(q\)
+is the *order* of the field. Since every [[.def-8][field]] is a commutative [[file:ring.org::.def-g][ring]], the
+only difference between [[file:ring.org::.def-g][rings]] and fields is that in a field, every element other
+than \(0\) has its multiplicative inverse.
+#+END_rem
+
+#+BEGIN_rem
+<<.rem-ba>> *[[.rem-ba][Remark ba]]*. The finite field \(\mathbb{Z}_2\) is denoted
+\(\mathbb{F}_2\) or \(\mathrm{GF}(2)\). The additive and multiplicative
+identities are \(0\) and \(1\), respectively. The element \(1\) is its own
+additive and multiplicative inverse. Addition in this field corresponds to the
+/exclusive or/ operation denoted XOR or \(\oplus\), and subtraction is identical
+to addition.
+#+END_rem
+
+#+BEGIN_ex
+<<.exp-dk>> *[[.exp-dk][Example dk]]*.
+1. The sets \(\mathbb{Q}\), \(\mathbb{R}\), and \(\mathbb{C}\) are [[.def-8][fields]]
+   with their standard addition and multiplication.
+2. The integers do not form a [[.def-8][field]] since not all elements have their
+   multiplicative inverse in this set.
+3. The set of integers modulo \(p \in \mathbb{Z}\), denoted \(\mathbb{Z}_p\), is
+   a [[.def-8][field]] whenever \(p\) is prime. The primality of \(p\) ensures that
+   each non-zero element has its multiplicative inverse, which can be found using
+   the extended Euclidean algorithm.
+#+END_ex
+
+#+BEGIN_def
+<<.def-b3>> *[[.def-b3][Definition b3]]*. If \(\mathbb{F}\) is a subfield of a [[.def-8][field]]
+\(\mathbb{E}\), then \(\mathbb{E}\) is an *extension field* of \(\mathbb{F}\).
+#+END_def
+
+For example, \(\mathrm{GF}(2^2)\) is an extension field of \(\mathrm{GF}(2)\).
+A more detailed way of constructing extension fields is given in the proof of
+[[file:polynomial-division.org::.prp-na][Proposition na]].

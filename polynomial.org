@@ -1,0 +1,73 @@
+:PROPERTIES:
+:ID:       polynomial
+:END:
+#+title: Polynomial
+#+date: [2020-03-04 Wed]
+#+hugo_lastmod: [2020-06-10 Wed]
+#+bibliography: ref.bib
+#+cite_export: csl
+#+hugo_tags: math
+
+#+BEGIN_def
+<<.def-b4>> *[[.def-b4][Definition b4]]*. Let
+\(\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{N}_0^n\) be an \(n\)-tuple of
+non-negative integers. A *monomial* in \(x_1, \ldots, x_n\) is a product
+\[\prod_{i=1}^n x_i^{\alpha_i} = x_1^{\alpha_1} \cdot x_2^{\alpha_2} \cdots x_n^{\alpha_n}.\]
+We write \(x^\alpha = \prod_{i=1}^n x_i^{\alpha_i}\) for short. The *total
+degree* of \(x^\alpha\) is \(\lvert x^\alpha \rvert = \sum_{i=1}^n \alpha_i\).
+Note that \(x^\alpha = 1\) when \(\alpha = (0, \ldots, 0)\) and that any monomial
+is fully determined by \(\alpha\).
+#+END_def
+
+#+BEGIN_def
+<<.def-b5>> *[[.def-b5][Definition b5]]*. Let \(x^\alpha\) be a [[.def-b4][monomial]] and let
+\(\mathbb{F}\) be a [[file:field.org::.def-8][field]]. A *term* with a non-zero *coefficient*
+\(c_\alpha \in \mathbb{F}\) is the product \(c_\alpha x^\alpha\).
+#+END_def
+
+#+BEGIN_def
+<<.def-bh>> *[[.def-bh][Definition bh]]*. A *polynomial* \(f\) with coefficients in a
+[[file:field.org::.def-8][field]] \(\mathbb{F}\) is a finite sum of [[.def-b5][terms]]:
+\[f = \sum_\alpha c_\alpha \cdot x^\alpha, \quad c_\alpha \in \mathbb{F}.\]
+The zero polynomial is denoted \(0\). Polynomials of one variable are called
+*univariate polynomials* and are denoted \(f(x) \in \mathbb{F}[x]\).
+#+END_def
+
+#+BEGIN_def
+<<.def-b7>> *[[.def-b7][Definition b7]]*. Let
+\(f = \sum_{\alpha \in \mathbb{N}_0^n} c_\alpha x^\alpha\) and
+\(g = \sum_{\alpha \in \mathbb{N}_0^n} d_\alpha x^\alpha\) be [[.def-bh][polynomials]].
+1. Their *sum* is
+   \(f + g = \sum_{\alpha \in \mathbb{N}_0^n} (c_\alpha + d_\alpha) x^\alpha\).
+2. Their *product* is
+   \(f \cdot g = \sum_{\gamma \in \mathbb{N}_0^n} \left( \sum_{\alpha + \beta = \gamma} c_\alpha d_\beta \right) x^\gamma\).
+#+END_def
+
+#+BEGIN_def
+<<.def-b6>> *[[.def-b6][Definition b6]]*. Let
+\(f = \sum c_\alpha x^\alpha \neq 0 \in \mathbb{F}[\mathbf{x}]\) be a non-zero
+[[.def-bh][polynomial]]. The *total degree* of \(f\), denoted \(\deg(f)\), is the
+maximum \(\lvert x^\alpha \rvert\) such that the corresponding coefficient
+\(c_\alpha\) is nonzero. The degree of \(0\) is undefined.
+#+END_def
+
+#+BEGIN_rem
+<<.rem-b9>> *[[.rem-b9][Remark b9]]*. The set of all [[.def-bh][polynomials]] in
+\(x_1, \ldots, x_n\) with coefficients in a [[file:field.org::.def-8][field]] \(\mathbb{F}\) is denoted
+\(\mathbb{F}[x_1, \ldots, x_n]\) or \(\mathbb{F}[\mathbf{x}]\) for short. This
+set forms a [[file:ring.org::.def-g][ring]] under standard polynomial [[.def-b7][addition and multiplication]]
+and is called the *polynomial ring* [cite:@gb]. Not all polynomials have
+multiplicative inverses and so \(\mathbb{F}[\mathbf{x}]\) does not form a
+[[file:field.org::.def-8][field]]. We say that \(f\) /divides/ \(g\) and write \(f \mid g\) if
+\(g = fh\) for some polynomial \(h \in \mathbb{F}[\mathbf{x}]\).
+#+END_rem
+
+#+BEGIN_def
+<<.def-ny>> *[[.def-ny][Definition ny]]*. Let \(f(x) \in \mathbb{F}[x]\) be a univariate
+[[.def-bh][polynomial]] of positive degree. The polynomial \(f(x)\) is *irreducible*
+over \(\mathbb{F}[x]\) if there is no factorization \(f(x) = p(x)q(x)\), where
+\(p(x)\) and \(q(x)\) are also univariate polynomials of positive degree in
+\(\mathbb{F}[x]\).
+#+END_def
+
+#+print_bibliography:

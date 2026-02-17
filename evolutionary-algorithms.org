@@ -3,7 +3,7 @@
 :END:
 #+title: Evolutionary Algorithms
 #+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-02-15 Sun 20:27]
+#+hugo_lastmod: [2026-02-17 Tue 21:01]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -18,11 +18,6 @@ table:nth-of-type(2) td { text-align: left; }
 </style>
 #+end_export
 
-The standard way to design an analog amplifier is to calculate the values of its
-components analytically. This post shows how to automate this process and make a
-computer determine the values on its own. We'll take our initial inspiration
-from the quote below.
-
 #+begin_quote
 /Owing to this struggle for life, variations, however slight and from whatever
 cause proceeding, if they be in any degree profitable to the individuals of a
@@ -34,6 +29,16 @@ of any species which are periodically born, but a small number can survive. I
 have called this principle, by which each slight variation, if useful, is
 preserved, by the term Natural Selection./ --- Darwin, 1859 [cite:@Darwin].
 #+end_quote
+
+The standard way to design an analog amplifier is to calculate the values of its
+components analytically. This post shows how to automate this process and make a
+computer determine the values on its own --- using evolutionary algorithms,
+namely evolution strategies, to optimize the component values of single and
+two-stage common-emitter amplifiers. We propose various fitness functions for
+evaluating the amplifiers, integrate the ngSPICE circuit simulator to simulate
+and assess each candidate design, and perform experiments to determine the most
+suitable parameters for the evolution strategies. The goal is an amplifier with
+the desired gain, found without any manual calculation.
 
 * Prologue
 
@@ -906,35 +911,29 @@ Second stage:
 * Epilogue
 
 This post showed the capabilities of evolutionary algorithms, namely evolution
-strategies, in designing analog amplifiers. The first phase was to implement
+strategies, in the design analog amplifiers. The first phase was to implement
 evolution strategies and integrate them with the ngSPICE simulator. An inherent
 part of evolutionary algorithms is an appropriate fitness function, so the next
-step was to develop methods for evaluating the quality of the amplifiers. In the
-last stage, various experiments were carried out to demonstrate the performance
-of the proposed solution.
+step was to develop methods for evaluating the quality of the amplifiers.
 
-There were two types of amplifiers chosen for the optimization and it emerged
-that the evolution has the capability to find the desired solution and that it can
-even provide different variations of a circuit that has the same amplification
-properties. However, the results for the second amplifier were considerably
-limited.
+The evolution found the desired solutions for the single stage amplifier and even
+discovered multiple component combinations that produce the same amplification
+properties. The two-stage amplifier proved much harder to optimize --- the
+algorithm consistently converged to square-wave outputs rather than sine waves.
 
-There were various types of fitness functions developed and evaluated during
-the implementation and users can choose the most appropriate one according to
-their needs. The results of experiments were also used for the determination of
-the optimal parameters for the evolution. During the experiments, it also
-emerged that various extensions to the basic version of evolutionary strategies
-had a great influence on the overall performance of the algorithm.
+The choice of fitness function matters: the three methods developed here each
+suit different use cases, and users can pick the most appropriate one. The
+experiments also showed that extensions to the basic evolution strategies ---
+particularly mutation with n step sizes --- had a significant impact on the
+algorithm's ability to find global optima.
 
 The resulting application provides a tool for designing amplifiers with an
 arbitrary gain up to the maximum limits of the circuit without using any
 mathematical apparatus.
 
-The work also contributed to the development of the ngSPICE simulator, which
-had memory leaks in various places in the source code. The simulator is run
-multiple times in a row during the optimization so there was a need to fix the
-memory leaks and the result is that they were successfully removed. The solution
-was proposed to the development team and the improvements will help in the next
-stages of development.
+The work also contributed to the development of the ngSPICE simulator. Since
+the simulator runs thousands of times during a single optimization, memory leaks
+in its source code had to be fixed. The patches were proposed to the development
+team and incorporated into subsequent releases.
 
 #+print_bibliography:
