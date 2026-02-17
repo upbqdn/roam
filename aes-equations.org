@@ -8,7 +8,7 @@
 #+cite_export: csl
 #+hugo_tags: crypto
 
-[[file:aes.org][AES]] (and its small scale derivatives) is a symmetric block cipher where
+[[file:aes.org][AES]] (and its [[file:aes.org::*Small Scale Variants][small scale]] derivatives) is a symmetric block cipher where
 the block is represented by the state, which is further divided into sub-blocks.
 AES is also an example of an iterated substitution-permutation network where one
 iteration is split into three stages [cite:@shannon]. The first stage is a local
