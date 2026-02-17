@@ -63,7 +63,7 @@ Do not use `#+caption:` — it triggers Hugo's auto-numbering which conflicts
 with the z-base-32 IDs.
 
 **Cross-referencing:** `[[.def-g][Definition g]]` for anchors within the same
-file, `[[id:monoid::.rem-k][Remark k]]` for cross-file references via org-roam.
+file, `[[file:group.org::.def-r][monoid]]` for cross-file references via org-roam.
 
 **Math notation:** prefer `\(...\)` and `\[...\]` over `$...$` and `$$...$$`.
 
