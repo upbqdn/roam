@@ -24,11 +24,11 @@ The fact that the priorities are generated randomly ensures that with high
 probability the height of the treap is proportional to the logarithm of the
 number of its nodes \(n\), and therefore the standard search, insert, and delete
 operations have logarithmic time complexity with high probability as well.
-[[.tab-9][Table 9]] summarizes the time complexity of the operations. The
+[[.tab-by][Table by]] summarizes the time complexity of the operations. The
 space complexity of a treap is \(O(n)\).
 
 #+begin_center
-<<.tab-9>> *[[.tab-9][Table 9]]*. Time complexity of standard operations on treaps.
+<<.tab-by>> *[[.tab-by][Table by]]*. Time complexity of standard operations on treaps.
 #+end_center
 | Operation              | Average        | Worst case |
 |------------------------+----------------+------------|
