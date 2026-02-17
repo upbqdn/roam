@@ -766,7 +766,7 @@ updated nodes in the network will each end up with their own chain.
 [[file:/data/intro-to-bitcoin/soft-fork.jpeg]]
 
 A hard fork relaxes the consensus rules, so the updated set becomes a strict
-superset of the original set, as depicted in [[.fig-bk][Figure bk]]. If the
+superset of the original set, as depicted in [[.fig-bu][Figure bu]]. If the
 original mining nodes stay in the majority, blocks from the updated nodes that
 fall outside the original rules will keep becoming orphaned. If the updated nodes
 become the mining majority, there will be a chain split unless all nodes,
@@ -774,7 +774,7 @@ including non-mining ones, switch to the new rules. The reason is that non-minin
 nodes also need to accept blocks complying with the new set of consensus rules.
 
 #+begin_center
-<<.fig-bk>> *[[.fig-bk][Figure bk]]*. A hard fork relaxes the consensus rules.
+<<.fig-bu>> *[[.fig-bu][Figure bu]]*. A hard fork relaxes the consensus rules.
 #+end_center
 [[file:/data/intro-to-bitcoin/hard-fork.jpeg]]
 
