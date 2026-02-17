@@ -3,7 +3,7 @@
 :END:
 #+title: AES + Gröbner bases = ♡
 #+date: [2020-11-24 Tue]
-#+hugo_lastmod: [2026-02-17 Tue 19:43]
+#+hugo_lastmod: [2026-02-17 Tue 21:32]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -28,22 +28,22 @@ the polynomial system to derive the secret key. While the method for deriving
 the system depends on the cipher, the method for solving the system may be
 independent of it.
 
-In a [[file:aes-equations.org][companion post on equation systems]], we model the [[file:aes.org][small scale variants of
+In a [[file:aes-equations.org][companion post on equation systems]], we model the [[file:aes.org::*Small Scale Variants][small scale variants of
 AES]] as systems of polynomial equations over \(\mathrm{GF}(2)\) that involve only
-the variables of the initial key. In this post, we then attempt to solve these
-systems using [[file:groebner-basis.org::.def-nh][Gröbner bases]] (specifically the F4 algorithm [cite:@f4]) and
-compare the results to a SAT solver. We present some reduction techniques for
-reducing the computational complexity of solving the polynomial systems and
-provide an insight into the propagation of diffusion within the cipher. For
-example, one of the attacks can recover the secret key for one round of AES-128
-in under a minute, requiring only two known plaintext--ciphertext pairs.
+the variables of the initial key. In this post, we attempt to solve such systems
+using [[file:groebner-basis.org::.def-nh][Gröbner bases]] (specifically the F4 algorithm [cite:@f4]) and compare the
+results to a SAT solver. We present some reduction techniques for reducing the
+computational complexity of solving the polynomial systems and provide an
+insight into the propagation of diffusion within the cipher. For example, one of
+the attacks can recover the secret key for one round of AES-128 in under a
+minute, requiring only two known plaintext--ciphertext pairs.
 
 The experiments were carried out on GNU/Linux 5.4 running on two Intel Xeon Gold
 6136 processors with 768 GB DDR4 memory evenly split into 12 modules. The
 baseboard was Supermicro X11DPi-NT. The initial
 [[file:polynomial.org::.def-bh][polynomial]] systems containing auxiliary variables
 were generated using Martin Albrecht's implementation of the
-[[file:aes.org][small scale variants of AES]] in SageMath 9.1 [cite:@sagemath],
+[[file:aes.org::*Small Scale Variants][small scale variants of AES]] in SageMath 9.1 [cite:@sagemath],
 which also uses Python 3.7.3 and PolyBoRi [cite:@polybori]. The systems were
 solved in Magma V2.25-5 [cite:@magma] and CryptoMiniSat [cite:@cryptominisat].
 The source code for the experiments can be found at
