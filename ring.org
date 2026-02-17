@@ -3,7 +3,7 @@
 :END:
 #+title: Ring
 #+date: [2020-01-30 Thu]
-#+hugo_lastmod: [2023-08-06 Sun 21:18]
+#+hugo_lastmod: [2026-02-17 Tue 21:06]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -12,7 +12,7 @@
 <<.def-g>> *[[.def-g][Definition g]]*. A *ring* is a set $R$ with two [[file:group.org::.def-d][binary operations]]
 $\left( a, b \right) \mapsto a + b$ and $\left( a, b \right) \mapsto a \cdot b$, referred to as
 addition and multiplication, such that the following axioms hold:
-1. The set $R$ is an Abelian [[file:group.org::.def-e][group]] under addition with the *additive identity*
+1. The set $R$ is an Abelian [[file:group.org::.def-f][group]] under addition with the *additive identity*
    $0$.
 2. The set $R$ is a [[file:group.org::.def-r][monoid]] under multiplication with the *multiplicative
    identity* $1$.
