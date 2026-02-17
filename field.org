@@ -3,14 +3,14 @@
 :END:
 #+title: Field
 #+date: [2020-01-30 Thu]
-#+hugo_lastmod: [2023-08-03 Thu 18:20]
+#+hugo_lastmod: [2026-02-17 Tue 21:08]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
 
 #+BEGIN_def
 <<.def-8>> *[[.def-8][Definition 8]]*. A *field* $\mathbb{F}$ is a [[file:ring.org::.def-g][ring]] where the set
-$\mathbb{F} \setminus \set{0}$ is an Abelian [[file:group.org::.def-e][group]] under multiplication with the
+$\mathbb{F} \setminus \set{0}$ is an Abelian [[file:group.org::.def-f][group]] under multiplication with the
 *multiplicative identity* 1.
 #+END_def
 
