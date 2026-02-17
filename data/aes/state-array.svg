@@ -1,16 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 310" width="340" height="310" font-family="serif">
   <style>
-    text { font-size: 16px; }
+    :root { color: #000; }
+    @media (prefers-color-scheme: dark) { :root { color: #f4f4f4; } }
+    text { font-size: 16px; fill: currentColor; }
     .label { font-style: italic; }
     .note { font-size: 13px; }
-    .brace { fill: none; stroke: #000; stroke-width: 1.5; }
+    .brace { fill: none; stroke: currentColor; stroke-width: 1.5; }
   </style>
 
   <!-- Grid offset: x=40, y=40 -->
   <!-- Cell size: 55x55 -->
 
   <!-- Grid cells -->
-  <g stroke="#000" stroke-width="1.5" fill="none">
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
     <!-- Row 0 (top) -->
     <rect x="40" y="40" width="55" height="55"/>
     <rect x="95" y="40" width="55" height="55"/>
