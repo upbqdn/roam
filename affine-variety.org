@@ -3,7 +3,7 @@
 :END:
 #+title: Affine Variety
 #+date: [2020-12-14 Mon]
-#+hugo_lastmod: [2026-03-12 Thu 14:37]
+#+hugo_lastmod: [2026-03-12 Thu 17:40]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -52,8 +52,10 @@ circle centered at the origin.
 \(\mathbb{F}[x_1, \ldots, x_n]\), so that
 \(\langle f_1, \ldots, f_s \rangle = \langle g_1, \ldots, g_t \rangle\), then
 \(V(f_1, \ldots, f_s) = V(g_1, \ldots, g_t)\).
+#+END_prp
 
-/Proof./ Choose any
+#+BEGIN_prf
+<<.prf-r9>> *[[.prf-r9][Proof r9]]*. Choose any
 \((a_1, \ldots, a_n) \in V(f_1, \ldots, f_s)\). All [[file:polynomial.org::.def-bh][polynomials]] in
 \(\{f_1, \ldots, f_s\}\) are zero at \((a_1, \ldots, a_n)\). Now choose any
 \(g \in \langle g_1, \ldots, g_t \rangle\). Since
@@ -64,7 +66,7 @@ write \(g = \sum_{i=1}^s h_i f_i\),
 which shows that
 \(V(f_1, \ldots, f_s) \subseteq V(g_1, \ldots, g_t)\). The opposite inclusion
 follows by the same argument.
-#+END_prp
+#+END_prf
 
 [[file:ideal.org::.exp-dp][Example dp]] shows that an [[file:ideal.org::.def-m][ideal]] may have multiple different
 [[file:ideal.org::.def-bs][bases]] while [[.prp-nr][Proposition nr]] reveals that a [[.def-nd][variety]] is
@@ -100,14 +102,16 @@ polynomial equations. [[.prp-do][Proposition do]] is a generalization of
 <<.prp-ng>> *[[.prp-ng][Proposition ng]]*. If \(V \subseteq \mathbb{F}^n\) is an
 [[.def-nd][affine variety]], then \(I(V) \subseteq \mathbb{F}[x_1, \ldots, x_n]\) is an
 [[file:ideal.org::.def-m][ideal]].
+#+END_prp
 
-/Proof./ We have \(0 \in I(V)\) since the zero [[file:polynomial.org::.def-bh][polynomial]] vanishes on
+#+BEGIN_prf
+<<.prf-fy>> *[[.prf-fy][Proof fy]]*. We have \(0 \in I(V)\) since the zero [[file:polynomial.org::.def-bh][polynomial]] vanishes on
 all points in \(\mathbb{F}^n\). Now let \(f, g \in I(V)\),
 \(h \in \mathbb{F}[x_1, \ldots, x_n]\), and let \((a_1, \ldots, a_n)\) be an
 arbitrary point in \(V\). We get
 \(f(a_1, \ldots, a_n) + g(a_1, \ldots, a_n) = 0 + 0 = 0\) and
 \(h(a_1, \ldots, a_n) \cdot f(a_1, \ldots, a_n) = h(a_1, \ldots, a_n) \cdot 0 = 0\),
 which shows that \(I(V)\) is an [[file:ideal.org::.def-m][ideal]].
-#+END_prp
+#+END_prf
 
 #+print_bibliography:

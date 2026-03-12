@@ -3,7 +3,7 @@
 :END:
 #+title: Monomial Orders
 #+date: [2020-03-04 Wed]
-#+hugo_lastmod: [2026-03-12 Thu 14:36]
+#+hugo_lastmod: [2026-03-12 Thu 17:45]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -41,8 +41,10 @@ in \(S\) is an infinite sequence \(a_n \in S\) such that
 <<.prp-dt>> *[[.prp-dt][Proposition dt]]*. A [[.def-ne][linear order]] \(\ge\) on
 \(S\) is a [[.def-ne][well-order]] if and only if there is no strictly descending
 sequence in \(S\).
+#+END_prp
 
-/Proof./ We prove the contrapositive: \(\ge\) is not a well-order if and only if
+#+BEGIN_prf
+<<.prf-ff>> *[[.prf-ff][Proof ff]]*. We prove the contrapositive: \(\ge\) is not a well-order if and only if
 there is a strictly descending sequence in \(S\). (\(\implies\)) Suppose \(\ge\)
 is not a well-order. Then there is a non-empty subset \(R \subseteq S\) that has
 no minimal element. We can choose \(a \in R\) and since \(a\) is not the minimal
@@ -51,7 +53,7 @@ strictly descending sequence. (\(\impliedby\)) Suppose there is a strictly
 descending sequence in \(S\). The elements of such a sequence form a non-empty
 subset \(R\) of \(S\) that has no minimal element. Hence, \(\ge\) is not a
 well-order.
-#+END_prp
+#+END_prf
 
 We denote monomial orders by \(\succeq\),
 their inverses by \(\preceq\), and their strict parts by \(\succ\) and
@@ -116,8 +118,10 @@ to the monomial in which this variable has greater power.
 #+BEGIN_prp
 <<.prp-np>> *[[.prp-np][Proposition np]]*. The [[.def-nk][lexicographic order]]
 \(\succeq_{\mathrm{lex}}\) on \(\mathcal{M}\) is a [[.def-nj][monomial order]].
+#+END_prp
 
-/Proof./ Following the definition of the [[.def-nk][lexicographic order]] and the
+#+BEGIN_prf
+<<.prf-fg>> *[[.prf-fg][Proof fg]]*. Following the definition of the [[.def-nk][lexicographic order]] and the
 fact that the regular numerical order on \(\mathbb{N}_0\) is a [[.def-ne][linear order]], it
 is straightforward to show that for any [[file:polynomial.org::.def-b4][monomials]]
 \(x^\alpha, x^\beta, x^\gamma \in \mathcal{M}(x_1, \ldots, x_n)\), transitivity,
@@ -148,7 +152,7 @@ of the \(n\)-tuples \(\alpha_{(m)}\) with \(m \ge l\) are all equal. We see that
 there must be a \(p \ge l\) for which the whole \(n\)-tuples
 \(\alpha_{(p)} = \alpha_{(p+1)} = \cdots\) are all equal. This means that the
 sequence is not strictly decreasing, a contradiction.
-#+END_prp
+#+END_prf
 
 #+BEGIN_def
 <<.def-nq>> *[[.def-nq][Definition nq]]*. Let
@@ -219,8 +223,10 @@ Despite its name, the graded reverse lexicographic order makes use of the
 <<.prp-n1>> *[[.prp-n1][Proposition n1]]*. The [[.def-no][graded reverse lexicographic
 order]] \(\succeq_{\mathrm{grlex}}\) on \(\mathcal{M}\) is a
 [[.def-nj][monomial order]].
+#+END_prp
 
-/Proof./ Since \(\succeq_{\mathrm{grlex}}\) first uses the usual well-order on
+#+BEGIN_prf
+<<.prf-f8>> *[[.prf-f8][Proof f8]]*. Since \(\succeq_{\mathrm{grlex}}\) first uses the usual well-order on
 the total degree \(\lvert x^\alpha \rvert \in \mathbb{N}_0\) and, when
 \(\lvert x^\alpha \rvert = \lvert x^\beta \rvert\), decides ties using the
 [[.def-nq][reverse colexicographic order]] (which is a [[.def-ne][linear order]]),
@@ -245,7 +251,7 @@ there is \(1 \le i \le n\) such that \(\alpha_i - \beta_i < 0\) with
 \(\alpha_j = \beta_j\) for \(i < j \le n\). As in the proof of
 [[.prp-np][Proposition np]], \((\alpha + \gamma) - (\beta + \gamma) = \alpha - \beta\),
 so \(x^{\alpha + \gamma} \succeq_{\mathrm{grlex}} x^{\beta + \gamma}\).
-#+END_prp
+#+END_prf
 
 #+BEGIN_def
 <<.def-nu>> *[[.def-nu][Definition nu]]*. Let

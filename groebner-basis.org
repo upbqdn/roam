@@ -3,7 +3,7 @@
 :END:
 #+title: Gröbner Basis
 #+date: [2020-12-14 Mon]
-#+hugo_lastmod: [2026-03-12 Thu 15:09]
+#+hugo_lastmod: [2026-03-12 Thu 17:41]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -90,8 +90,10 @@ be an [[file:ideal.org::.def-m][ideal]]. The \(l\)-th *elimination ideal* \(I_l\
 Then, for every \(0 \le l < n\), the set
 \(G_l = G \cap \mathbb{F}[x_{l+1}, \ldots, x_n]\) is a Gröbner basis of the
 \(l\)-th [[.def-n9][elimination ideal]] \(I_l\).
+#+END_thm
 
-/Proof./ We know that \(G_l \subseteq I_l\) by construction, so we only need to
+#+BEGIN_prf
+<<.prf-fb>> *[[.prf-fb][Proof fb]]*. We know that \(G_l \subseteq I_l\) by construction, so we only need to
 show that
 \(\langle \mathrm{LT}(I_l) \rangle = \langle \mathrm{LT}(G_l) \rangle\) for a
 fixed \(l\) between \(0\) and \(n\). The inclusion
@@ -107,7 +109,7 @@ must consist only of \(x_{l+1}, \ldots, x_n\). The crucial observation is: since
 [[file:polynomial.org::.def-b4][monomial]] involving any \(x_1, \ldots, x_l\) is
 greater than all monomials in \(\mathbb{F}[x_{l+1}, \ldots, x_n]\). Therefore
 \(g \in G_l\).
-#+END_thm
+#+END_prf
 
 #+BEGIN_exp
 <<.exp-db>> *[[.exp-db][Example db]]*. Consider a system of equations where

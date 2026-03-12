@@ -3,7 +3,7 @@
 :END:
 #+title: Polynomial Division
 #+date: [2020-12-11 Fri]
-#+hugo_lastmod: [2026-03-12 Thu 15:09]
+#+hugo_lastmod: [2026-03-12 Thu 17:43]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -97,8 +97,10 @@ division by \(f(x)\). This quotient ring is a finite field of order
 \(f \in \mathbb{F}[\mathbf{x}]\) be [[file:polynomial.org::.def-ny][irreducible]] over the
 [[file:field.org::.def-8][field]] \(\mathbb{F}\). Then there exists an [[file:field.org::.def-b3][extension]] of
 \(\mathbb{F}\) containing a [[file:affine-variety.org::.rem-nn][root]] of \(f\).
+#+END_prp
 
-/Proof./ Consider the [[file:field.org::.rem-bz][finite field]]
+#+BEGIN_prf
+<<.prf-dj>> *[[.prf-dj][Proof dj]]*. Consider the [[file:field.org::.rem-bz][finite field]]
 \(\mathbb{E} = \mathbb{F}[\mathbf{x}] / \langle f \rangle\). The elements of
 \(\mathbb{E}\) are the [[file:ideal.org::.def-bw][cosets]]
 \([r] = r + \langle f \rangle\) with
@@ -118,7 +120,7 @@ in \([x]\) with coefficients in \(\mathbb{F}\). We say that the [[file:field.org
 \(f(x) = b_0 + b_1 x + \cdots + b_n x^n\), then
 \(f([x]) = b_0 + b_1[x] + \cdots + b_n[x]^n = [f] = [0]\), so that \([x]\) is
 a root of \(f\).
-#+END_prp
+#+END_prf
 
 We use multivariate division in the description of algorithms for computing
 [[id:groebner-basis][Gröbner bases]].
