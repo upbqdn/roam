@@ -3,7 +3,7 @@
 :END:
 #+title: Polynomial Division
 #+date: [2020-12-11 Fri]
-#+hugo_lastmod: [2026-03-12 Thu 14:37]
+#+hugo_lastmod: [2026-03-12 Thu 15:09]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -56,9 +56,7 @@ We can use the following algorithm for finding the [[file:polynomial.org::.def-b
 and \(r\).
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-d1>> *[[.alg-d1][Algorithm d1]]*. Univariate polynomial division.
-#+end_center
 
 *Input:* univariate polynomials \(g, f\).\\
 *Output:* univariate polynomials \(q, r\).
@@ -145,9 +143,7 @@ We can use the following algorithm for finding the [[file:polynomial.org::.def-b
 \(q_i\) and \(r\).
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-dw>> *[[.alg-dw][Algorithm dw]]*. Multivariate polynomial division.
-#+end_center
 
 *Input:* polynomials \(f_1, \ldots, f_m, f\).\\
 *Output:* polynomials \(q_1, \ldots, q_m, r\).

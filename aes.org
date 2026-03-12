@@ -3,7 +3,7 @@
 :END:
 #+title: AES
 #+date: [2020-09-30 Wed]
-#+hugo_lastmod: [2026-03-12 Thu 14:20]
+#+hugo_lastmod: [2026-03-12 Thu 15:09]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -89,9 +89,7 @@ state has two indices: the row index \(0 \le r < 4\) and the column index
 \(0 \le c < 4\), so that a specific byte is denoted \(s_{r,c}\).
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-d7>> *[[.alg-d7][Algorithm d7]]*. AES [cite:@fips].
-#+end_center
 
 *Input:* a 16-byte array /plaintext/, a 16-byte array /key/.\\
 *Output:* a 16-byte ciphertext array /state/.
@@ -279,9 +277,7 @@ part is the first byte \(02_{16}^{j-1} \in \mathrm{GF}(2^8)\) (i.e.,
 \(x^{j-1} \in \mathrm{GF}(2^8)\)).
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-ry>> *[[.alg-ry][Algorithm ry]]*. Key Schedule for AES [cite:@fips].
-#+end_center
 
 *Input:* a 16-byte array /key/.\\
 *Output:* a 44-word (176-byte) key schedule /expKey/.

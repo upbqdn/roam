@@ -3,7 +3,7 @@
 :END:
 #+title: Gröbner Basis
 #+date: [2020-12-14 Mon]
-#+hugo_lastmod: [2026-03-12 Thu 14:37]
+#+hugo_lastmod: [2026-03-12 Thu 15:09]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -303,9 +303,7 @@ by the leading terms of any of the polynomials in \(M\). These new polynomials
 correspond to \(\overline{S(f_i, f_j)}\) and are included in \(G\).
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-d3>> *[[.alg-d3][Algorithm d3]]*. F4 algorithm [cite:@f4].
-#+end_center
 
 *Input:* a tuple of polynomials \(F = (f_1, \ldots, f_m)\).\\
 *Output:* a [[.def-nh][Gröbner basis]] \(G\) of
@@ -340,9 +338,7 @@ unprocessed monomial \(x^\beta\), if there exists \(f_k \in G\) with
 \(\frac{x^\beta}{\mathrm{LM}(f_k)} f_k\) is included in \(H\), satisfying (ii).
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-d4>> *[[.alg-d4][Algorithm d4]]*. Symbolic Preprocessing.
-#+end_center
 
 *Input:* a set of polynomials \(L\), a set of polynomials \(G\).\\
 *Output:* a matrix \(M\).

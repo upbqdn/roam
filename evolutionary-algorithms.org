@@ -3,7 +3,7 @@
 :END:
 #+title: Evolutionary Algorithms
 #+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-03-12 Thu 14:28]
+#+hugo_lastmod: [2026-03-12 Thu 15:09]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -88,9 +88,7 @@ method to find optimal solutions to problems that are difficult to solve
 analytically.
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-z>> *[[.alg-z][Algorithm z]]*. Evolutionary algorithm [cite:@natural-computing-algorithms].
-#+end_center
 1. Create a /population/ P of randomly selected candidate solutions.
 2. Repeat:
    a. /(Selection)/ Select the appropriate individuals (parents) for breeding from P.
@@ -130,9 +128,7 @@ The last two approaches are suitable when the algorithm gets stuck in a local
 optimum and doesn't leave it after a significant amount of time.
 
 #+BEGIN_alg
-#+begin_center
 <<.alg-q>> *[[.alg-q][Algorithm q]]*. Non-self-adaptive \((\mu + \lambda)\)-ES [cite:@natural-computing-algorithms].
-#+end_center
 1. Randomly create an initial population \(\{\vec{x}^1, \ldots, \vec{x}^\mu\}\) of parent vectors, where each vector \(\vec{x}^i\) is of the form \(\vec{x}^i = (x^i_1, \ldots, x^i_n)\), \(i = 1, \ldots, \mu\).
 2. Evaluate the fitness function of each chromosome.
 3. Repeat:
