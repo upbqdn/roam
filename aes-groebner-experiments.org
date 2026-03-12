@@ -3,7 +3,7 @@
 :END:
 #+title: AES + Gröbner bases = ♡
 #+date: [2020-11-24 Tue]
-#+hugo_lastmod: [2026-02-17 Tue 21:32]
+#+hugo_lastmod: [2026-03-12 Thu 14:23]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -102,6 +102,7 @@ of \(\mathrm{SR}(n, 4, 4, 8)\), the key size of which is 128 bits. On the other
 hand, the SAT solver could quickly compute the solution for all ten rounds of
 \(\mathrm{SR}(n, 2, 2, 4)\).
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-ri>> *[[.tab-ri][Table ri]]*. Initial experiments with systems containing auxiliary variables.
 #+end_center
@@ -131,6 +132,7 @@ hand, the SAT solver could quickly compute the solution for all ten rounds of
 #+begin_export html
 </div>
 #+end_export
+#+END_tab
 
 * Systems without Auxiliary Variables
 
@@ -173,6 +175,7 @@ the cases when \(r < 2\) or \(c < 2\)). The overall performance is worse compare
 to [[.tab-ri][Table ri]] and the SAT solver still outperforms the F4 algorithm.
 Moreover, we were able to solve fewer systems than in the previous experiments.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-rs>> *[[.tab-rs][Table rs]]*. Experiments with systems with no auxiliary variables. PT is the preprocessing time required to obtain the system. AMP is the average number of monomials per polynomial.
 #+end_center
@@ -194,6 +197,7 @@ Moreover, we were able to solve fewer systems than in the previous experiments.
 #+begin_export html
 </div>
 #+end_export
+#+END_tab
 
 ** Full Diffusion
 
@@ -229,6 +233,7 @@ described in [[.tab-rz][Table rz]], the most frequent variable had 16446
 occurrences and the least frequent variable had 16393 occurrences; these are
 aggregated values.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-rz>> *[[.tab-rz][Table rz]]*. Distribution of monomials of a given degree in \(\mathrm{SR}(3, 2, 2, 4)\).
 #+end_center
@@ -259,6 +264,7 @@ aggregated values.
 #+begin_export html
 </div>
 #+end_export
+#+END_tab
 
 * Combining Multiple Systems
 
@@ -296,6 +302,7 @@ to the initial additions of the plaintext and ciphertext. On the other hand, whe
 we express the equations only in the variables of the initial key, we get a
 different system for each PC pair.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-ra>> *[[.tab-ra][Table ra]]*. Experiments with two combined systems. PT is the preprocessing time required to obtain the system. AMP is the average number of monomials per polynomial.
 #+end_center
@@ -320,6 +327,7 @@ different system for each PC pair.
 #+begin_export html
 </div>
 #+end_export
+#+END_tab
 
 * Reducing Polynomial Systems
 
@@ -377,6 +385,7 @@ significant improvement.
 We suspect that the reduction technique proposed here might not be the only one
 and that other techniques might provide better results.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-r4>> *[[.tab-r4][Table r4]]*. Experiments with reduced polynomial systems. PT is the preprocessing time required to obtain the system. AMPR is the average number of monomials per polynomial after reduction. \(l\) is the size of the reduction set.
 #+end_center
@@ -396,6 +405,7 @@ and that other techniques might provide better results.
 #+begin_export html
 </div>
 #+end_export
+#+END_tab
 
 * Guessing Variables
 
@@ -441,16 +451,21 @@ more than eight variables produced even longer solving times due to creating too
 many threads. On the other hand, we were often unable to obtain the solutions for
 \(\mathrm{SR}(2, 4, 2, 4)\) when we guessed fewer than six variables.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-r5>> *[[.fig-r5][Figure r5]]*. Frequencies of the key variables for five instances of \(\mathrm{SR}(2, 2, 4, 4)\). The variables are ordered according to their frequency.
 #+end_center
 [[file:/data/aes/freq_2244.png]]
+#+END_fig
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rh>> *[[.fig-rh][Figure rh]]*. Frequencies of the key variables for five instances of \(\mathrm{SR}(2, 4, 2, 4)\). The variables are ordered according to their frequency.
 #+end_center
 [[file:/data/aes/freq_2424.png]]
+#+END_fig
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-r7>> *[[.tab-r7][Table r7]]*. Experiments with reduced polynomial systems and guessed variables. PT is the preprocessing time required to obtain the system.
 #+end_center
@@ -465,6 +480,7 @@ many threads. On the other hand, we were often unable to obtain the solutions fo
 #+begin_export html
 </div>
 #+end_export
+#+END_tab
 
 * Epilogue
 

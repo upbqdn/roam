@@ -3,7 +3,7 @@
 :END:
 #+title: Gröbner Basis
 #+date: [2020-12-14 Mon]
-#+hugo_lastmod: [2020-06-10 Wed]
+#+hugo_lastmod: [2026-03-12 Thu 14:37]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -24,12 +24,12 @@ Gröbner basis is a particular basis that yields the same
 [[file:affine-variety.org::.def-nd][affine variety]] but has a structure amenable to elimination of
 variables.
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-n4>> *[[.thm-n4][Theorem n4]]*. (/Hilbert Basis Theorem/.) For every
 [[file:ideal.org::.def-m][ideal]] \(I \subseteq \mathbb{F}[\mathbf{x}]\), there exist
 \(g_1, \ldots, g_m \in I\) such that
 \(I = \langle g_1, \ldots, g_m \rangle\) [cite:@iva].
-#+END_pr
+#+END_thm
 
 #+BEGIN_def
 <<.def-n5>> *[[.def-n5][Definition n5]]*. Let
@@ -52,12 +52,12 @@ A set \(\{g_1, \ldots, g_m\} \subseteq I\) is a [[.def-nh][Gröbner basis]] if a
 only if the [[file:polynomial-division.org::.def-nw][leading term]] of any element of \(I\) is
 divisible by some \(\mathrm{LT}(g_i)\).
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-n7>> *[[.prp-n7][Proposition n7]]*. Fix a
 [[file:monomial-orders.org::.def-nj][monomial order]] on \(\mathcal{M}\). Then every
 [[file:ideal.org::.def-m][ideal]] \(I \subseteq \mathbb{F}[\mathbf{x}]\) has a [[.def-nh][Gröbner basis]]
 [cite:@iva].
-#+END_pr
+#+END_prp
 
 #+BEGIN_def
 <<.def-n6>> *[[.def-n6][Definition n6]]*. Let \(G \subseteq I\) be a
@@ -82,7 +82,7 @@ be an [[file:ideal.org::.def-m][ideal]]. The \(l\)-th *elimination ideal* \(I_l\
 \(I_l = I \cap \mathbb{F}[x_{l+1}, \ldots, x_n]\).
 #+END_def
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-dy>> *[[.thm-dy][Theorem dy]]*. (/Elimination Theorem/.) Let
 \(G \subseteq I \subseteq \mathbb{F}[x_1, \ldots, x_n]\) be a
 [[.def-nh][Gröbner basis]] of \(I\) under the [[file:monomial-orders.org::.def-nk][lexicographic order]]
@@ -107,9 +107,9 @@ must consist only of \(x_{l+1}, \ldots, x_n\). The crucial observation is: since
 [[file:polynomial.org::.def-b4][monomial]] involving any \(x_1, \ldots, x_l\) is
 greater than all monomials in \(\mathbb{F}[x_{l+1}, \ldots, x_n]\). Therefore
 \(g \in G_l\).
-#+END_pr
+#+END_thm
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-db>> *[[.exp-db][Example db]]*. Consider a system of equations where
 \(f_1 = f_2 = f_3 = 0\) are [[file:polynomial.org::.def-bh][polynomials]] in
 \(\mathbb{R}[x, y, z]\) with
@@ -121,7 +121,7 @@ The last polynomial involves only \(z\) and has the only real solution
 \(z = 0\). Substituting into \(g_3\) and \(g_2\) yields
 \(y = \pm\sqrt{2}\), and then \(x = -\frac{1}{2}\). The reduced Gröbner basis
 allows solving the system by successive elimination of variables.
-#+END_ex
+#+END_exp
 
 #+BEGIN_def
 <<.def-dn>> *[[.def-dn][Definition dn]]*. Let
@@ -136,16 +136,16 @@ Adding the [[.def-dn][field equations]] into a polynomial system over
 \(\mathbb{F}_q\) restricts the solutions to \(\mathbb{F}_q\) and ensures the
 system has finitely many solutions.
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-dd>> *[[.thm-dd][Theorem dd]]*. (/Finiteness Theorem/.) Let
 \(f_1, \ldots, f_m \in \mathbb{F}[x_1, \ldots, x_n]\) be [[file:polynomial.org::.def-bh][polynomials]].
 If \(\langle f_1, \ldots, f_m \rangle \cap \mathbb{F}[x_i] \neq 0\) for all
 \(x_i\), then the [[file:affine-variety.org::.def-nd][variety]]
 \(V(\langle f_1, \ldots, f_m \rangle) \subseteq \mathbb{F}^n\) is finite
 [cite:@iva].
-#+END_pr
+#+END_thm
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-dr>> *[[.thm-dr][Theorem dr]]*. (/Hilbert's Weak Nullstellensatz/.) Let
 \(f_1, \ldots, f_m \in \mathbb{F}[\mathbf{x}]\) be [[file:polynomial.org::.def-bh][polynomials]]. Then
 the following are equivalent:
@@ -153,7 +153,7 @@ the following are equivalent:
    \(\mathbb{F}\) and \(\mathbf{a} \in \mathbb{E}^n\) such that
    \(f_i(\mathbf{a}) = 0\) for all \(f_i\).
 2. \(1 \notin \langle f_1, \ldots, f_m \rangle\) [cite:@gb].
-#+END_pr
+#+END_thm
 
 Whenever \(1\) belongs to an [[file:ideal.org::.def-m][ideal]] \(I\), we have
 \(I = \mathbb{F}[\mathbf{x}]\), as shown in the proof of
@@ -168,7 +168,7 @@ and no element in \(\mathbb{E} \setminus \mathbb{F}\) satisfies any of them.
 Therefore, adding the field equations into a polynomial system restricts
 solutions to \(\mathbb{F}\).
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-di>> *[[.exp-di][Example di]]*. Consider a system of equations where
 \(f_1 = f_2 = f_3 = 0\) are [[file:polynomial.org::.def-bh][polynomials]] in \(\mathrm{GF}(2)\) with
 \[f_1 = x + y + z, \quad f_2 = xy + xz + yz, \quad f_3 = xyz + 1.\]
@@ -188,15 +188,15 @@ that \(g_2'\) is also [[file:polynomial.org::.def-ny][irreducible]] over
 \(0, 1, \alpha, \alpha + 1\). The polynomial \(g_2\) has two solutions in
 \(\mathrm{GF}(2^2)\), namely \(y = \alpha\) and \(y = \alpha + 1\), and these
 lead to further solutions of the original system.
-#+END_ex
+#+END_exp
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-ds>> *[[.exp-ds][Example ds]]*. Considering [[.exp-di][Example di]], if we add the
 [[.def-dn][field equations]] of \(\mathrm{GF}(2)\) into the system, the
 [[.def-n6][reduced Gröbner basis]] is \(g_1 = 1\). By the
 [[.thm-dr][Hilbert's Weak Nullstellensatz]], the system has no solutions in
 \(\mathrm{GF}(2)\).
-#+END_ex
+#+END_exp
 
 * Computing Gröbner Bases
 
@@ -212,21 +212,21 @@ lead to further solutions of the original system.
 \[S(f, g) = \frac{x^\gamma}{\mathrm{LT}(f)} \cdot f - \frac{x^\gamma}{\mathrm{LT}(g)} \cdot g.\]
 #+END_def
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-dg>> *[[.exp-dg][Example dg]]*. Let \(f = x^2 y^3 + x\) and
 \(g = 2xy^5 + y\) be [[file:polynomial.org::.def-bh][polynomials]] in \(\mathbb{R}[x, y]\) under
 \(\succeq_{\mathrm{grlex}}\). The least common multiple is \(x^2 y^5\) and
 \[S(f, g) = \frac{x^2 y^5}{x^2 y^3}(x^2 y^3 + x) - \frac{x^2 y^5}{2xy^5}(2xy^5 + y) = xy^2 - \tfrac{1}{2}xy.\]
 The [[.def-df][S-polynomial]] is designed so that the
 [[file:polynomial-division.org::.def-nw][leading terms]] cancel.
-#+END_ex
+#+END_exp
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-d8>> *[[.thm-d8][Theorem d8]]*. (/Buchberger's Criterion/.) A
 [[file:ideal.org::.def-bs][basis]] \(G = \{g_1, \ldots, g_m\}\) of an [[file:ideal.org::.def-m][ideal]] \(I\)
 is a [[.def-nh][Gröbner basis]] if and only if
 \(\overline{S(g_i, g_j)}^G = 0\) for all \(i \neq j\) [cite:@bb].
-#+END_pr
+#+END_thm
 
 [[.thm-d8][Buchberger's Criterion]], introduced in [cite:@bb], allows testing
 whether a given [[file:ideal.org::.def-bs][basis]] is a [[.def-nh][Gröbner basis]] and naturally leads to
@@ -249,11 +249,11 @@ which means that whenever \(h_i g_i \neq 0\), we have
 Note that \(\overline{f}^G = 0\) implies \(f \to_G 0\), but the converse does
 not hold.
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-dz>> *[[.prp-dz][Proposition dz]]*. A [[file:ideal.org::.def-bs][basis]]
 \(G = \{g_1, \ldots, g_m\}\) of an [[file:ideal.org::.def-m][ideal]] \(I\) is a [[.def-nh][Gröbner basis]]
 if and only if \(S(g_i, g_j) \to_G 0\) for all \(i \neq j\) [cite:@iva].
-#+END_pr
+#+END_prp
 
 This is a more general version of [[.thm-d8][Buchberger's Criterion]].
 [[.thm-d8][Buchberger's Criterion]] naturally leads to the Buchberger's algorithm,
@@ -302,6 +302,7 @@ whose [[file:polynomial-division.org::.def-nw][leading terms]] are not divisible
 by the leading terms of any of the polynomials in \(M\). These new polynomials
 correspond to \(\overline{S(f_i, f_j)}\) and are included in \(G\).
 
+#+BEGIN_alg
 #+begin_center
 <<.alg-d3>> *[[.alg-d3][Algorithm d3]]*. F4 algorithm [cite:@f4].
 #+end_center
@@ -324,6 +325,7 @@ correspond to \(\overline{S(f_i, f_j)}\) and are included in \(G\).
      - \(G \gets G \cup \{f_m\}\),
        \(B \gets B \cup \{\{i, m\} \mid 1 \le i < m\}\).
 3. *return* \(G\).
+#+END_alg
 
 The [[.alg-d4][SymbolicPreprocessing]] function creates a matrix \(M\)
 representing a set \(H\) with two properties: (i) \(L \subseteq H\), and (ii)
@@ -337,6 +339,7 @@ unprocessed monomial \(x^\beta\), if there exists \(f_k \in G\) with
 \(\mathrm{LM}(f_k) \mid x^\beta\), the product
 \(\frac{x^\beta}{\mathrm{LM}(f_k)} f_k\) is included in \(H\), satisfying (ii).
 
+#+BEGIN_alg
 #+begin_center
 <<.alg-d4>> *[[.alg-d4][Algorithm d4]]*. Symbolic Preprocessing.
 #+end_center
@@ -354,6 +357,7 @@ unprocessed monomial \(x^\beta\), if there exists \(f_k \in G\) with
      - \(H \gets H \cup \left\{\frac{x^\beta}{\mathrm{LM}(f_k)} f_k\right\}\).
 3. *return* matrix of coefficients of \(H\) with respect to \(M_\succeq(H)\)
    with columns in decreasing order according to \(\succeq\).
+#+END_alg
 
 For a better intuitive insight, consider the matrix \(M\) which represents the
 set \(H\). Recall that \(L \subseteq H\), so \(M\) contains both halves of

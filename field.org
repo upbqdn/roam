@@ -3,7 +3,7 @@
 :END:
 #+title: Field
 #+date: [2020-01-30 Thu]
-#+hugo_lastmod: [2026-02-17 Tue 21:08]
+#+hugo_lastmod: [2026-03-12 Thu 14:37]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -31,7 +31,7 @@ additive and multiplicative inverse. Addition in this field corresponds to the
 to addition.
 #+END_rem
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-dk>> *[[.exp-dk][Example dk]]*.
 1. The sets \(\mathbb{Q}\), \(\mathbb{R}\), and \(\mathbb{C}\) are [[.def-8][fields]]
    with their standard addition and multiplication.
@@ -41,7 +41,7 @@ to addition.
    a [[.def-8][field]] whenever \(p\) is prime. The primality of \(p\) ensures that
    each non-zero element has its multiplicative inverse, which can be found using
    the extended Euclidean algorithm.
-#+END_ex
+#+END_exp
 
 #+BEGIN_def
 <<.def-b3>> *[[.def-b3][Definition b3]]*. If \(\mathbb{F}\) is a subfield of a [[.def-8][field]]

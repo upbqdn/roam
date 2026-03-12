@@ -3,7 +3,7 @@
 :END:
 #+title: Monomial Orders
 #+date: [2020-03-04 Wed]
-#+hugo_lastmod: [2020-06-10 Wed]
+#+hugo_lastmod: [2026-03-12 Thu 14:36]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -37,7 +37,7 @@ in \(S\) is an infinite sequence \(a_n \in S\) such that
 *well-order* on \(S\) is a noetherian linear order on \(S\).
 #+END_def
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-dt>> *[[.prp-dt][Proposition dt]]*. A [[.def-ne][linear order]] \(\ge\) on
 \(S\) is a [[.def-ne][well-order]] if and only if there is no strictly descending
 sequence in \(S\).
@@ -51,7 +51,7 @@ strictly descending sequence. (\(\impliedby\)) Suppose there is a strictly
 descending sequence in \(S\). The elements of such a sequence form a non-empty
 subset \(R\) of \(S\) that has no minimal element. Hence, \(\ge\) is not a
 well-order.
-#+END_pr
+#+END_prp
 
 We denote monomial orders by \(\succeq\),
 their inverses by \(\preceq\), and their strict parts by \(\succ\) and
@@ -96,7 +96,7 @@ assume the standard order \(x_1 > x_2 > \cdots > x_n\), or the alphabetical
 order \(x > y > z\).
 #+END_rem
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-nc>> *[[.exp-nc][Example nc]]*.
 1. Let \(xy^2z^3\) and \(xy^3\) be monomials in \(\mathcal{M}(x, y, z)\). Then
    \(xy^3 \succ_{\mathrm{lex}} xy^2z^3\) since for \(i = 2\) we have
@@ -107,13 +107,13 @@ order \(x > y > z\).
 3. A monomial containing the most significant variable is greater than any
    monomial that does not. For instance,
    \(x \succ_{\mathrm{lex}} y^3 z^2\) in \(\mathcal{M}(x, y, z)\).
-#+END_ex
+#+END_exp
 
 The intuition behind the lexicographic order is that it looks for the most
 significant variable that appears in one of the monomials and gives preference
 to the monomial in which this variable has greater power.
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-np>> *[[.prp-np][Proposition np]]*. The [[.def-nk][lexicographic order]]
 \(\succeq_{\mathrm{lex}}\) on \(\mathcal{M}\) is a [[.def-nj][monomial order]].
 
@@ -148,7 +148,7 @@ of the \(n\)-tuples \(\alpha_{(m)}\) with \(m \ge l\) are all equal. We see that
 there must be a \(p \ge l\) for which the whole \(n\)-tuples
 \(\alpha_{(p)} = \alpha_{(p+1)} = \cdots\) are all equal. This means that the
 sequence is not strictly decreasing, a contradiction.
-#+END_pr
+#+END_prp
 
 #+BEGIN_def
 <<.def-nq>> *[[.def-nq][Definition nq]]*. Let
@@ -164,7 +164,7 @@ that \(x^\alpha \succ_{\mathrm{rclex}} x^\beta\) if the right-most non-zero
 component of \(\alpha - \beta\) is negative. [[.rem-nm][Remark nm]] about variable
 ordering applies here as well.
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-nx>> *[[.exp-nx][Example nx]]*.
 1. Let \(xy^2z^3\) and \(xy^3\) be monomials in \(\mathcal{M}(x, y, z)\). Then
    \(xy^3 \succ_{\mathrm{rclex}} xy^2z^3\) as well, but for a different reason:
@@ -174,7 +174,7 @@ ordering applies here as well.
    monomials in one and two variables. They may differ for three or more
    variables: \(xz \succ_{\mathrm{lex}} y^2\) but
    \(y^2 \succ_{\mathrm{rclex}} xz\) in \(\mathcal{M}(x, y, z)\).
-#+END_ex
+#+END_exp
 
 The intuition behind the reverse colexicographic order is that it looks for the
 least significant variable that appears in one of the monomials and gives
@@ -203,7 +203,7 @@ lexicographic order*.
 Despite its name, the graded reverse lexicographic order makes use of the
 [[.def-nq][reverse colexicographic order]].
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-nt>> *[[.exp-nt][Example nt]]*.
 1. \(y^2 \succeq_{\mathrm{grlex}} x\) since
    \(\lvert y^2 \rvert = 2 > \lvert x \rvert = 1\). Also,
@@ -213,9 +213,9 @@ Despite its name, the graded reverse lexicographic order makes use of the
 2. \(x \succeq_{\mathrm{grlex}} y \succeq_{\mathrm{grlex}} z\) since all have
    the same total degree and
    \(x \succeq_{\mathrm{rclex}} y \succeq_{\mathrm{rclex}} z\).
-#+END_ex
+#+END_exp
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-n1>> *[[.prp-n1][Proposition n1]]*. The [[.def-no][graded reverse lexicographic
 order]] \(\succeq_{\mathrm{grlex}}\) on \(\mathcal{M}\) is a
 [[.def-nj][monomial order]].
@@ -245,7 +245,7 @@ there is \(1 \le i \le n\) such that \(\alpha_i - \beta_i < 0\) with
 \(\alpha_j = \beta_j\) for \(i < j \le n\). As in the proof of
 [[.prp-np][Proposition np]], \((\alpha + \gamma) - (\beta + \gamma) = \alpha - \beta\),
 so \(x^{\alpha + \gamma} \succeq_{\mathrm{grlex}} x^{\beta + \gamma}\).
-#+END_pr
+#+END_prp
 
 #+BEGIN_def
 <<.def-nu>> *[[.def-nu][Definition nu]]*. Let

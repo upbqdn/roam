@@ -40,24 +40,32 @@ conventions.
 Custom block types and their label prefixes:
 - `#+BEGIN_def` — definitions, anchored as `<<.def-X>>`
 - `#+BEGIN_rem` — remarks, anchored as `<<.rem-X>>`
-- `#+BEGIN_ex` — examples, anchored as `<<.exp-X>>`
-- `#+BEGIN_pr` — propositions, anchored as `<<.prp-X>>`
+- `#+BEGIN_exp` — examples, anchored as `<<.exp-X>>`
+- `#+BEGIN_prp` — propositions, anchored as `<<.prp-X>>`
+- `#+BEGIN_thm` — theorems, anchored as `<<.thm-X>>`
+- `#+BEGIN_alg` — algorithms, anchored as `<<.alg-X>>`
+- `#+BEGIN_eqn` — equations, anchored as `<<.eqn-X>>`
+- `#+BEGIN_fig` — figures, anchored as `<<.fig-X>>`
+- `#+BEGIN_tab` — tables, anchored as `<<.tab-X>>`
+- `#+BEGIN_lst` — listings, anchored as `<<.lst-X>>`
+- `#+BEGIN_etu` — etumons, anchored as `<<.etu-X>>`
 
-Where `X` is a z-base-32 identifier. Blog posts may also use `.alg-X`
-(algorithms) and `.thm-X` anchors outside of custom blocks.
+Where `X` is a z-base-32 identifier.
 
 **Self-referencing pattern:** Each anchor is followed by a bold self-link, e.g.:
 ```
 <<.def-g>> *[[.def-g][Definition g]]*. A *ring* is ...
 ```
 
-**Tables and figures** use the same self-referencing pattern inside
-`#+begin_center`:
+**Tables and figures** use the same self-referencing pattern with
+`#+begin_center` nested inside the custom block:
 ```
+#+BEGIN_tab
 #+begin_center
 <<.tab-9>> *[[.tab-9][Table 9]]*. Caption text.
 #+end_center
 | ... |
+#+END_tab
 ```
 Do not use `#+caption:` — it triggers Hugo's auto-numbering which conflicts
 with the z-base-32 IDs.

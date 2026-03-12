@@ -3,7 +3,7 @@
 :END:
 #+title: Ring
 #+date: [2020-01-30 Thu]
-#+hugo_lastmod: [2026-02-17 Tue 21:06]
+#+hugo_lastmod: [2026-03-12 Thu 14:37]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -22,7 +22,7 @@ A ring is a *commutative ring* if it is a commutative [[file:group.org::.def-r][
 multiplication.
 #+END_def
 
-#+BEGIN_re
+#+BEGIN_rem
 <<.rem-e>> *[[.rem-e][Remark e]]*.
 1. The inverse under addition in a [[.def-g][ring]] is the *additive inverse*, and the
    inverse under multiplication is the *multiplicative inverse*.
@@ -32,16 +32,16 @@ multiplication.
 4. We can't think of division as multiplication by the multiplicative inverse
    since not every element has it's multiplicative inverse.
 6. Axiom 3. describes the left and right distributive laws.
-#+END_re
+#+END_rem
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-j>> *[[.exp-j][Example j]]*.
 1. The sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ are [[.def-g][rings]] with their standard
    addition and multiplication.
 2. The natural numbers do not form a [[.def-g][ring]] since not all elements have their
    additive inverse in this set.
 3. The set of integers modulo $n \in \mathbb{Z}$, denoted $\mathbb{Z}_n$, is a [[.def-g][ring]].
-#+END_ex
+#+END_exp
 
 Since we will not encounter any rings that are not commutative, we adopt the
 convention that by a [[.def-g][ring]], we will mean a commutative ring. The only

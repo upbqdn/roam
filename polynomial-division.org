@@ -3,7 +3,7 @@
 :END:
 #+title: Polynomial Division
 #+date: [2020-12-11 Fri]
-#+hugo_lastmod: [2020-06-10 Wed]
+#+hugo_lastmod: [2026-03-12 Thu 14:37]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -30,7 +30,7 @@ nonzero [[file:polynomial.org::.def-bh][polynomial]], \(F\) a subset of
    \(M(F) = \bigcup_{f \in F} M(f)\).
 #+END_def
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-ni>> *[[.exp-ni][Example ni]]*. Let
 \(f = xy^2z^3 + xy^3 \in \mathbb{F}[x, y, z]\) be a [[file:polynomial.org::.def-bh][polynomial]] under
 the [[file:monomial-orders.org::.def-nk][lexicographic order]]. Then
@@ -39,22 +39,23 @@ the [[file:monomial-orders.org::.def-nk][lexicographic order]]. Then
 \(\mathrm{LM}(f) = xy^3\),
 \(\mathrm{LT}(f) = xy^3\), and
 \(M(f) = \{xy^2z^3, xy^3\}\).
-#+END_ex
+#+END_exp
 
 Univariate division provides an introduction to multivariate division and is
 used in the construction of [[file:field.org::.rem-bz][finite fields]].
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-ns>> *[[.thm-ns][Theorem ns]]*. (/Univariate Division/.) Let
 \(g(x) \in \mathbb{F}[x]\) be a univariate [[file:polynomial.org::.def-bh][polynomial]]. Then every
 \(f(x) \in \mathbb{F}[x]\) can be written as
 \(f(x) = q(x) g(x) + r(x)\), where \(q(x), r(x) \in \mathbb{F}[x]\) are unique
 and either \(r(x) = 0\) or \(\deg(r(x)) < \deg(g(x))\) [cite:@iva].
-#+END_pr
+#+END_thm
 
 We can use the following algorithm for finding the [[file:polynomial.org::.def-bh][polynomials]] \(q\)
 and \(r\).
 
+#+BEGIN_alg
 #+begin_center
 <<.alg-d1>> *[[.alg-d1][Algorithm d1]]*. Univariate polynomial division.
 #+end_center
@@ -66,8 +67,9 @@ and \(r\).
    - \(q \gets q + \mathrm{LT}(r) / \mathrm{LT}(g)\).
    - \(r \gets r - (\mathrm{LT}(r) / \mathrm{LT}(g)) \cdot g\).
 3. *return* \(q, r\).
+#+END_alg
 
-#+BEGIN_ex
+#+BEGIN_exp
 <<.exp-du>> *[[.exp-du][Example du]]*. Let \(f(x) \in \mathbb{F}[x]\) be a
 univariate [[file:polynomial.org::.def-bh][polynomial]] of degree
 \(d = \deg(f(x))\) and \(\langle f(x) \rangle\) the [[file:ideal.org::.def-bs][ideal]]
@@ -79,9 +81,9 @@ However, we define multiplication by applying [[.thm-ns][Theorem ns]]: given
 two univariate polynomials \(g(x), h(x)\), there exist \(q(x), r(x)\) such that
 \(g(x) h(x) = q(x) f(x) + r(x)\), where \(\deg(r(x)) < \deg(f(x)) = d\). We
 take \(r(x)\) as the product of \(g(x)\) and \(h(x)\).
-#+END_ex
+#+END_exp
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-nz>> *[[.prp-nz][Proposition nz]]*. Let \(\mathbb{F}\) be a [[file:field.org::.rem-bz][finite field]]
 of order \(q = p^n\) and \(f(x) \in \mathbb{F}[x]\) a univariate
 [[file:polynomial.org::.def-bh][polynomial]] of degree \(d\). The elements of the [[file:ideal.org::.rem-bi][quotient ring]]
@@ -90,9 +92,9 @@ degree less than \(d\), with multiplication defined via the remainder on
 division by \(f(x)\). This quotient ring is a finite field of order
 \(q^d = p^{nd}\) if and only if \(f(x)\) is
 [[file:polynomial.org::.def-ny][irreducible]] over \(\mathbb{F}[x]\) [cite:@lidl].
-#+END_pr
+#+END_prp
 
-#+BEGIN_pr
+#+BEGIN_prp
 <<.prp-na>> *[[.prp-na][Proposition na]]*. Let
 \(f \in \mathbb{F}[\mathbf{x}]\) be [[file:polynomial.org::.def-ny][irreducible]] over the
 [[file:field.org::.def-8][field]] \(\mathbb{F}\). Then there exists an [[file:field.org::.def-b3][extension]] of
@@ -118,12 +120,12 @@ in \([x]\) with coefficients in \(\mathbb{F}\). We say that the [[file:field.org
 \(f(x) = b_0 + b_1 x + \cdots + b_n x^n\), then
 \(f([x]) = b_0 + b_1[x] + \cdots + b_n[x]^n = [f] = [0]\), so that \([x]\) is
 a root of \(f\).
-#+END_pr
+#+END_prp
 
 We use multivariate division in the description of algorithms for computing
 [[id:groebner-basis][Gröbner bases]].
 
-#+BEGIN_pr
+#+BEGIN_thm
 <<.thm-n3>> *[[.thm-n3][Theorem n3]]*. (/Multivariate Division/.) Let \(\succeq\) be a
 [[file:monomial-orders.org::.def-nj][monomial order]] on \(\mathcal{M}\) and let
 \(F = (f_1, \ldots, f_m)\) be an ordered \(m\)-tuple of [[file:polynomial.org::.def-bh][polynomials]] in
@@ -137,11 +139,12 @@ linear combination, with coefficients in \(\mathbb{F}\), of
 \(f\) on division by \(F\) and denote it \(\overline{f}^F\). Furthermore, if
 \(q_i f_i \neq 0\), then
 \(\mathrm{LM}(f) \succeq \mathrm{LM}(q_i f_i)\) [cite:@iva].
-#+END_pr
+#+END_thm
 
 We can use the following algorithm for finding the [[file:polynomial.org::.def-bh][polynomials]]
 \(q_i\) and \(r\).
 
+#+BEGIN_alg
 #+begin_center
 <<.alg-dw>> *[[.alg-dw][Algorithm dw]]*. Multivariate polynomial division.
 #+end_center
@@ -160,5 +163,6 @@ We can use the following algorithm for finding the [[file:polynomial.org::.def-b
    - *if* \(\mathit{divisionoccured} = \mathit{False}\):
      - \(r \gets r + \mathrm{LT}(p)\), \(p \gets p - \mathrm{LT}(p)\).
 3. *return* \(q_1, \ldots, q_m, r\).
+#+END_alg
 
 #+print_bibliography:

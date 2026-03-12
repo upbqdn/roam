@@ -3,7 +3,7 @@
 :END:
 #+title: AES
 #+date: [2020-09-30 Wed]
-#+hugo_lastmod: [2026-02-17 Tue]
+#+hugo_lastmod: [2026-03-12 Thu 14:20]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -39,10 +39,12 @@ The input and output of the cipher are one-dimensional arrays of 16 bytes. The
 cipher operates on a two-dimensional \(4 \times 4\) array of 16 bytes called the
 *state*.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-r6>> *[[.fig-r6][Figure r6]]*. The state array of \(\mathrm{SR}(n, 4, 4, e)\).
 #+end_center
 [[file:/data/aes/state-array.svg]]
+#+END_fig
 
 #+BEGIN_rem
 <<.rem-d5>> *[[.rem-d5][Remark d5]]*. Bytes in the state can be considered as
@@ -86,6 +88,7 @@ A prime on a variable (e.g. \(c'\)) denotes the updated value. Each byte in the
 state has two indices: the row index \(0 \le r < 4\) and the column index
 \(0 \le c < 4\), so that a specific byte is denoted \(s_{r,c}\).
 
+#+BEGIN_alg
 #+begin_center
 <<.alg-d7>> *[[.alg-d7][Algorithm d7]]*. AES [cite:@fips].
 #+end_center
@@ -101,6 +104,7 @@ state has two indices: the row index \(0 \le r < 4\) and the column index
 5. \(\mathit{state} \gets \mathrm{ShiftRows}(\mathrm{SubBytes}(\mathit{state}))\).
 6. \(\mathit{state} \gets \mathrm{AddRoundKey}(\mathit{state}, \mathit{expKey}[40:43])\).
 7. *return* \(\mathit{state}\).
+#+END_alg
 
 ** SubBytes
 
@@ -118,17 +122,21 @@ following two transformations:
 
 The affine transformation can also be expressed in matrix notation:
 
-<<.eq-d9>>
+#+BEGIN_eqn
+<<.eqn-d9>>
 \[\begin{pmatrix} b_0' \\ b_1' \\ b_2' \\ b_3' \\ b_4' \\ b_5' \\ b_6' \\ b_7' \end{pmatrix} = \begin{pmatrix} 1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 1 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\ 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 \\ 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 \\ 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} b_0 \\ b_1 \\ b_2 \\ b_3 \\ b_4 \\ b_5 \\ b_6 \\ b_7 \end{pmatrix} + \begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 1 \\ 0 \end{pmatrix}. \tag{d9}\]
+#+END_eqn
 
 The S-box is the only non-linear transformation in AES. It can be implemented as
 a look-up table containing the substitution values for each byte in
 \(\mathrm{GF}(2^8)\).
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rb>> *[[.fig-rb][Figure rb]]*. The SubBytes operation [cite:@fips].
 #+end_center
 [[file:/data/aes/sbox.png]]
+#+END_fig
 
 ** ShiftRows
 
@@ -139,23 +147,29 @@ Each row \(i\) of the state is cyclically rotated to the left by \(i\) bytes,
 where \(0 \le i < 4\), so the first row remains unchanged and the fourth row is
 rotated by three bytes.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rn>> *[[.fig-rn][Figure rn]]*. The ShiftRows operation [cite:@fips].
 #+end_center
 [[file:/data/aes/shiftrows.png]]
+#+END_fig
 
 The ShiftRows operation is a linear transformation. A cyclic rotation by one
 position of a vector of length four can be represented by the matrix
 
-<<.eq-rd>>
+#+BEGIN_eqn
+<<.eqn-rd>>
 \[R_4 = \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \end{pmatrix}. \tag{rd}\]
+#+END_eqn
 
 Rotations by more positions can be obtained by taking higher powers of \(R_4\).
 If \(r_i\) represents the \(i\)-th row of the state, the ShiftRows operation is
 given by
 
-<<.eq-rr>>
+#+BEGIN_eqn
+<<.eqn-rr>>
 \[\begin{pmatrix} r_0' \\ r_1' \\ r_2' \\ r_3' \end{pmatrix} = \begin{pmatrix} I & 0 & 0 & 0 \\ 0 & R_4 & 0 & 0 \\ 0 & 0 & R_4^2 & 0 \\ 0 & 0 & 0 & R_4^3 \end{pmatrix} \begin{pmatrix} r_0 \\ r_1 \\ r_2 \\ r_3 \end{pmatrix}. \tag{rr}\]
+#+END_eqn
 
 ** MixColumns
 
@@ -183,10 +197,12 @@ multiplicative inverse, namely
 \[a^{-1}(x) = 0\mathrm{B}_{16} \, x^3 + 0\mathrm{D}_{16} \, x^2 + 09_{16} \, x + 0\mathrm{E}_{16},\]
 so the MixColumns operation remains invertible.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rf>> *[[.fig-rf][Figure rf]]*. The MixColumns operation [cite:@fips].
 #+end_center
 [[file:/data/aes/mixcolumns.png]]
+#+END_fig
 
 #+BEGIN_rem
 <<.rem-rg>> *[[.rem-rg][Remark rg]]*. Let
@@ -208,12 +224,12 @@ Then divide \(d(x)\) by \(m(x)\) to obtain the quotient \(q(x)\) and remainder
 where \(q(x) = d_6 x^2 + d_5 x + d_4\) and
 \(r(x) = r_3 x^3 + r_2 x^2 + r_1 x + r_0\) with
 
-<<.eq-r8>>
+<<.eqn-r8>>
 \[\begin{aligned} r_0 &= b_0 c_0 \oplus b_3 c_1 \oplus b_2 c_2 \oplus b_1 c_3, \\ r_1 &= b_1 c_0 \oplus b_0 c_1 \oplus b_3 c_2 \oplus b_2 c_3, \\ r_2 &= b_2 c_0 \oplus b_1 c_1 \oplus b_0 c_2 \oplus b_3 c_3, \\ r_3 &= b_3 c_0 \oplus b_2 c_1 \oplus b_1 c_2 \oplus b_0 c_3. \end{aligned} \tag{r8}\]
 
 The coefficients \(r_i\) can be expressed in matrix notation:
 
-<<.eq-re>>
+<<.eqn-re>>
 \[\begin{pmatrix} r_0 \\ r_1 \\ r_2 \\ r_3 \end{pmatrix} = \begin{pmatrix} b_0 & b_3 & b_2 & b_1 \\ b_1 & b_0 & b_3 & b_2 \\ b_2 & b_1 & b_0 & b_3 \\ b_3 & b_2 & b_1 & b_0 \end{pmatrix} \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ c_3 \end{pmatrix}. \tag{re}\]
 
 We take the remainder \(r(x)\) as the result, so
@@ -229,8 +245,10 @@ transformation as well. As shown in [[.rem-dh][Remark dh]], the coefficients
 \(x\), and \(1\), respectively. Associating \(a(x)\) with \(b(x)\) from the
 remark, we get
 
-<<.eq-rj>>
+#+BEGIN_eqn
+<<.eqn-rj>>
 \[\begin{pmatrix} s_{0,c}' \\ s_{1,c}' \\ s_{2,c}' \\ s_{3,c}' \end{pmatrix} = \begin{pmatrix} x & x+1 & 1 & 1 \\ 1 & x & x+1 & 1 \\ 1 & 1 & x & x+1 \\ x+1 & 1 & 1 & x \end{pmatrix} \begin{pmatrix} s_{0,c} \\ s_{1,c} \\ s_{2,c} \\ s_{3,c} \end{pmatrix} \tag{rj}\]
+#+END_eqn
 for \(0 \le c < 4\). This expression fully describes the MixColumns operation.
 
 * Key Schedule
@@ -239,8 +257,10 @@ The AddRoundKey transformation takes in four words (16 bytes) of the expanded
 key and adds them to the state. Each word (4 bytes) is added to a column of the
 state:
 
-<<.eq-rk>>
+#+BEGIN_eqn
+<<.eqn-rk>>
 \[(s'_{0,c}, s'_{1,c}, s'_{2,c}, s'_{3,c})^T = (s_{0,c}, s_{1,c}, s_{2,c}, s_{3,c})^T \oplus (\mathit{expKey}_{4 \cdot \mathit{round} + c})^T \tag{rk}\]
+#+END_eqn
 for \(0 \le c < 4\). The value of \(\mathit{round}\) is 0 during the initial
 addition and 10 during the last addition.
 
@@ -258,6 +278,7 @@ by \((02_{16}^{j-1}, 00_{16}, 00_{16}, 00_{16})^T\), where the only effective
 part is the first byte \(02_{16}^{j-1} \in \mathrm{GF}(2^8)\) (i.e.,
 \(x^{j-1} \in \mathrm{GF}(2^8)\)).
 
+#+BEGIN_alg
 #+begin_center
 <<.alg-ry>> *[[.alg-ry][Algorithm ry]]*. Key Schedule for AES [cite:@fips].
 #+end_center
@@ -272,16 +293,19 @@ part is the first byte \(02_{16}^{j-1} \in \mathrm{GF}(2^8)\) (i.e.,
      - \(\mathit{tmp} \gets \mathrm{SubWord}(\mathrm{RotWord}(\mathit{tmp})) \oplus \mathit{Rcon}[i/4]\).
    - \(\mathit{expKey}[i] \gets \mathit{expKey}[i-4] \oplus \mathit{tmp}\).
 3. *return* \(\mathit{expKey}\).
+#+END_alg
 
 [[.fig-rm][Figure rm]] depicts four iterations of the loop in step 2 of
 [[.alg-ry][Algorithm ry]]. Each vertical line represents a four-byte word in the
 \(\mathit{expKey}\) array. The box containing the transformation \(F_i\)
 corresponds to the conditional in step 2 of [[.alg-ry][Algorithm ry]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rm>> *[[.fig-rm][Figure rm]]*. Key schedule schematic [cite:@cid05].
 #+end_center
 [[file:/data/aes/keyschedule.png]]
+#+END_fig
 
 * Small Scale Variants
 
@@ -328,20 +352,24 @@ it is a composition of the following two transformations:
    \(0_{16}\) is mapped to itself.
 2. Apply the following affine transformation over \(\mathrm{GF}(2^4)\):
 
-<<.eq-rc>>
+#+BEGIN_eqn
+<<.eqn-rc>>
 \[\begin{pmatrix} b_0' \\ b_1' \\ b_2' \\ b_3' \end{pmatrix} = \begin{pmatrix} 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 1 \\ 1 & 1 & 1 & 0 \\ 0 & 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} b_0 \\ b_1 \\ b_2 \\ b_3 \end{pmatrix} + \begin{pmatrix} 0 \\ 1 \\ 1 \\ 0 \end{pmatrix}. \tag{rc}\]
+#+END_eqn
 
 ** Scaled ShiftRows
 
 The ShiftRows operation cyclically rotates row \(i\) of the state by \(i\)
 positions, \(0 \le i < r - 1\). When \(r = 4\), we use the matrix \(R_4\) from
-[[.eq-rd][equation rd]]. When \(r = 2\), the rotation matrix becomes
+[[.eqn-rd][equation rd]]. When \(r = 2\), the rotation matrix becomes
 \[R_2 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.\]
-When \(c = 4\), we use the matrix from [[.eq-rr][equation rr]], substituting \(R_2\) for
+When \(c = 4\), we use the matrix from [[.eqn-rr][equation rr]], substituting \(R_2\) for
 \(R_4\) when \(r = 2\). When \(c = 2\), the expression becomes
 
-<<.eq-rp>>
+#+BEGIN_eqn
+<<.eqn-rp>>
 \[\begin{pmatrix} r_0' \\ r_1' \end{pmatrix} = \begin{pmatrix} I & 0 \\ 0 & R \end{pmatrix} \begin{pmatrix} r_0 \\ r_1 \end{pmatrix} \tag{rp}\]
+#+END_eqn
 where \(R\) is either \(R_4\) or \(R_2\) and \(I\) is the identity matrix of
 corresponding size. When \(r = 1\) or \(c = 1\), the operation has no effect
 since either \(R_2\) becomes \((1)\) or the matrix becomes \(I\).
@@ -351,9 +379,11 @@ since either \(R_2\) becomes \((1)\) or the matrix becomes \(I\).
 The MixColumns operation is identical to AES-128 when \(r = 4\). When \(r = 2\),
 it is defined by the following linear transformation:
 
-<<.eq-rq>>
+#+BEGIN_eqn
+<<.eqn-rq>>
 \[\begin{pmatrix} s_{0,j}' \\ s_{1,j}' \end{pmatrix} = \begin{pmatrix} x+1 & x \\ x & x+1 \end{pmatrix} \begin{pmatrix} s_{0,j} \\ s_{1,j} \end{pmatrix} \tag{rq}\]
-for \(0 \le j < 2\), similarly to [[.eq-rj][equation rj]] for
+#+END_eqn
+for \(0 \le j < 2\), similarly to [[.eqn-rj][equation rj]] for
 AES-128. When \(r = 1\), the operation has no effect.
 
 ** Scaled Key Schedule
@@ -362,16 +392,18 @@ When \(c = 4\), the cipher uses the same key schedule as AES-128. For \(c = 2\)
 and \(c = 1\), the structure is naturally reduced. Similarly to AES-128,
 AddRoundKey takes in \(c\) words of length \(r\), where each word contains
 elements of \(\mathrm{GF}(2^e)\). These elements are added to the state as in
-[[.eq-rk][equation rk]]. The RotWord and SubWord operations take
+[[.eqn-rk][equation rk]]. The RotWord and SubWord operations take
 \(r\)-tuples of elements of \(\mathrm{GF}(2^e)\). The round constant array
 contains \(r\)-tuples in which the only non-zero element is the first one, namely
 \(x^{j-1} \in \mathrm{GF}(2^e)\) where \(j\) is the round number. The initial
 key has \(rce\) bits and is added to the plaintext before starting the encryption
 and generating the subsequent sub-keys.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rx>> *[[.fig-rx][Figure rx]]*. Scaled-down key schedule [cite:@cid05].
 #+end_center
 [[file:/data/aes/1_2_keyschedule.png]]
+#+END_fig
 
 #+print_bibliography:

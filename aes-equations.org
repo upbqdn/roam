@@ -3,7 +3,7 @@
 :END:
 #+title: AES as a System of Equations
 #+date: [2020-10-21 Wed]
-#+hugo_lastmod: [2026-02-17 Tue]
+#+hugo_lastmod: [2026-03-12 Thu 14:20]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -64,8 +64,10 @@ We regard both \(b = \sum_{i=0}^{3} b_i x^i\) and
 [[file:polynomial.org::.def-ny][irreducible]] polynomial
 \(m(x) = x^4 + x + 1\) is \(r(x) = r_3 x^3 + r_2 x^2 + r_1 x + r_0\) where
 
-<<.eq-ro>>
+#+BEGIN_eqn
+<<.eqn-ro>>
 \[\begin{aligned} r_0 &= b_0 c_0 \oplus b_3 c_1 \oplus b_2 c_2 \oplus b_1 c_3, \\ r_1 &= b_1 c_0 \oplus b_0 c_1 \oplus b_3 c_2 \oplus b_2 c_3 \oplus b_3 c_1 \oplus b_2 c_2 \oplus b_1 c_3, \\ r_2 &= b_2 c_0 \oplus b_1 c_1 \oplus b_0 c_2 \oplus b_3 c_3 \oplus b_3 c_2 \oplus b_2 c_3, \\ r_3 &= b_3 c_0 \oplus b_2 c_1 \oplus b_1 c_2 \oplus b_0 c_3 \oplus b_3 c_3. \end{aligned} \tag{ro}\]
+#+END_eqn
 
 Note that unlike in [[file:aes.org::.rem-rg][Remark rg]], the coefficients
 \(b_i\) and \(c_i\) here are elements of \(\mathrm{GF}(2)\), not
@@ -90,7 +92,7 @@ already-computed \(bc\) by \(c\) --- which would introduce unnecessary
 intermediate cubic terms --- we can compute the square of \(c\) and pre-multiply
 it by \(b\). Since we work over a [[file:ring.org::.def-g][commutative]] structure, the order
 of multiplication is irrelevant. To compute \(c^2\), we use
-[[.eq-ro][equation ro]] and substitute \(c\) for \(b\). We obtain the
+[[.eqn-ro][equation ro]] and substitute \(c\) for \(b\). We obtain the
 polynomial \(d = c^2\) where \(d(x) = d_3 x^3 + d_2 x^2 + d_1 x + d_0\) with
 \[\begin{aligned} d_0 &= c_0 \oplus c_2, \\ d_1 &= c_2, \\ d_2 &= c_1 \oplus c_3, \\ d_3 &= c_3. \end{aligned}\]
 We can now obtain the final result \(t = bd + c\) where
@@ -136,11 +138,11 @@ account for the only non-linear equations in the whole system that models the
 equations.
 
 The affine transformation of the S-box can be expressed directly by
-[[file:aes.org::.eq-rc][equation rc]] where the input is the
+[[file:aes.org::.eqn-rc][equation rc]] where the input is the
 polynomial \(c(x)\) from the previous section. This gives four linear equations
 in the \(c_i\) variables. These equations together with the non-linear equations
 from the previous section fully describe a single S-box. Let \(L_s\) denote the
-matrix from [[file:aes.org::.eq-rc][equation rc]]. In order to describe the
+matrix from [[file:aes.org::.eqn-rc][equation rc]]. In order to describe the
 whole SubBytes operation, we extend the matrix \(L_s\) to the whole state array
 of \(\mathrm{SR}(n, 2, 2, 4)\):
 \[L = \begin{pmatrix} L_s & 0 & 0 & 0 \\ 0 & L_s & 0 & 0 \\ 0 & 0 & L_s & 0 \\ 0 & 0 & 0 & L_s \end{pmatrix}.\]
@@ -152,34 +154,40 @@ inverted elements in \(\mathrm{GF}(2^4)\). Each component in these vectors
 consists of the four coefficients of the polynomials \(b(x)\) and \(c(x)\),
 respectively, so we have 12 non-linear equations for each component.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-rt>> *[[.fig-rt][Figure rt]]*. The state array of the \(\mathrm{SR}(n, 2, 2, e)\) cipher [cite:@cid05].
 #+end_center
 [[file:/data/aes/small_state.png]]
+#+END_fig
 
 The actual state array is depicted in [[.fig-rt][Figure rt]]. We represent it as
 the vector \((s_0, s_1, s_2, s_3)^T\). The ShiftRows operation can then be
 described by the matrix
 \[R = \begin{pmatrix} I_4 & 0 & 0 & 0 \\ 0 & 0 & 0 & I_4 \\ 0 & 0 & I_4 & 0 \\ 0 & I_4 & 0 & 0 \end{pmatrix}\]
 where \(I_4\) is the identity matrix of size four. Before describing the
-MixColumns operation, let us rewrite [[.eq-ro][equation ro]] into matrix
+MixColumns operation, let us rewrite [[.eqn-ro][equation ro]] into matrix
 form:
 
-<<.eq-r1>>
+#+BEGIN_eqn
+<<.eqn-r1>>
 \[\begin{pmatrix} r_0 \\ r_1 \\ r_2 \\ r_3 \end{pmatrix} = \begin{pmatrix} b_0 & b_3 & b_2 & b_1 \\ b_1 & b_0 \oplus b_3 & b_3 \oplus b_2 & b_2 \oplus b_1 \\ b_2 & b_1 & b_0 \oplus b_3 & b_3 \oplus b_2 \\ b_3 & b_2 & b_1 & b_0 \oplus b_3 \end{pmatrix} \begin{pmatrix} c_0 \\ c_1 \\ c_2 \\ c_3 \end{pmatrix}. \tag{r1}\]
+#+END_eqn
 
 If we substitute the binary values of the coefficients of the polynomials
-\(x + 1\) and \(x\) into [[.eq-r1][equation r1]], we get
+\(x + 1\) and \(x\) into [[.eqn-r1][equation r1]], we get
 \[M_{x+1} = \begin{pmatrix} 1 & 0 & 0 & 1 \\ 1 & 1 & 0 & 1 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 1 & 1 \end{pmatrix} \qquad \text{and} \qquad M_x = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{pmatrix}.\]
 These matrices represent the multiplication by the polynomials \(x + 1\) and
 \(x\) modulo \(x^4 + x + 1\). The MixColumns operation, defined by
-[[file:aes.org::.eq-rq][equation rq]], can then be expressed
+[[file:aes.org::.eqn-rq][equation rq]], can then be expressed
 by the matrix
 \[M = \begin{pmatrix} M_{x+1} & M_x & 0 & 0 \\ M_x & M_{x+1} & 0 & 0 \\ 0 & 0 & M_{x+1} & M_x \\ 0 & 0 & M_x & M_{x+1} \end{pmatrix}.\]
 We can now describe one round of \(\mathrm{SR}(n, 2, 2, 4)\) by the expression
 
-<<.eq-ru>>
+#+BEGIN_eqn
+<<.eqn-ru>>
 \[\mathbf{b_i} = MR(L \mathbf{b_{i-1}^{-1}} + \mathbf{6}) + \mathbf{k_i} \quad \text{for} \quad 1 \le i \le n \tag{ru}\]
+#+END_eqn
 where \(\mathbf{k_i}\) is a vector containing 16 binary variables of the round
 key described in the following section and \(i\) is the round number. The vector
 \(\mathbf{b_{i-1}^{-1}}\) contains four components --- the outputs from the
@@ -225,7 +233,7 @@ substitution of the initial key variables since we know that the cipher starts b
 adding the initial key to the known plaintext. It is straightforward to perform
 this substitution for the linear equations. For the non-linear equations
 modeling the S-box, we can leverage [[file:groebner-basis.org::.def-nh][Gröbner bases]].
-Consider the four polynomials \(r_0, \ldots, r_3\) from [[.eq-ro][equation ro]] as
+Consider the four polynomials \(r_0, \ldots, r_3\) from [[.eqn-ro][equation ro]] as
 polynomials in
 \(\mathbb{F}[c_0, \ldots, c_3, b_0, \ldots, b_3]\). It is not straightforward
 to express the output bits \(c_i\) in terms of the input bits \(b_i\) by
@@ -239,8 +247,10 @@ ordinary manipulation techniques. If we impose a
 [[file:groebner-basis.org::.def-n6][reduced Gröbner basis]], we get the following
 polynomial system:
 
-<<.eq-rw>>
+#+BEGIN_eqn
+<<.eqn-rw>>
 \[\begin{aligned} f_1 &= c_0 \oplus b_2 b_1 b_0 \oplus b_3 b_2 b_1 \oplus b_2 b_0 \oplus b_2 b_1 \oplus b_0 \oplus b_1 \oplus b_2 \oplus b_3, \\ f_2 &= c_1 \oplus b_3 b_1 b_0 \oplus b_1 b_0 \oplus b_2 b_0 \oplus b_2 b_1 \oplus b_3 b_1 \oplus b_3, \\ f_3 &= c_2 \oplus b_3 b_2 b_0 \oplus b_1 b_0 \oplus b_2 b_0 \oplus b_3 b_0 \oplus b_2 \oplus b_3, \\ f_4 &= c_3 \oplus b_3 b_2 b_1 \oplus b_3 b_0 \oplus b_3 b_1 \oplus b_3 b_2 \oplus b_1 \oplus b_2 \oplus b_3, \\ f_5 &= b_3 b_2 b_1 b_0 \oplus b_2 b_1 b_0 \oplus b_3 b_1 b_0 \oplus b_3 b_2 b_0 \oplus b_3 b_2 b_1 \oplus b_1 b_0 \oplus b_2 b_0 \\ &\quad \oplus b_2 b_1 \oplus b_3 b_0 \oplus b_3 b_1 \oplus b_3 b_2 \oplus b_0 \oplus b_1 \oplus b_2 \oplus b_3 \oplus 1. \end{aligned} \tag{rw}\]
+#+END_eqn
 
 The last polynomial \(f_5\) involves only the variables \(b_i\). This polynomial
 is not satisfied only when all \(b_i = 0\) and it holds whenever at least one

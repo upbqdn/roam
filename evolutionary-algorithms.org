@@ -3,7 +3,7 @@
 :END:
 #+title: Evolutionary Algorithms
 #+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-02-17 Tue 21:01]
+#+hugo_lastmod: [2026-03-12 Thu 14:28]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -87,13 +87,17 @@ Biology uses this approach to create well-adapted beings and humans can use this
 method to find optimal solutions to problems that are difficult to solve
 analytically.
 
+#+BEGIN_alg
+#+begin_center
 <<.alg-z>> *[[.alg-z][Algorithm z]]*. Evolutionary algorithm [cite:@natural-computing-algorithms].
+#+end_center
 1. Create a /population/ P of randomly selected candidate solutions.
 2. Repeat:
    a. /(Selection)/ Select the appropriate individuals (parents) for breeding from P.
    b. /(Mutation)/ Generate new individuals (offspring) from the parents.
    c. /(Reproduction)/ Replace some or all individuals in P with the new individuals.
 3. Until terminating condition.
+#+END_alg
 
 ** Evolution Strategies
 
@@ -125,7 +129,10 @@ combined, for example:
 The last two approaches are suitable when the algorithm gets stuck in a local
 optimum and doesn't leave it after a significant amount of time.
 
+#+BEGIN_alg
+#+begin_center
 <<.alg-q>> *[[.alg-q][Algorithm q]]*. Non-self-adaptive \((\mu + \lambda)\)-ES [cite:@natural-computing-algorithms].
+#+end_center
 1. Randomly create an initial population \(\{\vec{x}^1, \ldots, \vec{x}^\mu\}\) of parent vectors, where each vector \(\vec{x}^i\) is of the form \(\vec{x}^i = (x^i_1, \ldots, x^i_n)\), \(i = 1, \ldots, \mu\).
 2. Evaluate the fitness function of each chromosome.
 3. Repeat:
@@ -136,6 +143,7 @@ optimum and doesn't leave it after a significant amount of time.
    c. Rank the \(\mu + \lambda\) chromosomes (children and parents) from best to worst.
    d. Select the best \(\mu\) of these chromosomes to continue into the next generation.
 4. Until terminating condition.
+#+END_alg
 
 ** Selection
 
@@ -260,11 +268,13 @@ most commonly used examples of analog amplifiers in class A. The circuit diagram
 is shown in [[.fig-x][Figure x]]. A thorough description of this circuit can be
 found in [cite:@the-art-of-electronics].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-x>>
 [[file:/data/evolutionary-algorithms/ce-amplifier.svg]]
 *[[.fig-x][Figure x]]*. Circuit diagram for the common emitter amplifier.
 #+end_center
+#+END_fig
 
 Resistors \(R_1\) and \(R_2\) are used to bias transistor \(Q_1\) in order to
 set the quiescent point of the transistor to the middle of its DC load line so
@@ -334,11 +344,13 @@ of the optimization are all the resistors and capacitors in the diagram apart
 from resistor \(R_{load}\), so we have 14 components to optimize which makes the
 search space 14-dimensional.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-a>>
 [[file:/data/evolutionary-algorithms/ce-amplifier-2stage.svg]]
 *[[.fig-a][Figure a]]*. Circuit diagram for the two stage common emitter amplifier.
 #+end_center
+#+END_fig
 
 ** ngSPICE
 
@@ -364,6 +376,7 @@ circuit for 1.22 ms with the sampling period of 20 \(\mu\)s which provides the
 time course of the amplifier's output signal. Later on, we use this data to
 evaluate the amplifier's quality.
 
+#+BEGIN_lst
 #+begin_center
 <<.lst-9>> *[[.lst-9][Listing 9]]*. Description of the common emitter amplifier using the SPICE syntax.
 #+end_center
@@ -388,6 +401,7 @@ Q1 1 3 2 bc547c
 .TRAN 20u 1.22m
 .end
 #+end_src
+#+END_lst
 
 In [[.fig-o][Figure o]] we can see the simulation output of the circuit from
 [[.lst-9][Listing 9]], which is the same circuit as in [[.fig-x][Figure x]]. This
@@ -396,11 +410,13 @@ simulation results. The measurement results of the real circuit proved that the
 simulator works correctly for this circuit as the measured values corresponded to
 the simulation.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-o>>
 [[file:/data/evolutionary-algorithms/ce-amplifier-sim.svg]]
 *[[.fig-o][Figure o]]*. Simulation of the single stage common emitter amplifier.
 #+end_center
+#+END_fig
 
 The last version of ngSPICE offers a C API, which makes the simulator the ideal
 choice for utilizing it with the evolutionary algorithms. Every chromosome
@@ -489,11 +505,13 @@ is assessed as the better one.
 We can see the result of the evolution using this fitness function in
 [[.fig-3][Figure 3]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-3>>
 [[file:/data/evolutionary-algorithms/best-match.svg]]
 *[[.fig-3][Figure 3]]*. The result of evolution towards the analytical solution.
 #+end_center
+#+END_fig
 
 ** Ideal Sine Wave
 
@@ -531,11 +549,13 @@ multiplicative inverse of their difference:
 All of the fitness functions discussed above have difficulties in finding
 symmetrical waveforms. An example is shown in [[.fig-t][Figure t]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-t>>
 [[file:/data/evolutionary-algorithms/asymmetrical.svg]]
 *[[.fig-t][Figure t]]*. An asymmetrical result of the evolution using the ideal sine wave evaluation.
 #+end_center
+#+END_fig
 
 The problem is that at the start, the output signal has zero power and as the
 evolution continues, only one half of the signal rises and the fitness function
@@ -553,11 +573,13 @@ with different fitness. However, it emerged that this approach is too restrictiv
 as it promotes only signals that are perfectly symmetrical but often distorted.
 The result is shown in [[.fig-4][Figure 4]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-4>>
 [[file:/data/evolutionary-algorithms/symmetrical-ideal-sine.svg]]
 *[[.fig-4][Figure 4]]*. A distorted result using the ideal sine wave evaluation with perfect symmetry.
 #+end_center
+#+END_fig
 
 The ability of the evolution to find the desired solution was also decreased
 because some asymmetrical candidate solutions headed towards a good solution. These
@@ -716,6 +738,7 @@ time. For this reason, the values of \(\mu\) and \(\lambda\) were set to
 demands and the optimization efficiency. Higher values were also examined but they
 did not provide any significant improvements.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-5>> *[[.tab-5][Table 5]]*. Results of experiments. Cells contain the average fitness of 10 evolution runs.
 #+end_center
@@ -745,10 +768,12 @@ did not provide any significant improvements.
 </tbody>
 </table>
 #+end_export
+#+END_tab
 
 All the evolution parameters discussed above are summarized in
 [[.tab-1][Table 1]]. These parameters were chosen as the most appropriate ones.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-1>> *[[.tab-1][Table 1]]*. Optimal evolution parameters.
 #+end_center
@@ -763,6 +788,7 @@ All the evolution parameters discussed above are summarized in
 | Selection type              | \((\mu + \lambda)\)-ES           |
 | \(\tau\)                       | \(1 / \sqrt{n}\)         |
 | \(\tau'\)                      | \(1 / \sqrt{2\sqrt{n}}\) |
+#+END_tab
 
 ** The Typical Course of the Evolution
 
@@ -802,19 +828,23 @@ method, we can consider those solutions whose fitness is under 0.5 as sufficient
 because the amplifier's output waveform is very close to the desired one. The
 resulting value of the fitness of the best chromosome was 0.19.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-s>>
 [[file:/data/evolutionary-algorithms/fitness.svg]]
 *[[.fig-s][Figure s]]*. The typical course of the evolution.
 #+end_center
+#+END_fig
 
 [[.fig-u][Figure u]] shows how the output waveform evolves across generations.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-u>>
 [[file:/data/evolutionary-algorithms/evolution.gif]]
 *[[.fig-u][Figure u]]*. Evolution of the output waveform across generations.
 #+end_center
+#+END_fig
 
 ** Single Stage Amplifier Optimization
 
@@ -829,6 +859,7 @@ amplifier. Five examples are shown in [[.tab-h][Table h]]. The simulation output
 of the amplifier with these values of components was visually identical to the
 analytical solution.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-h>> *[[.tab-h][Table h]]*. Values of components that provide visually identical outputs with the analytical solution.
 #+end_center
@@ -839,6 +870,7 @@ analytical solution.
 |              141 |             11.5 |             180 |             483 |             21.1 |       285000 |           21 |        280000 |
 |             82.3 |             44.3 |            8590 |             400 |               16 |          499 |          202 |            95 |
 |              118 |             41.2 |           11500 |             559 |             35.4 |          419 |           95 |            19 |
+#+END_tab
 
 The maximal amplitude method can be used for finding the best amplification
 capabilities of the circuit as it does not take into consideration the shape of
@@ -854,18 +886,22 @@ analytically solved amplifier is approximately 18). The gain also depends on the
 voltage \(V_1\) that supplies the amplifier, which is set to \(V_1 = 12\) V in
 the experiments.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-w>>
 [[file:/data/evolutionary-algorithms/best-solution.svg]]
 *[[.fig-w][Figure w]]*. The best solution for the single stage amplifier found by the evolution.
 #+end_center
+#+END_fig
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-i>> *[[.tab-i][Table i]]*. The best solution for the single stage amplifier found by the evolution.
 #+end_center
 | \(R_1\) [k\(\Omega\)] | \(R_2\) [k\(\Omega\)] | \(R_e\) [\(\Omega\)] | \(R_g\) [\(\Omega\)] | \(R_c\) [k\(\Omega\)] | \(C_e\) [\(\mu\)F] | \(C_{in}\) [\(\mu\)F] | \(C_{out}\) [nF] |
 |------------------+------------------+-----------------+-----------------+------------------+------------------+------------------+---------------|
 |              168 |             15.1 |             169 |              49 |             4.21 |               16 |              274 |            86 |
+#+END_tab
 
 The ideal sine evaluation method also provides a universal tool for finding the
 appropriate values of components which produce an arbitrary amplification of the
@@ -882,11 +918,13 @@ better amplification properties than the previous single stage amplifier.
 The same set of experiments was carried out as for the previous amplifier and one
 of the best solutions is shown in [[.fig-7][Figure 7]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-7>>
 [[file:/data/evolutionary-algorithms/two-stage.svg]]
 *[[.fig-7][Figure 7]]*. The best solution for the two stage amplifier found by the evolution.
 #+end_center
+#+END_fig
 
 We can see that the resulting gain is approximately 50 (the amplitude of the
 input voltage is \(V_{in} = 100\) mV, the amplitude of the output voltage is
@@ -895,6 +933,7 @@ is significantly distorted --- the circuit generates a square wave. The
 experiments did not provide any solution that would generate a sine wave. The
 component values for this solution are stated in [[.tab-6][Table 6]].
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-6>> *[[.tab-6][Table 6]]*. The best solution for the two stage amplifier found by the evolution.
 #+end_center
@@ -907,6 +946,7 @@ Second stage:
 | \(R_{gb}\) [\(\Omega\)] | \(R_{eb}\) [\(\Omega\)] | \(R_{cb}\) [k\(\Omega\)] | \(R_{2b}\) [k\(\Omega\)] | \(R_{1b}\) [k\(\Omega\)] | \(C_m\) [\(\mu\)F] | \(C_{e2}\) [\(\mu\)F] |
 |-----------------+-----------------+------------------+------------------+------------------+------------------+------------------|
 |              22 |             298 |             3.37 |             9.24 |             80.5 |              351 |              139 |
+#+END_tab
 
 * Epilogue
 

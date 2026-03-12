@@ -3,7 +3,7 @@
 :END:
 #+title: Treaps
 #+date: [2018-05-13 Sun]
-#+hugo_lastmod: [2026-02-15 Sun 19:40]
+#+hugo_lastmod: [2026-03-12 Thu 14:25]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -27,6 +27,7 @@ operations have logarithmic time complexity with high probability as well.
 [[.tab-by][Table by]] summarizes the time complexity of the operations. The
 space complexity of a treap is \(O(n)\).
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-by>> *[[.tab-by][Table by]]*. Time complexity of standard operations on treaps.
 #+end_center
@@ -37,6 +38,7 @@ space complexity of a treap is \(O(n)\).
 | Delete                 | \(O(\log n)\)  | \(O(n)\)   |
 | Min. & max. element    | \(O(\log n)\)  | \(O(n)\)   |
 | Next & prev. element   | \(O(\log n)\)  | \(O(n)\)   |
+#+END_tab
 
 * Operations
 

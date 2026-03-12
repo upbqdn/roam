@@ -3,7 +3,7 @@
 :END:
 #+title: Intro to Bitcoin
 #+date: [2018-11-13 Tue]
-#+hugo_lastmod: [2026-02-16 Mon]
+#+hugo_lastmod: [2026-03-12 Thu 14:24]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -243,10 +243,12 @@ of the referenced previous transaction.
 
 A simplified chain of transactions is depicted in [[.fig-bb][Figure bb]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-bb>> *[[.fig-bb][Figure bb]]*. Outline of transactions and their ordering [cite:@Nakamoto].
 #+end_center
 [[file:/data/intro-to-bitcoin/transactions-1.png]]
+#+END_fig
 
 Transactions can have multiple inputs and multiple outputs. This allows the value
 to be split and combined. All inputs are summed up, and this sum has to be spent
@@ -338,6 +340,7 @@ for security reasons --- it is not possible to create a malicious transaction
 that would make the node stuck in an infinite loop. [[.tab-bn][Table bn]]
 demonstrates some instructions. A zero value is interpreted as /false/.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-bn>> *[[.tab-bn][Table bn]]*. Common Script instructions.
 #+end_center
@@ -350,6 +353,7 @@ demonstrates some instructions. A zero value is interpreted as /false/.
 | =OP_HASH160=       | \(x_1\)      | hash           | The input is hashed twice: first with SHA-256 and then with RIPEMD-160.                                                                                                                                                                                        |
 | =OP_CODESEPARATOR= | nothing      | nothing        | All signature checking words will only match signatures to the data after the most recently executed =OP_CODESEPARATOR=.                                                                                                                                         |
 | =OP_CHECKSIG=      | sig, pubkey  | true / false   | The entire transaction's outputs, inputs, and script (from the most recently executed =OP_CODESEPARATOR= to the end) are hashed. The signature used by =OP_CHECKSIG= must be a valid signature for this hash and public key. If it is, 1 is returned, 0 otherwise. |
+#+END_tab
 
 Let us now demonstrate a Script example. Consider [[.fig-bb][Figure bb]] and say
 that the transaction containing "Owner 0's signature" is \(T_0\) and the
@@ -372,6 +376,7 @@ Script interpreter has finished execution. We can see that the transaction is
 successfully validated. This example in fact shows one of the standard ways of
 validating transactions in Bitcoin.
 
+#+BEGIN_tab
 #+begin_center
 <<.tab-bd>> *[[.tab-bd][Table bd]]*. Script example: validation of a standard transaction.
 #+end_center
@@ -384,6 +389,7 @@ validating transactions in Bitcoin.
 | =<sig>=, =<pubKey>=, =<pubHashA>=, =<pubKeyHash>= | =OP_EQUALVERIFY=, =OP_CHECKSIG=                                                    | Constant is pushed onto the stack.                   |
 | =<sig>=, =<pubKey>=                           | =OP_CHECKSIG=                                                                    | Equality is checked between the top two stack items. |
 | =true=                                      | Empty                                                                          | Signature is checked for the top two stack items.    |
+#+END_tab
 
 * Chain of Blocks
 
@@ -450,10 +456,12 @@ their only option is to keep blindly trying nonces until they generate a block
 with a hash that lands below the target. In reality, the target is extremely
 close to the zero hash, so it takes a lot of work.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-br>> *[[.fig-br][Figure br]]*. The process of finding a valid Proof-of-Work.
 #+end_center
 [[file:/data/intro-to-bitcoin/pow.jpeg]]
+#+END_fig
 
 If a node happens to find such a nonce, it broadcasts the block and starts
 working on a new one. If the node exhausts the space defined by the size of the
@@ -495,20 +503,24 @@ Consider the blockchain depicted in [[.fig-bf][Figure bf]]. It starts with the
 genesis block and ends with block \(n\). Let us say that block \(n\) is the most
 recent block, or in other words, the current *tip* of the blockchain.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-bf>> *[[.fig-bf][Figure bf]]*. The blockchain from the genesis block to the current tip.
 #+end_center
 [[file:/data/intro-to-bitcoin/chain-1.jpeg]]
+#+END_fig
 
 Now consider a scenario where a miner publishes a block \(n+1\), and almost at
 the same time, another miner publishes another block \(n+1'\). Since both miners
 had the same tip \(n\), both new blocks reference \(n\) as their parent, leading
 to a *chain split*. This situation is depicted in [[.fig-bg][Figure bg]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-bg>> *[[.fig-bg][Figure bg]]*. A chain split.
 #+end_center
 [[file:/data/intro-to-bitcoin/chain-2.jpeg]]
+#+END_fig
 
 It is crucial to note that blocks \(n+1\) and \(n+1'\) can contain conflicting
 transactions: block \(n+1'\) can contain a transaction that spends the same funds
@@ -529,10 +541,12 @@ but we can abstract that away and think of it as the longest chain. Let us see
 what happens when a miner appends a new block to \(n+1'\), as depicted in
 [[.fig-b8][Figure b8]].
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-b8>> *[[.fig-b8][Figure b8]]*. The longest chain wins.
 #+end_center
 [[file:/data/intro-to-bitcoin/chain-3.jpeg]]
+#+END_fig
 
 Nodes in the network can see that the new block \(n+2'\) extends the chain that
 used to end with block \(n+1'\), so block \(n+1\) becomes an orphan and its
@@ -561,10 +575,12 @@ the longest chain and \(n+1\) became an orphan. However, consider the scenario
 depicted in [[.fig-be][Figure be]] where block \(n+1\) gets suddenly extended by
 two blocks \(n+2\) and \(n+3\).
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-be>> *[[.fig-be][Figure be]]*. A rollback to the longer chain.
 #+end_center
 [[file:/data/intro-to-bitcoin/chain-4.jpeg]]
+#+END_fig
 
 This could happen because the miner who previously produced block \(n+1\) could
 ignore or not receive block \(n+2'\), and then get lucky by mining two blocks in
@@ -760,10 +776,12 @@ original nodes that fall outside the updated rules will keep becoming orphaned.
 However, if the updated mining nodes stay in the minority, the original and
 updated nodes in the network will each end up with their own chain.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-bj>> *[[.fig-bj][Figure bj]]*. A soft fork restricts the consensus rules.
 #+end_center
 [[file:/data/intro-to-bitcoin/soft-fork.jpeg]]
+#+END_fig
 
 A hard fork relaxes the consensus rules, so the updated set becomes a strict
 superset of the original set, as depicted in [[.fig-bu][Figure bu]]. If the
@@ -773,10 +791,12 @@ become the mining majority, there will be a chain split unless all nodes,
 including non-mining ones, switch to the new rules. The reason is that non-mining
 nodes also need to accept blocks complying with the new set of consensus rules.
 
+#+BEGIN_fig
 #+begin_center
 <<.fig-bu>> *[[.fig-bu][Figure bu]]*. A hard fork relaxes the consensus rules.
 #+end_center
 [[file:/data/intro-to-bitcoin/hard-fork.jpeg]]
+#+END_fig
 
 The main difference is that in order to avoid a chain split, a hard fork requires
 every node in the network to adopt it, while a soft fork requires adoption only
