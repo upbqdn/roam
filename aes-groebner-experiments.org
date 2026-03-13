@@ -3,7 +3,7 @@
 :END:
 #+title: AES + Gröbner bases = ♡
 #+date: [2020-11-24 Tue]
-#+hugo_lastmod: [2026-03-12 Thu 14:23]
+#+hugo_lastmod: [2026-03-13 Fri 15:12]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -52,8 +52,8 @@ polynomial systems was parallelized across all 24 available cores. Magma,
 however, could only solve one system on a single core, so to keep the comparison
 fair, we explicitly restricted CryptoMiniSat to one core as well.
 
-As stated in [[file:ideal.org::.def-bs][Definition bs]], we may regard a system of
-polynomials as a [[file:ideal.org::.def-bs][basis]] of an
+As stated in [[file:ideal.org::.def-fg][Definition fg]], we may regard a system of
+polynomials as a [[file:ideal.org::.def-fg][basis]] of an
 [[file:ideal.org::.def-m][ideal]] \(I\). We can then compute the
 [[file:groebner-basis.org::.def-n6][reduced Gröbner basis]] of \(I\) under the
 [[file:monomial-orders.org::.def-nk][lexicographic order]], and by applying the

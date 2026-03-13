@@ -3,7 +3,7 @@
 :END:
 #+title: Gröbner Basis
 #+date: [2020-12-14 Mon]
-#+hugo_lastmod: [2026-03-12 Thu 17:41]
+#+hugo_lastmod: [2026-03-13 Fri 15:12]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -19,7 +19,7 @@ preceding sentence." --- Vladimir Igorevich Arnol'd [cite:@arnold p. 30]
 #+end_quote
 
 Gröbner bases can be used for solving systems of [[file:polynomial.org::.def-bh][polynomial]] equations. A
-system of multivariate equations can be seen as an [[file:ideal.org::.def-bs][ideal basis]] and a
+system of multivariate equations can be seen as an [[file:ideal.org::.def-fg][ideal basis]] and a
 Gröbner basis is a particular basis that yields the same
 [[file:affine-variety.org::.def-nd][affine variety]] but has a structure amenable to elimination of
 variables.
@@ -43,7 +43,7 @@ variables.
 
 #+BEGIN_def
 <<.def-nh>> *[[.def-nh][Definition nh]]*. Fix a [[file:monomial-orders.org::.def-nj][monomial order]] on
-\(\mathcal{M}\). A finite [[file:ideal.org::.def-bs][basis]] \(G \subseteq I\) of a nonzero
+\(\mathcal{M}\). A finite [[file:ideal.org::.def-fg][basis]] \(G \subseteq I\) of a nonzero
 [[file:ideal.org::.def-m][ideal]] \(I \subseteq \mathbb{F}[\mathbf{x}]\) is a *Gröbner basis* if
 \[\langle \mathrm{LT}(G) \rangle = \langle \mathrm{LT}(I) \rangle.\]
 #+END_def
@@ -225,13 +225,13 @@ The [[.def-df][S-polynomial]] is designed so that the
 
 #+BEGIN_thm
 <<.thm-d8>> *[[.thm-d8][Theorem d8]]*. (/Buchberger's Criterion/.) A
-[[file:ideal.org::.def-bs][basis]] \(G = \{g_1, \ldots, g_m\}\) of an [[file:ideal.org::.def-m][ideal]] \(I\)
+[[file:ideal.org::.def-fg][basis]] \(G = \{g_1, \ldots, g_m\}\) of an [[file:ideal.org::.def-m][ideal]] \(I\)
 is a [[.def-nh][Gröbner basis]] if and only if
 \(\overline{S(g_i, g_j)}^G = 0\) for all \(i \neq j\) [cite:@bb].
 #+END_thm
 
 [[.thm-d8][Buchberger's Criterion]], introduced in [cite:@bb], allows testing
-whether a given [[file:ideal.org::.def-bs][basis]] is a [[.def-nh][Gröbner basis]] and naturally leads to
+whether a given [[file:ideal.org::.def-fg][basis]] is a [[.def-nh][Gröbner basis]] and naturally leads to
 an algorithm that constructs a Gröbner basis by adding nonzero
 [[file:polynomial-division.org::.thm-n3][remainders]]
 \(\overline{S(g_i, g_j)}^G\) to \(G\) until the criterion holds.
@@ -252,7 +252,7 @@ Note that \(\overline{f}^G = 0\) implies \(f \to_G 0\), but the converse does
 not hold.
 
 #+BEGIN_prp
-<<.prp-dz>> *[[.prp-dz][Proposition dz]]*. A [[file:ideal.org::.def-bs][basis]]
+<<.prp-dz>> *[[.prp-dz][Proposition dz]]*. A [[file:ideal.org::.def-fg][basis]]
 \(G = \{g_1, \ldots, g_m\}\) of an [[file:ideal.org::.def-m][ideal]] \(I\) is a [[.def-nh][Gröbner basis]]
 if and only if \(S(g_i, g_j) \to_G 0\) for all \(i \neq j\) [cite:@iva].
 #+END_prp
