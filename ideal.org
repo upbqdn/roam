@@ -3,7 +3,7 @@
 :END:
 #+title: Ideal
 #+date: [2020-03-04 Wed]
-#+hugo_lastmod: [2026-03-13 Fri 15:32]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -28,7 +28,7 @@ and \(\emptyset \neq I \subseteq R\), then \(I\) is an [[.def-m][ideal]] of \(R\
 Then:
 1. The equation \(a \cdot 0 = 0 \cdot a = 0\) holds for all \(a \in R\).
 2. The element \(0\) is in \(I\).
-3. If \(1 \in I\) then \(I\) is not proper.
+3. If \(1 \in I\), then \(I\) is not proper.
 #+END_prp
 
 #+BEGIN_prf
@@ -52,8 +52,8 @@ integers that we identify with \(0\) in \(\mathbb{Z}_n\) is the set
 \(n\mathbb{Z} = \{nm \mid m \in \mathbb{Z}\}\). This set meets the criteria for
 being an ideal of \(\mathbb{Z}\) and its elements behave like \(0\) in
 \(\mathbb{Z}\): adding two elements of \(n\mathbb{Z}\) yields another element of
-\(n\mathbb{Z}\) and multiplying any element of \(n\mathbb{Z}\) again yields an
-element of \(n\mathbb{Z}\).
+\(n\mathbb{Z}\) and multiplying any element of \(n\mathbb{Z}\) by any integer
+again yields an element of \(n\mathbb{Z}\).
 #+END_rem
 
 Considering our definition of [[file:ring.org::.def-g][rings]], an [[.def-m][ideal]] might not be a

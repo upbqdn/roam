@@ -3,15 +3,15 @@
 :END:
 #+title: Field
 #+date: [2020-01-30 Thu]
-#+hugo_lastmod: [2026-03-12 Thu 14:37]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
 
 #+BEGIN_def
-<<.def-8>> *[[.def-8][Definition 8]]*. A *field* $\mathbb{F}$ is a [[file:ring.org::.def-g][ring]] where the set
-$\mathbb{F} \setminus \set{0}$ is an Abelian [[file:group.org::.def-f][group]] under multiplication with the
-*multiplicative identity* 1.
+<<.def-8>> *[[.def-8][Definition 8]]*. A *field* \(\mathbb{F}\) is a [[file:ring.org::.def-g][ring]] where the set
+\(\mathbb{F} \setminus \{0\}\) is an Abelian [[file:group.org::.def-f][group]] under multiplication with the
+*multiplicative identity* \(1\).
 #+END_def
 
 #+BEGIN_rem
@@ -19,7 +19,7 @@ $\mathbb{F} \setminus \set{0}$ is an Abelian [[file:group.org::.def-f][group]] u
 fields* and are often denoted \(\mathbb{F}_q\) or \(\mathrm{GF}(q)\), where \(q\)
 is the *order* of the field. Since every [[.def-8][field]] is a commutative [[file:ring.org::.def-g][ring]], the
 only difference between [[file:ring.org::.def-g][rings]] and fields is that in a field, every element other
-than \(0\) has its multiplicative inverse.
+than \(0\) has its multiplicative inverse, and \(1 \neq 0\).
 #+END_rem
 
 #+BEGIN_rem

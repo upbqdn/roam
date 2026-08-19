@@ -3,7 +3,7 @@
 :END:
 #+title: Monomial Orders
 #+date: [2020-03-04 Wed]
-#+hugo_lastmod: [2026-03-12 Thu 17:45]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -30,9 +30,9 @@ Then \(r\) is
 3. *connex* if \(r \cup r^{-1} = S \times S\),
 4. a *linear order* on \(S\) if it is transitive, antisymmetric, and connex.
 An element \(a \in R\) of a non-empty subset \(R \subseteq S\) is *minimal* if
-there is no \(b \in R\) with \(b \; r_s \; a\). A *strictly descending sequence*
+there is no \(b \in R\) with \(a \; r_s \; b\). A *strictly descending sequence*
 in \(S\) is an infinite sequence \(a_n \in S\) such that
-\(a_{n+1} \; r_s \; a_n\) for all \(n \in \mathbb{N}_0\). The relation \(r\) is
+\(a_n \; r_s \; a_{n+1}\) for all \(n \in \mathbb{N}_0\). The relation \(r\) is
 *noetherian* if every non-empty subset of \(S\) has a minimal element. A
 *well-order* on \(S\) is a noetherian linear order on \(S\).
 #+END_def
@@ -121,7 +121,7 @@ to the monomial in which this variable has greater power.
 #+END_prp
 
 #+BEGIN_prf
-<<.prf-fg>> *[[.prf-fg][Proof fg]]*. Following the definition of the [[.def-nk][lexicographic order]] and the
+<<.prf-fj>> *[[.prf-fj][Proof fj]]*. Following the definition of the [[.def-nk][lexicographic order]] and the
 fact that the regular numerical order on \(\mathbb{N}_0\) is a [[.def-ne][linear order]], it
 is straightforward to show that for any [[file:polynomial.org::.def-b4][monomials]]
 \(x^\alpha, x^\beta, x^\gamma \in \mathcal{M}(x_1, \ldots, x_n)\), transitivity,
@@ -142,16 +142,16 @@ shows that \(x^{\alpha + \gamma} \succeq_{\mathrm{lex}} x^{\beta + \gamma}\).
 The last part is to show that \(\succeq_{\mathrm{lex}}\) is
 [[.def-ne][noetherian]]. By [[.prp-dt][Proposition dt]], if
 \(\succeq_{\mathrm{lex}}\) is not a well-order, then there is a strictly
-decreasing sequence
+descending sequence
 \(x^{\alpha_{(1)}} \succ_{\mathrm{lex}} x^{\alpha_{(2)}} \succ_{\mathrm{lex}} \cdots\)
 of elements in \(\mathcal{M}(x_1, \ldots, x_n)\). By the definition of
 \(\succeq_{\mathrm{lex}}\), there exists a \(j\) such that all the first
 components of the \(n\)-tuples \(\alpha_{(k)}\) with \(k \ge j\) are equal.
 Continuing further, there is an \(l \ge j\) such that all the second components
-of the \(n\)-tuples \(\alpha_{(m)}\) with \(m \ge l\) are all equal. We see that
+of the \(n\)-tuples \(\alpha_{(m)}\) with \(m \ge l\) are equal. We see that
 there must be a \(p \ge l\) for which the whole \(n\)-tuples
 \(\alpha_{(p)} = \alpha_{(p+1)} = \cdots\) are all equal. This means that the
-sequence is not strictly decreasing, a contradiction.
+sequence is not strictly descending, a contradiction.
 #+END_prf
 
 #+BEGIN_def
@@ -175,7 +175,7 @@ ordering applies here as well.
    for \(i = 3\) we have \(\alpha_3 < \beta_3\), where \(\alpha = (1, 3, 0)\)
    and \(\beta = (1, 2, 3)\).
 2. The [[.def-nk][lexicographic]] and reverse colexicographic orders coincide for
-   monomials in one and two variables. They may differ for three or more
+   monomials of the same total degree in one and two variables. They may differ for three or more
    variables: \(xz \succ_{\mathrm{lex}} y^2\) but
    \(y^2 \succ_{\mathrm{rclex}} xz\) in \(\mathcal{M}(x, y, z)\).
 #+END_exp
@@ -197,7 +197,7 @@ certain cases, it is desirable to order monomials by total degree.
 <<.def-no>> *[[.def-no][Definition no]]*. Let
 \(x^\alpha, x^\beta \in \mathcal{M}(x_1, \ldots, x_n)\) be
 [[file:polynomial.org::.def-b4][monomials]]. We say
-\(x^\alpha \succeq_{\mathrm{grlex}} x^\beta\) if
+\(x^\alpha \succeq_{\mathrm{grevlex}} x^\beta\) if
 \(\lvert x^\alpha \rvert > \lvert x^\beta \rvert\), or
 \(\lvert x^\alpha \rvert = \lvert x^\beta \rvert\) and
 \(x^\alpha \succeq_{\mathrm{rclex}} x^\beta\). This is the *graded reverse
@@ -209,39 +209,43 @@ Despite its name, the graded reverse lexicographic order makes use of the
 
 #+BEGIN_exp
 <<.exp-nt>> *[[.exp-nt][Example nt]]*.
-1. \(y^2 \succeq_{\mathrm{grlex}} x\) since
+1. \(y^2 \succeq_{\mathrm{grevlex}} x\) since
    \(\lvert y^2 \rvert = 2 > \lvert x \rvert = 1\). Also,
-   \(y^2 \succeq_{\mathrm{grlex}} xz\) since
+   \(y^2 \succeq_{\mathrm{grevlex}} xz\) since
    \(\lvert xz \rvert = \lvert y^2 \rvert\) and
    \(y^2 \succeq_{\mathrm{rclex}} xz\).
-2. \(x \succeq_{\mathrm{grlex}} y \succeq_{\mathrm{grlex}} z\) since all have
+2. \(x \succeq_{\mathrm{grevlex}} y \succeq_{\mathrm{grevlex}} z\) since all have
    the same total degree and
    \(x \succeq_{\mathrm{rclex}} y \succeq_{\mathrm{rclex}} z\).
 #+END_exp
 
 #+BEGIN_prp
 <<.prp-n1>> *[[.prp-n1][Proposition n1]]*. The [[.def-no][graded reverse lexicographic
-order]] \(\succeq_{\mathrm{grlex}}\) on \(\mathcal{M}\) is a
+order]] \(\succeq_{\mathrm{grevlex}}\) on \(\mathcal{M}\) is a
 [[.def-nj][monomial order]].
 #+END_prp
 
 #+BEGIN_prf
-<<.prf-f8>> *[[.prf-f8][Proof f8]]*. Since \(\succeq_{\mathrm{grlex}}\) first uses the usual well-order on
+<<.prf-f8>> *[[.prf-f8][Proof f8]]*. Since \(\succeq_{\mathrm{grevlex}}\) first uses the usual well-order on
 the total degree \(\lvert x^\alpha \rvert \in \mathbb{N}_0\) and, when
 \(\lvert x^\alpha \rvert = \lvert x^\beta \rvert\), decides ties using the
 [[.def-nq][reverse colexicographic order]] (which is a [[.def-ne][linear order]]),
-\(\succeq_{\mathrm{grlex}}\) is also linear. It is also a well-order since the
-strict part \(\succ_{\mathrm{grlex}}\) is solely the well-order on
-\(\lvert x^\alpha \rvert \in \mathbb{N}_0\).
+\(\succeq_{\mathrm{grevlex}}\) is also linear. It is also a well-order: by
+[[.prp-dt][Proposition dt]], it suffices to show there is no strictly
+descending sequence. In such a sequence, the total degrees
+\(\lvert x^\alpha \rvert \in \mathbb{N}_0\) are non-increasing and hence
+eventually constant, so its tail would consist of infinitely many pairwise
+distinct monomials of the same total degree, which is impossible since only
+finitely many monomials share a given total degree.
 
 To show the property of respecting multiplication, consider
 [[file:polynomial.org::.def-b4][monomials]]
 \(x^\alpha, x^\beta, x^\gamma \in \mathcal{M}(x_1, \ldots, x_n)\). We have
 \(x^\alpha \cdot x^\gamma = x^{\alpha + \gamma}\) and
 \(x^\beta \cdot x^\gamma = x^{\beta + \gamma}\). Assume
-\(x^\alpha \succeq_{\mathrm{grlex}} x^\beta\). If
+\(x^\alpha \succeq_{\mathrm{grevlex}} x^\beta\). If
 \(\lvert x^\alpha \rvert > \lvert x^\beta \rvert\), then
-\(x^{\alpha + \gamma} \succ_{\mathrm{grlex}} x^{\beta + \gamma}\) since
+\(x^{\alpha + \gamma} \succ_{\mathrm{grevlex}} x^{\beta + \gamma}\) since
 \(\lvert x^{\alpha + \gamma} \rvert = \lvert x^\alpha \rvert + \lvert x^\gamma \rvert > \lvert x^\beta \rvert + \lvert x^\gamma \rvert = \lvert x^{\beta + \gamma} \rvert\).
 If \(\lvert x^\alpha \rvert = \lvert x^\beta \rvert\), we get
 \(\lvert x^{\alpha + \gamma} \rvert = \lvert x^{\beta + \gamma} \rvert\) and use
@@ -250,7 +254,7 @@ the [[.def-nq][reverse colexicographic order]]. Since
 there is \(1 \le i \le n\) such that \(\alpha_i - \beta_i < 0\) with
 \(\alpha_j = \beta_j\) for \(i < j \le n\). As in the proof of
 [[.prp-np][Proposition np]], \((\alpha + \gamma) - (\beta + \gamma) = \alpha - \beta\),
-so \(x^{\alpha + \gamma} \succeq_{\mathrm{grlex}} x^{\beta + \gamma}\).
+so \(x^{\alpha + \gamma} \succeq_{\mathrm{grevlex}} x^{\beta + \gamma}\).
 #+END_prf
 
 #+BEGIN_def
@@ -268,7 +272,5 @@ so \(x^{\alpha + \gamma} \succeq_{\mathrm{grlex}} x^{\beta + \gamma}\).
 
 Note that \(x^\alpha \succ_1 x^\mathrm{A}\) implies
 \(x^\alpha y^\beta \succeq_{1,2} x^\mathrm{A} y^\mathrm{B}\). In combination
-with [[id:groebner-basis][Gröbner bases]], this allows the elimination of variables
+with [[file:groebner-basis.org][Gröbner bases]], this allows the elimination of variables
 \(x_1, \ldots, x_n\) from a system of [[file:polynomial.org::.def-bh][polynomials]].
-
-#+print_bibliography:

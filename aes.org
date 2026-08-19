@@ -3,7 +3,7 @@
 :END:
 #+title: AES
 #+date: [2020-09-30 Wed]
-#+hugo_lastmod: [2026-03-12 Thu 15:09]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -41,9 +41,10 @@ cipher operates on a two-dimensional \(4 \times 4\) array of 16 bytes called the
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-r6>> *[[.fig-r6][Figure r6]]*. The state array of \(\mathrm{SR}(n, 4, 4, e)\).
-#+end_center
+<<.fig-r6>>
 [[file:/data/aes/state-array.svg]]
+*[[.fig-r6][Figure r6]]*. The state array of \(\mathrm{SR}(n, 4, 4, e)\); see the [[*Small Scale Variants][Small Scale Variants]] section.
+#+end_center
 #+END_fig
 
 #+BEGIN_rem
@@ -113,7 +114,7 @@ This transformation operates on the individual bytes of the state.
 following two transformations:
 1. Take the multiplicative inverse in \(\mathrm{GF}(2^8)\); the element
    \(00_{16}\) is mapped to itself.
-2. Apply the following affine transformation over \(\mathrm{GF}(2^8)\):
+2. Apply the following affine transformation over \(\mathrm{GF}(2)\):
    \[b_i' = b_i \oplus b_{(i+4) \bmod 8} \oplus b_{(i+5) \bmod 8} \oplus b_{(i+6) \bmod 8} \oplus b_{(i+7) \bmod 8} \oplus c_i,\]
    for \(0 \le i < 8\), where \(c = 63_{16}\) and \(b_i \in \mathrm{GF}(2)\).
 #+END_def
@@ -131,9 +132,10 @@ a look-up table containing the substitution values for each byte in
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-rb>> *[[.fig-rb][Figure rb]]*. The SubBytes operation [cite:@fips].
-#+end_center
+<<.fig-rb>>
 [[file:/data/aes/sbox.png]]
+*[[.fig-rb][Figure rb]]*. The SubBytes operation [cite:@fips].
+#+end_center
 #+END_fig
 
 ** ShiftRows
@@ -147,9 +149,10 @@ rotated by three bytes.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-rn>> *[[.fig-rn][Figure rn]]*. The ShiftRows operation [cite:@fips].
-#+end_center
+<<.fig-rn>>
 [[file:/data/aes/shiftrows.png]]
+*[[.fig-rn][Figure rn]]*. The ShiftRows operation [cite:@fips].
+#+end_center
 #+END_fig
 
 The ShiftRows operation is a linear transformation. A cyclic rotation by one
@@ -197,9 +200,10 @@ so the MixColumns operation remains invertible.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-rf>> *[[.fig-rf][Figure rf]]*. The MixColumns operation [cite:@fips].
-#+end_center
+<<.fig-rf>>
 [[file:/data/aes/mixcolumns.png]]
+*[[.fig-rf][Figure rf]]*. The MixColumns operation [cite:@fips].
+#+end_center
 #+END_fig
 
 #+BEGIN_rem
@@ -298,9 +302,10 @@ corresponds to the conditional in step 2 of [[.alg-ry][Algorithm ry]].
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-rm>> *[[.fig-rm][Figure rm]]*. Key schedule schematic [cite:@cid05].
-#+end_center
+<<.fig-rm>>
 [[file:/data/aes/keyschedule.png]]
+*[[.fig-rm][Figure rm]]*. Key schedule schematic [cite:@cid05].
+#+end_center
 #+END_fig
 
 * Small Scale Variants
@@ -312,7 +317,7 @@ single clock cycle per node. With around \(3 \cdot 10^7\) seconds per year, the
 cluster would test
 \(3 \cdot 10^7 \cdot 3.3 \cdot 10^9 \cdot 10^{10} \approx 10^{27} \approx 2^{90}\)
 keys per year. In the worst case, guessing the correct key would take around
-\(2^{38}\) years --- about 250 billion, while the age of the universe is
+\(2^{38}\) years --- about 275 billion, while the age of the universe is
 estimated at around 13.8 billion years. Now suppose that the average consumption
 of each node is only 1 W and that 1 kWh of energy costs only 0.01 EUR (the
 average price of 1 kWh for European household consumers is around 0.2 EUR in
@@ -342,44 +347,44 @@ polynomial used in AES-128.
 
 ** Scaled SubBytes
 
-The SubBytes operation is identical to AES-128 when \(e = 8\). When \(e = 4\),
+The SubBytes operation is identical to that of AES-128 when \(e = 8\). When \(e = 4\),
 it is a composition of the following two transformations:
 1. Take the multiplicative inverse in \(\mathrm{GF}(2^4)\); the element
    \(0_{16}\) is mapped to itself.
-2. Apply the following affine transformation over \(\mathrm{GF}(2^4)\):
+2. Apply the following affine transformation over \(\mathrm{GF}(2)\):
 
 #+BEGIN_eqn
 <<.eqn-rc>>
-\[\begin{pmatrix} b_0' \\ b_1' \\ b_2' \\ b_3' \end{pmatrix} = \begin{pmatrix} 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 1 \\ 1 & 1 & 1 & 0 \\ 0 & 1 & 1 & 1 \end{pmatrix} \begin{pmatrix} b_0 \\ b_1 \\ b_2 \\ b_3 \end{pmatrix} + \begin{pmatrix} 0 \\ 1 \\ 1 \\ 0 \end{pmatrix}. \tag{rc}\]
+\[\begin{pmatrix} b_0' \\ b_1' \\ b_2' \\ b_3' \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 & 0 \\ 0 & 1 & 1 & 1 \\ 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 1 \end{pmatrix} \begin{pmatrix} b_0 \\ b_1 \\ b_2 \\ b_3 \end{pmatrix} + \begin{pmatrix} 0 \\ 1 \\ 1 \\ 0 \end{pmatrix}. \tag{rc}\]
 #+END_eqn
 
 ** Scaled ShiftRows
 
 The ShiftRows operation cyclically rotates row \(i\) of the state by \(i\)
-positions, \(0 \le i < r - 1\). When \(r = 4\), we use the matrix \(R_4\) from
-[[.eqn-rd][equation rd]]. When \(r = 2\), the rotation matrix becomes
+positions, \(0 \le i < r\). When \(c = 4\), we use the matrix \(R_4\) from
+[[.eqn-rd][equation rd]]. When \(c = 2\), the rotation matrix becomes
 \[R_2 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.\]
-When \(c = 4\), we use the matrix from [[.eqn-rr][equation rr]], substituting \(R_2\) for
-\(R_4\) when \(r = 2\). When \(c = 2\), the expression becomes
+When \(r = 4\), we use the matrix from [[.eqn-rr][equation rr]], substituting \(R_2\) for
+\(R_4\) when \(c = 2\). When \(r = 2\), the expression becomes
 
 #+BEGIN_eqn
 <<.eqn-rp>>
 \[\begin{pmatrix} r_0' \\ r_1' \end{pmatrix} = \begin{pmatrix} I & 0 \\ 0 & R \end{pmatrix} \begin{pmatrix} r_0 \\ r_1 \end{pmatrix} \tag{rp}\]
 #+END_eqn
 where \(R\) is either \(R_4\) or \(R_2\) and \(I\) is the identity matrix of
-corresponding size. When \(r = 1\) or \(c = 1\), the operation has no effect
+corresponding size. When \(c = 1\) or \(r = 1\), the operation has no effect
 since either \(R_2\) becomes \((1)\) or the matrix becomes \(I\).
 
 ** Scaled MixColumns
 
-The MixColumns operation is identical to AES-128 when \(r = 4\). When \(r = 2\),
+The MixColumns operation is identical to that of AES-128 when \(r = 4\). When \(r = 2\),
 it is defined by the following linear transformation:
 
 #+BEGIN_eqn
 <<.eqn-rq>>
 \[\begin{pmatrix} s_{0,j}' \\ s_{1,j}' \end{pmatrix} = \begin{pmatrix} x+1 & x \\ x & x+1 \end{pmatrix} \begin{pmatrix} s_{0,j} \\ s_{1,j} \end{pmatrix} \tag{rq}\]
 #+END_eqn
-for \(0 \le j < 2\), similarly to [[.eqn-rj][equation rj]] for
+for \(0 \le j < c\), similarly to [[.eqn-rj][equation rj]] for
 AES-128. When \(r = 1\), the operation has no effect.
 
 ** Scaled Key Schedule
@@ -397,9 +402,10 @@ and generating the subsequent sub-keys.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-rx>> *[[.fig-rx][Figure rx]]*. Scaled-down key schedule [cite:@cid05].
-#+end_center
+<<.fig-rx>>
 [[file:/data/aes/1_2_keyschedule.png]]
+*[[.fig-rx][Figure rx]]*. Scaled-down key schedule [cite:@cid05].
+#+end_center
 #+END_fig
 
 #+print_bibliography:

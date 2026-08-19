@@ -2,21 +2,19 @@
 :ID:       3866728e-fbf4-4e27-ad68-ce2f2b9abd82
 :END:
 #+title: Mining Zcash
-#+date: [2024-01-13 Sat 18:55]
-#+hugo_lastmod: [2026-02-23 Mon 11:02]
+#+date: [2024-01-13 Sat]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
 
 I built this for fun in late 2022.
 
-#+begin_center
 #+attr_html: :controls t
 #+begin_video
 <source src="/data/mining/mining.mp4" type="video/mp4">
 <track src="/data/mining/mining.vtt" label="English" kind="subtitles" srclang="en" default/>
 #+end_video
-#+end_center
 
 The rest of this post is a compilation of random posts from social media.
 
@@ -93,7 +91,7 @@ The sequence looks like this:
 I didn't find a way around this. I tried unpacking, modifying and repacking the
 filesystem with [[https://ofrak.com/][ofrak]], which is an amazing tool, but repacking =ext4= didn't work
 well at that time. I also played with the amazing [[https://glasgow-embedded.org][Glasgow Interface Explorer]],
-but didn't have the time to do anything meaningful yet. So no persistent SSH
+but haven't had the time to do anything meaningful yet. So no persistent SSH
 access yet.
 
 By the way, below is how I started in 2017. There are six water-cooled Nvidia
@@ -115,7 +113,7 @@ blue relays sitting on top.
 
 The tank wrapped in a towel was an expansion tank for the cooling system. The
 Arduino in the middle talked to the computer and controlled a "cooling backend"
-via the relays. Below was the backend. The insulated garden hoses from the
+via the relays. Below is the backend. The insulated garden hoses from the
 previous photos, acting as pipes, were connected to the white boiler, which
 served as a heat exchanger. The heat from the GPUs was being routed to the
 house's heating system.
@@ -130,16 +128,16 @@ ASICs from the video replaced the GPUs and the furnace. All the plumbing is
 gone. Only the boiler and the electric heater didn't move. Deprecation in Zcash
 runs deep.
 
-By the way, the new mining setup has a positive effect on CO2 emissions. Unlike
+By the way, the new mining setup reduces CO2 emissions. Unlike
 the furnace, the machines have essentially zero emissions. The latest proper
 data I have on energy source distribution is for 2023. In that year, the ASICs
-consumed 32MWh. The solar system directly offset 1/3 of that and pushed three
+consumed 32 MWh. The solar system directly offset 1/3 of that and pushed three
 additional MWh to the grid. The graph below describes the production of the
 solar system for each month of that year.
 
 [[file:/data/mining/solar.jpg]]
 
-The remaining 20 MWh were sourced like this. The house doesn't use any other
+The remaining 21 MWh were sourced like this. The house doesn't use any other
 heating.
 
 [[file:/data/mining/energy-sources.jpg]]

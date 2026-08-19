@@ -2,8 +2,8 @@
 :ID:       a1cd8394-a9be-4f78-b4ed-9d02082c110d
 :END:
 #+title: Evolutionary Algorithms
-#+date: <2017-05-17 Wed>
-#+hugo_lastmod: [2026-03-12 Thu 15:09]
+#+date: [2017-05-17 Wed]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -93,7 +93,7 @@ analytically.
 2. Repeat:
    a. /(Selection)/ Select the appropriate individuals (parents) for breeding from P.
    b. /(Mutation)/ Generate new individuals (offspring) from the parents.
-   c. /(Reproduction)/ Replace some or all individuals in P with the new individuals.
+   c. /(Replacement)/ Replace some or all individuals in P with the new individuals.
 3. Until terminating condition.
 #+END_alg
 
@@ -244,7 +244,7 @@ The mutation process is then:
 \[\sigma_i(t+1) = \sigma_i(t) \cdot e^{\tau' \cdot N(0,1)' + \tau \cdot N_i(0,1)}\]
 \[x_i(t+1) = x_i(t) + \sigma_i(t+1) \cdot N(0,1)_i, \quad i = 1, \ldots, n\]
 
-where \(\tau' \propto 1 / \sqrt{2\sqrt{n}}\) and \(\tau \propto 1 / \sqrt{n}\).
+where \(\tau' \propto 1 / \sqrt{2n}\) and \(\tau \propto 1 / \sqrt{2\sqrt{n}}\).
 Notice that the one-step mutation differs from the n-step version because one
 more normally distributed variable was added to the exponent. The reason is that
 we want to keep the overall change of the mutability but we also want a finer
@@ -414,7 +414,7 @@ the simulation.
 #+end_center
 #+END_fig
 
-The last version of ngSPICE offers a C API, which makes the simulator the ideal
+The latest version of ngSPICE offers a C API, which makes the simulator the ideal
 choice for utilizing it with the evolutionary algorithms. Every chromosome
 (candidate solution) in the evolution represents one amplifier and the simulator
 is used to determine its quality.
@@ -522,7 +522,7 @@ In every iteration, it calculates the value of the sine wave and compares it wit
 the simulated signal:
 
 \[\text{refSine} = -\text{amplitude} \cdot \sin\left(\frac{2\pi i}{\text{refSineSize} - 1}\right)\]
-\[\text{fitness} = \sum_{i=0}^{\text{refSineSize}} (\text{refSine} - \text{candidateVector}[\text{start} + i])^2\]
+\[\text{fitness} = \sum_{i=0}^{\text{refSineSize} - 1} (\text{refSine} - \text{candidateVector}[\text{start} + i])^2\]
 
 The sum of the comparisons is then returned as the fitness value and the lower
 the result is, the closer the candidate solution is to the reference. The
@@ -850,7 +850,7 @@ optimize the circuit.
 The best match method can be used for finding such properties that provide the
 most similar output compared to the analytical solution. We optimize the values
 of 8 electronic components and experiments with this method proved that there are
-many other possible combinations that provide almost identical behaviour of the
+many other possible combinations that provide almost identical behavior of the
 amplifier. Five examples are shown in [[.tab-h][Table h]]. The simulation output
 of the amplifier with these values of components was visually identical to the
 analytical solution.
@@ -947,7 +947,7 @@ Second stage:
 * Epilogue
 
 This post showed the capabilities of evolutionary algorithms, namely evolution
-strategies, in the design analog amplifiers. The first phase was to implement
+strategies, in the design of analog amplifiers. The first phase was to implement
 evolution strategies and integrate them with the ngSPICE simulator. An inherent
 part of evolutionary algorithms is an appropriate fitness function, so the next
 step was to develop methods for evaluating the quality of the amplifiers.

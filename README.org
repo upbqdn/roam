@@ -1,5 +1,5 @@
 #+title: Hello
-#+EXPORT_FILE_NAME: about
+#+export_file_name: about
 
 I'm Marek. Welcome to the public repository of my notes. Please note that this
 website currently contains only a small fraction of my notes, and some are

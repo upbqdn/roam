@@ -3,7 +3,7 @@
 :END:
 #+title: Laplace's Demon
 #+date: [2017-12-06 Wed]
-#+hugo_lastmod: [2026-02-15 Sun 20:24]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -12,7 +12,7 @@ Neo, the main character from The Matrix, didn't like the idea of fate because he
 wanted to be able to make his own choices. Let's see what Pierre-Simon Laplace
 had to say about such free will back in 1814.
 
-At the turn of the 17th and 18th century, Isaac Newton published a work in three
+At the turn of the 17th and 18th centuries, Isaac Newton published a work in three
 books called /Philosophiae Naturalis Principia Mathematica (The Mathematical
 Principles of Natural Philosophy)/ [cite:@principia] or simply /Principia/.
 There, he originally wrote:
@@ -29,20 +29,20 @@ Which we can translate into English as follows:
 body, and happens along the straight line on which that impulse is impressed./
 #+end_quote
 
-We can express this idea mathematically as $p' = F$, where $p'$ is the time
-derivative of momentum $p$ and $F$ is the force which represents the impulse
-that Newton referred to. Since momentum $p$ is defined as $p = mv$, where $m$ is
-the mass of the body and $v$ is its velocity (the time derivative of position
-$x$, i.e. $v = \frac{dx}{dt}$), we can take the derivative of momentum with
-respect to time: $F = \frac{dp}{dt} = m\frac{dv}{dt} = ma$, where $a$ is the
+We can express this idea mathematically as \(p' = F\), where \(p'\) is the time
+derivative of momentum \(p\) and \(F\) is the force which represents the impulse
+that Newton referred to. Since momentum \(p\) is defined as \(p = mv\), where \(m\) is
+the mass of the body and \(v\) is its velocity (the time derivative of position
+\(x\), i.e. \(v = \frac{dx}{dt}\)), we can take the derivative of momentum with
+respect to time: \(F = \frac{dp}{dt} = m\frac{dv}{dt} = ma\), where \(a\) is the
 acceleration of the body (the time derivative of velocity, i.e.
-$a = \frac{dv}{dt}$). This is known as Newton's second law of motion. If we need
-to consider various directions of the force $F$ and acceleration $a$, we can use
-vectors $\vec{F} = m\vec{a}$. Newton also proposed the concept of derivatives so
+\(a = \frac{dv}{dt}\)). This is known as Newton's second law of motion. If we need
+to consider various directions of the force \(F\) and acceleration \(a\), we can use
+vectors \(\vec{F} = m\vec{a}\). Newton also proposed the concept of derivatives so
 that we can actually solve and use the equations above. These ideas give us a
 very strong apparatus for calculating the movements of physical objects. If we
 have an abstract system of physical objects, and we know the initial forces,
-positions, and velocities of all the objects, then we exactly know how the
+positions, and velocities of all the objects, then we know exactly how the
 system will behave in the future. Moreover, we don't even need to know the
 initial properties; if we measure them at any time, we can calculate the past as
 well as the future. In other words, there's no place for any random accident in
@@ -74,15 +74,15 @@ nothing would be uncertain and the future just like the past would be present
 before its eyes./ [cite:@laplace]
 #+end_quote
 
-When meteorologists got their first computers in the early 1960s, they thought
+When meteorologists got their first computers in the 1950s, they thought
 that they would be able to make exact weather forecasts for a very long time.
 Unfortunately, it turned out that this is a very difficult task. Even though the
 weather is a deterministic system without any random elements involved, it is not
 easily predictable. This fact was explored by Edward Lorenz in 1961 when he was
 simulating weather evolution on a computer. After a very slight change in the
 input values, the simulated evolution was completely different. This is known as
-the Butterfly effect, after a talk Lorenz gave titled /Does the flap of a
-butterfly's wings in Brazil set off a tornado in Texas?/
+the Butterfly effect, after a talk Lorenz gave titled /Predictability: Does
+the flap of a butterfly's wings in Brazil set off a tornado in Texas?/
 [cite:@lorenz-butterfly] The same sensitivity to initial conditions applies
 every time you throw dice, and that's why we are not able to predict the weather
 for more than a few days even with the most advanced technology we have today.
@@ -110,18 +110,18 @@ inside our Universe which would know the exact state of all particles and which
 would be able to calculate the future or the past.
 
 Stephen Hawking also applied his mind to the question of whether God plays dice
-or not. [cite:@hawking-dice] The concept of black holes had been known for
+or not [cite:@hawking-dice]. The concept of black holes had been known for
 decades, and any mass or energy which falls into a black hole is lost forever
 without any chance to escape, so information in the Universe is lost. However,
 Hawking proved that black holes are not entirely so black and that they do send
 out particles at a steady rate. These particles don't come directly from the
 black hole, but are created in pairs near the event horizon. During this
-creation, a whole pair can escape or be absorbed, but also one particle from a
-pair can escape while the other is absorbed. This vaporization reduces the size
+creation, a whole pair can annihilate or be absorbed, but also one particle from a
+pair can escape while the other is absorbed. This evaporation reduces the size
 of the black hole, and in the end, the black hole disappears. Crucially, there
 is no way to predict the speed and position of the escaped particle without
 knowing about the absorbed one. This seemed to be the obvious funeral of
-Laplace's demon; but in 2005, Hawking conceded that black holes may after all
+Laplace's demon; but in 2004, Hawking conceded that black holes may after all
 preserve information about what fell into them — though this rescues information
 conservation, not determinism itself.
 
@@ -133,7 +133,7 @@ terrifying and emotionally frustrating. It would be worse than the Matrix for
 Neo because there wouldn't be any difference between living beings and machines.
 Our every step or thought would have been strictly set 13.8 billion years ago.
 Ethics, good and evil, or responsibility would be just illusions. There wouldn't
-be any difference between life and lifeless; everything would be just a soulless
+be any difference between life and lifelessness; everything would be just a soulless
 result of moving atoms. We would be just actors on the stage of a big theater
 with no influence or chance to change anything. On the other hand, we might feel
 comfortable because it would give us certainty that we can't mess up anything.

@@ -3,7 +3,7 @@
 :END:
 #+title: Intro to Bitcoin
 #+date: [2018-11-13 Tue]
-#+hugo_lastmod: [2026-03-12 Thu 14:24]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
@@ -32,12 +32,12 @@ open-source implementation. On 3 January 2009, the /genesis block/ was
 mined,[fn:: See the [[*Chain of Blocks][Chain of Blocks]] section.] bringing the
 Bitcoin network into existence. The first Bitcoin transaction was made on 12
 January 2009. Since then, the codebase has been growing, and Satoshi Nakamoto
-completely disappeared from the Internet.
+completely disappeared from the internet.
 
-The network has not experienced a single outage since its inception. At the time
+The network has experienced almost no downtime since its inception. At the time
 of writing, there are thousands of Bitcoin nodes operating worldwide, making the
 network reliable and robust. These nodes are run by volunteers since Bitcoin has
-no central authority. Besides experiencing no outage, there has been no
+no central authority. Besides its near-perfect uptime, the network has suffered no
 successful attack on the Bitcoin blockchain that would deprive the owner of the
 funds they possess.
 
@@ -94,7 +94,7 @@ if they give you a hash and ask for an input that produces it, you will not be
 able to oblige.
 
 Reversing an irreversible hash function might seem paradoxical, yet that is
-essentially what miners do. They repeatedly try enormous amounts of inputs as
+essentially what miners do. They repeatedly try enormous numbers of inputs as
 fast as they can until they hit a hash the network needs. This is the most naive
 way of obtaining the correct input, and the approach is called *brute force*. If
 brute-forcing is the only way to solve a problem, we call the problem
@@ -107,8 +107,8 @@ Since hash functions accept arbitrary inputs and produce fixed-size outputs, the
 map an infinite set to a finite one. Strictly speaking, there is an infinite
 number of inputs that lead to the same output for each hash function. Although
 this is theoretically true, we may neglect it in practice and pretend that no two
-inputs lead to the same output, or at least that it is impossible to find such
-two inputs. We call such hash functions *collision-resistant*.
+inputs lead to the same output, or at least that it is impossible to find two
+such inputs. We call such hash functions *collision-resistant*.
 
 The reason we can afford collision resistance is the size of the set of possible
 hash values. We typically use at least 256 bits for the output. There are
@@ -156,7 +156,7 @@ that once funds are sent to the wrong address (even an address for which no one
 knows the private key), and this transaction is written to the blockchain, there
 is no way to reverse it.
 
-A legacy Bitcoin address is a Base58Check-encoded string of 25 to 34 characters,
+A legacy Bitcoin address is a Base58Check-encoded string of 26 to 34 characters,
 beginning with =1= ([[https://en.bitcoin.it/wiki/Address][Pay-to-Public-Key-Hash]]) or =3= (Pay-to-Script-Hash). Base58Check excludes the uppercase letter =O=, uppercase
 letter =I=, lowercase letter =l=, and the digit =0= to prevent visual
 ambiguity. Native SegWit addresses begin with the prefix =bc1= and are
@@ -173,8 +173,9 @@ Modern Bitcoin clients (often called simply wallets) implement a /hierarchical
 deterministic/ (/HD/) wallet for deriving the key pairs from a /seed/
 [cite:@bip0032]. This approach makes Bitcoin wallets more user-friendly while
 having no impact on the Bitcoin network. The seed is a random 128-bit number
-that can be encoded into a human-readable format called a /seed phrase/, which
-consists of 12 English words that the user has to retain. The wallet can then
+that can be encoded into a human-readable format called a /seed phrase/
+[cite:@bip0039], which consists of 12 English words that the user has to
+retain. The wallet can then
 deterministically create an unlimited number of addresses. The same seed can also
 be used on multiple devices so the user can control the exact set of addresses on
 any of these devices. The user doesn't have to retain any of the private keys. It
@@ -184,12 +185,12 @@ exact same key pairs, which would be catastrophic.
 
 ** Privacy
 
-Bitcoin cannot be considered private nor untraceable since all of its
+Bitcoin cannot be considered private or untraceable since all of its
 transactions (containing public keys and bitcoin amounts) are public, and it is
 possible to track them not only backwards but also forwards. This means that if
 we focus on a certain address or transaction, we can trace all the previous
 transactions as well as observe the future ones. It is also possible to see how
-much funds each address holds --- there are online blockchain explorers that
+much money each address holds --- there are online blockchain explorers that
 offer all the details at a glance to anyone. One such explorer is
 [[https://www.blockchain.com/explorer][blockchain.com/explorer]]. If we manage to
 associate someone's identity with a certain address, the privacy of that user is
@@ -225,7 +226,7 @@ All transactions in the network are public, and anyone can verify their validity
     key of the owner.
 - *output* :: Contains the following:
   - *value* :: The amount of bitcoin that the sender is willing to send.
-  - *receiver's address* :: The public key of the receiver's Bitcoin address.
+  - *receiver's address* :: The receiver's public key, which serves as their Bitcoin address.
 
 This transaction structure creates a chain of transactions since the input
 references the previous transaction. We can notice that the transaction also
@@ -245,9 +246,10 @@ A simplified chain of transactions is depicted in [[.fig-bb][Figure bb]].
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-bb>> *[[.fig-bb][Figure bb]]*. Outline of transactions and their ordering [cite:@Nakamoto].
-#+end_center
+<<.fig-bb>>
 [[file:/data/intro-to-bitcoin/transactions-1.png]]
+*[[.fig-bb][Figure bb]]*. Outline of transactions and their ordering [cite:@Nakamoto].
+#+end_center
 #+END_fig
 
 Transactions can have multiple inputs and multiple outputs. This allows the value
@@ -265,9 +267,9 @@ without such an authority.
 ** Cryptographic Primitives
 
 The current implementation of Bitcoin utilizes the /Elliptic Curve Digital
-Signature Algorithm/ (/ECDSA/); however, it would also be possible to use other
-algorithms such as the /Schnorr signature algorithm/. The description of ECDSA
-can be found in [cite:@brown2009sec]. The algorithm employs the /secp256k1/
+Signature Algorithm/ (/ECDSA/) and, since the Taproot upgrade activated in
+November 2021, also the /Schnorr signature algorithm/ for Taproot outputs. The
+description of ECDSA can be found in [cite:@brown2009sec]. The algorithm employs the /secp256k1/
 elliptic curve defined in [cite:@brown2010sec]. ECDSA is based on the discrete
 logarithm problem for which there is no known algorithm that solves the problem
 on a classical computer in polynomial time. In general, it is a function problem,
@@ -276,7 +278,7 @@ and if formulated as a decision problem, it can be shown that it belongs to the
 to the /bounded-error quantum polynomial time/ (\(\mathcal{BQP}\)) complexity
 class. This means that if humans ever manage to build a quantum computer, it
 might be possible to solve the problem in polynomial time using Shor's
-order-finding algorithm, and therefore effectively break ECDSA.
+algorithm, and therefore effectively break ECDSA.
 
 Let us now look at the underlying elliptic curve. Let \(\mathbb{F}_p\) be a
 finite field specified by the odd prime \(p\), and let \(a, b \in
@@ -294,7 +296,8 @@ where \(a = 0\), \(b = 7\), and \(p = 2^{256} - 2^{32} - 2^9 - 2^8 - 2^7 -
 \]
 In fact, the finite field \(\mathbb{F}_p\) is the prime field \(\mathbb{Z}_p\)
 with the characteristic \(p\). It can be easily shown that the points on the
-curve form an additive abelian group under the standard point addition operation.
+curve, together with the point at infinity serving as the identity element,
+form an additive Abelian group under the standard point addition operation.
 The standard also specifies the base point \(G\), which is a generator of a
 subgroup of the original group. Since the cofactor of the base point is \(1\),
 the base point actually generates the whole group. The order \(n\) of the base
@@ -327,17 +330,17 @@ different, the signature will still be valid, and the users will be able to
 manipulate each other's funds. The chance for any of these collisions to occur is
 negligible provided a true random number generator is used.
 
-Bitcoin does not use encryption. It uses cryptography solely for digital
-signatures.
+Bitcoin does not use encryption. It uses public-key cryptography solely for
+digital signatures.
 
 * Script
 
 Each transaction in Bitcoin can be regarded as a short program or a trivial smart
 contract --- each transaction contains executable data that are executed by the
 node. Bitcoin uses a scripting system called *Script*, which is [[https://en.bitcoin.it/wiki/Script][stack-oriented]]. It contains dozens of instructions and is intentionally not
-Turing-complete as it contains no instructions for jumps or loops. Such design is
+Turing-complete as it contains no instructions for jumps or loops. Such a design is
 for security reasons --- it is not possible to create a malicious transaction
-that would make the node stuck in an infinite loop. [[.tab-bn][Table bn]]
+that would make the node get stuck in an infinite loop. [[.tab-bn][Table bn]]
 demonstrates some instructions. A zero value is interpreted as /false/.
 
 #+BEGIN_tab
@@ -399,7 +402,7 @@ Transactions are collected in [[https://en.bitcoin.it/wiki/Block][blocks]], whic
 - *hash of itself* :: Each block is referenced by this hash. The implementation
   uses SHA-256.
 - *previous block* :: A hash referencing the previous block.
-- *time* :: A timestamp of the time when the block was created.
+- *time* :: A timestamp of when the block was created.
 - *target* :: A number that determines the difficulty for the Proof-of-Work,
   explained below.
 - *nonce* :: A 32-bit number that serves as the Proof-of-Work, explained below.
@@ -458,16 +461,17 @@ close to the zero hash, so it takes a lot of work.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-br>> *[[.fig-br][Figure br]]*. The process of finding a valid Proof-of-Work.
-#+end_center
+<<.fig-br>>
 [[file:/data/intro-to-bitcoin/pow.jpeg]]
+*[[.fig-br][Figure br]]*. The process of finding a valid Proof-of-Work.
+#+end_center
 #+END_fig
 
 If a node happens to find such a nonce, it broadcasts the block and starts
 working on a new one. If the node exhausts the space defined by the size of the
 nonce (\(2^{32}\)), it can simply update the timestamp and reset the nonce. It is
 important to realize that the process of looking for the right nonce is
-memoryless. Each hash produces a random number between \(0\) and \(2^{256}\), so
+memoryless. Each hash produces a random number between \(0\) and \(2^{256}-1\), so
 looking for the right nonce is a lottery. No matter how many nonces we have tried
 before, the probability of getting the right one remains the same. Thinking
 otherwise is the gambler's fallacy.
@@ -505,9 +509,10 @@ recent block, or in other words, the current *tip* of the blockchain.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-bf>> *[[.fig-bf][Figure bf]]*. The blockchain from the genesis block to the current tip.
-#+end_center
+<<.fig-bf>>
 [[file:/data/intro-to-bitcoin/chain-1.jpeg]]
+*[[.fig-bf][Figure bf]]*. The blockchain from the genesis block to the current tip.
+#+end_center
 #+END_fig
 
 Now consider a scenario where a miner publishes a block \(n+1\), and almost at
@@ -517,9 +522,10 @@ to a *chain split*. This situation is depicted in [[.fig-bg][Figure bg]].
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-bg>> *[[.fig-bg][Figure bg]]*. A chain split.
-#+end_center
+<<.fig-bg>>
 [[file:/data/intro-to-bitcoin/chain-2.jpeg]]
+*[[.fig-bg][Figure bg]]*. A chain split.
+#+end_center
 #+END_fig
 
 It is crucial to note that blocks \(n+1\) and \(n+1'\) can contain conflicting
@@ -543,9 +549,10 @@ what happens when a miner appends a new block to \(n+1'\), as depicted in
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-b8>> *[[.fig-b8][Figure b8]]*. The longest chain wins.
-#+end_center
+<<.fig-b8>>
 [[file:/data/intro-to-bitcoin/chain-3.jpeg]]
+*[[.fig-b8][Figure b8]]*. The longest chain wins.
+#+end_center
 #+END_fig
 
 Nodes in the network can see that the new block \(n+2'\) extends the chain that
@@ -577,9 +584,10 @@ two blocks \(n+2\) and \(n+3\).
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-be>> *[[.fig-be][Figure be]]*. A rollback to the longer chain.
-#+end_center
+<<.fig-be>>
 [[file:/data/intro-to-bitcoin/chain-4.jpeg]]
+*[[.fig-be][Figure be]]*. A rollback to the longer chain.
+#+end_center
 #+END_fig
 
 This could happen because the miner who previously produced block \(n+1\) could
@@ -631,7 +639,7 @@ irreversibility of the hash function.
 
 A *Byzantine fault* is a condition in a decentralized system that can present
 different symptoms to different peers. For example, some nodes might act
-maliciously and send deceiving messages, or send different messages to different
+maliciously and send deceptive messages, or send different messages to different
 peers. Some nodes might not receive certain information due to network
 conditions, or even disappear from the network and show up later with an outdated
 state. Many such faults make different nodes have a different view of the whole
@@ -647,7 +655,7 @@ that would differ between the two chains.
 ** 51% Attack
 
 It is possible to attack the Bitcoin network with enormous computational power.
-This attack is known as the /51% attack/. If an attacker has at least 50% of the
+This attack is known as the /51% attack/. If an attacker has more than 50% of the
 hash power of the network, they can perform rollbacks of arbitrary depth. This
 would not mean that they could create value out of nothing, but it would allow
 them to double-spend funds they recently spent in the following way:
@@ -678,8 +686,8 @@ earnings. As a result of this asymmetry, attackers are better off making a profi
 from honest mining instead of trying to be malicious. In other words, a
 successful 51% attack means sawing off the branch you are sitting on.
 
-The hash rate of the Bitcoin network is approximately 50 exahashes of SHA-256 per
-second, which is an unprecedented number. The energy consumption of Bitcoin
+At the time of writing, the hash rate of the Bitcoin network is approximately
+50 exahashes of SHA-256 per second, which is an unprecedented number. The energy consumption of Bitcoin
 mining is a controversial topic. Miners nowadays use ASICs (Application-Specific
 Integrated Circuits), which is hardware that has the hash function baked directly
 into the silicon of its chips. Since the hardware is highly specialized, there
@@ -710,14 +718,14 @@ and total outputs of the included transactions. This difference is called the
 /transaction fee/, and users can motivate miners to process their transactions
 with higher priority by providing a higher fee. Fees also prevent spam
 transactions. If transactions had no cost, a malicious entity could keep
-publishing an enormous amount of them by sending bitcoin back to themselves. All
+publishing an enormous number of them by sending bitcoin back to themselves. All
 blocks have a limited size, and since miners would have no means to distinguish
 such transactions from legitimate ones, the spam would occupy a significant
 portion of the block space, leading to a denial-of-service attack. During the
 first few years, there were usually no fees associated with transactions. As the
 transaction volume grew, fees became the norm, and transactions with no fees are
 simply ignored. It is also expected that fees will be the main incentive for
-miners once the predetermined number of coins have entered circulation.
+miners once the predetermined number of coins has entered circulation.
 
 Let us call the global hashing power of all miners in the network the *hash
 rate*. Since nodes always adjust the target so that it takes about 10 minutes to
@@ -736,11 +744,13 @@ broadcasts it to the network.
 The pool distributes the block reward to the individual miners who participated
 in the hashing process, and even miners who did not manage to find the PoW get
 paid based on how much hash rate they provided. The pool can easily measure the
-hash rate of an individual miner by periodically asking them to submit the block
-they are working on and checking how close the hash is to the target region. Each
+hash rate of an individual miner by having them submit /shares/ --- blocks whose
+hashes fall below an easier, pool-defined target --- and counting how many they
+submit. Each
 submitted block contains a coinbase transaction with the receiver's address set
 to the pool's address. Note that at some point, one of the miners generates a
-hash that is not only close to the target but actually below it. Also note that
+hash that falls below not only the pool's easier target but the network target
+itself. Also note that
 once a miner finds such a hash, they cannot simply change the coinbase
 transaction to point to their own address since doing so would invalidate the
 hash.
@@ -761,9 +771,9 @@ Whenever the consensus rules are modified, we introduce either a so-called *soft
 fork* or a *hard fork*. Such changes are always introduced in a new version of
 the node software. Since nobody can force anyone to run a particular version, all
 changes require consent from node operators. If some nodes adopt the new rules
-while others do not, there will be a permanent chain split at the height where
-the change took effect, and both groups will end up with their own branch of the
-original blockchain. Most likely, each group will give their chain a different
+while others do not, there can be a permanent chain split at the height where
+the change took effect, in which case both groups end up with their own branch
+of the original blockchain. Most likely, each group will give their chain a different
 name, resulting in two different cryptocurrencies sharing a common history before
 the split.
 
@@ -778,9 +788,10 @@ updated nodes in the network will each end up with their own chain.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-bj>> *[[.fig-bj][Figure bj]]*. A soft fork restricts the consensus rules.
-#+end_center
+<<.fig-bj>>
 [[file:/data/intro-to-bitcoin/soft-fork.jpeg]]
+*[[.fig-bj][Figure bj]]*. A soft fork restricts the consensus rules.
+#+end_center
 #+END_fig
 
 A hard fork relaxes the consensus rules, so the updated set becomes a strict
@@ -793,9 +804,10 @@ nodes also need to accept blocks complying with the new set of consensus rules.
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-bu>> *[[.fig-bu][Figure bu]]*. A hard fork relaxes the consensus rules.
-#+end_center
+<<.fig-bu>>
 [[file:/data/intro-to-bitcoin/hard-fork.jpeg]]
+*[[.fig-bu][Figure bu]]*. A hard fork relaxes the consensus rules.
+#+end_center
 #+END_fig
 
 The main difference is that in order to avoid a chain split, a hard fork requires
@@ -812,9 +824,9 @@ is about 200 GB. The growth is naturally linear at the rate of approximately
 providing hash checks) of the whole blockchain since it is distributed around
 the world.
 
-For a Bitcoin light client, it is sufficient to keep only the root hash of the
-Merkle tree. If such a client needs to verify a transaction, it can link it to a
-place in the chain according to its timestamp and check that other full nodes
+For a Bitcoin light client, it is sufficient to keep only the block headers,
+which contain the Merkle root hashes. If such a client needs to verify a transaction, it can link it to a
+place in the chain via a Merkle branch obtained from a full node and check that other full nodes
 accepted it. This method is called Simplified Payment Verification (SPV).
 However, light clients are vulnerable to second preimage attacks (an attacker
 could forge the interior of the Merkle tree). Also note that if a user does not
@@ -825,7 +837,7 @@ transactions from other nodes.
 ** Scalability
 
 A drawback not mentioned in the original paper is that the Bitcoin network is not
-able to process an arbitrary amount of transactions over a certain period of
+able to process an arbitrary number of transactions over a certain period of
 time. The difficulty is adjusted every 2016 blocks so that it takes about 10
 minutes for the whole network to generate a new block. The difficulty is given by
 the value of the target, which is a 256-bit number. This value is stored in each
@@ -841,7 +853,7 @@ The target is adjusted every 2016 blocks so that
 \]
 where \(\delta\) is the actual time difference between the 2016 blocks.
 
-Every block can contain only a limited amount of transactions. Based on this, it
+Every block can contain only a limited number of transactions. Based on this, it
 is possible to estimate that the network is able to process only about 7
 transactions per second worldwide. This issue is currently being addressed by
 introducing another layer of transactions over the original blockchain. This
@@ -893,7 +905,7 @@ whole spectrum of both positive and negative radical opinions.
 Since the Bitcoin codebase is open source, anyone can fork the source code in the
 software engineering sense and start either a completely new chain of blocks from
 the very beginning or /fork/ the existing Bitcoin blockchain at a specific point
-and continue in its own way. In both cases, a new cryptocurrency is created since
+and continue in their own way. In both cases, a new cryptocurrency is created since
 the new blocks are not compatible with the Bitcoin blockchain anymore. In the
 latter case, users can keep and use all the funds they owned in the standard
 Bitcoin blockchain. There are currently thousands of such cryptocurrencies. This

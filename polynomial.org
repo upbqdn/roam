@@ -3,7 +3,7 @@
 :END:
 #+title: Polynomial
 #+date: [2020-03-04 Wed]
-#+hugo_lastmod: [2020-06-10 Wed]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: math
@@ -43,14 +43,6 @@ The zero polynomial is denoted \(0\). Polynomials of one variable are called
    \(f \cdot g = \sum_{\gamma \in \mathbb{N}_0^n} \left( \sum_{\alpha + \beta = \gamma} c_\alpha d_\beta \right) x^\gamma\).
 #+END_def
 
-#+BEGIN_def
-<<.def-b6>> *[[.def-b6][Definition b6]]*. Let
-\(f = \sum c_\alpha x^\alpha \neq 0 \in \mathbb{F}[\mathbf{x}]\) be a non-zero
-[[.def-bh][polynomial]]. The *total degree* of \(f\), denoted \(\deg(f)\), is the
-maximum \(\lvert x^\alpha \rvert\) such that the corresponding coefficient
-\(c_\alpha\) is nonzero. The degree of \(0\) is undefined.
-#+END_def
-
 #+BEGIN_rem
 <<.rem-b9>> *[[.rem-b9][Remark b9]]*. The set of all [[.def-bh][polynomials]] in
 \(x_1, \ldots, x_n\) with coefficients in a [[file:field.org::.def-8][field]] \(\mathbb{F}\) is denoted
@@ -63,9 +55,17 @@ multiplicative inverses and so \(\mathbb{F}[\mathbf{x}]\) does not form a
 #+END_rem
 
 #+BEGIN_def
+<<.def-b6>> *[[.def-b6][Definition b6]]*. Let
+\(f = \sum c_\alpha x^\alpha \neq 0 \in \mathbb{F}[\mathbf{x}]\) be a non-zero
+[[.def-bh][polynomial]]. The *total degree* of \(f\), denoted \(\deg(f)\), is the
+maximum \(\lvert x^\alpha \rvert\) such that the corresponding coefficient
+\(c_\alpha\) is non-zero. The degree of \(0\) is undefined.
+#+END_def
+
+#+BEGIN_def
 <<.def-ny>> *[[.def-ny][Definition ny]]*. Let \(f(x) \in \mathbb{F}[x]\) be a univariate
 [[.def-bh][polynomial]] of positive degree. The polynomial \(f(x)\) is *irreducible*
-over \(\mathbb{F}[x]\) if there is no factorization \(f(x) = p(x)q(x)\), where
+over \(\mathbb{F}\) if there is no factorization \(f(x) = p(x)q(x)\), where
 \(p(x)\) and \(q(x)\) are also univariate polynomials of positive degree in
 \(\mathbb{F}[x]\).
 #+END_def

@@ -3,16 +3,16 @@
 :END:
 #+title: Treaps
 #+date: [2018-05-13 Sun]
-#+hugo_lastmod: [2026-03-12 Thu 14:25]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
 
-A treap is a data structure in the form of a self-balanced binary search tree,
-which is suitable for storing ordered data more effectively than a standard BST
+A treap is a data structure in the form of a self-balancing binary search tree,
+which is suitable for storing ordered data more efficiently than a standard BST
 [cite:@treaps].
 
-Every node contains a randomly generated priority, a unique key and optionally
+Every node contains a randomly generated priority, a unique key, and optionally
 a value that the key represents. Nodes in a treap follow the heap-ordering
 property with respect to priorities: the priority of any non-leaf node is
 greater than or equal to the priority of its descendants. Considering only the
@@ -63,7 +63,7 @@ If the newly inserted node has a higher priority than its parent, we need to
 perform rotations until the heap property is satisfied again. We use the left
 rotation for right children and the right rotation for left children. This
 brings the node up by one level, and we continue rotating until the heap
-property holds, i.e., every parent has a higher priority than its children.
+property holds, i.e., every parent has a priority greater than or equal to that of its children.
 
 This is the key mechanism that keeps the treap balanced and provides its
 logarithmic properties.
@@ -71,8 +71,8 @@ logarithmic properties.
 *** Rotations in a treap
 
 Rotations in a treap are performed the same way as in a standard BST. The left
-rotation works as follows: consider a pointer to the current node, which has two
-children. We store the pointer to the right child in a temporary variable and
+rotation works as follows: consider a pointer to the current node, which has a
+right child. We store the pointer to the right child in a temporary variable and
 then set the current node's right pointer to point to the left child of the
 right child. Then we set the left pointer of the temporarily stored node to
 point to the current node and return the temporary pointer.
@@ -90,13 +90,13 @@ searched key is greater, we move to the right child. If it is smaller, we move
 to the left child. Otherwise --- when the keys match --- we have found it. If
 there is no child to move to, the key is not in the treap.
 
-*** Min. and max. element
+*** Minimum and Maximum Element
 
 The minimum is obtained by following left children from the root until there are
 no more. The last such node is the minimum; we can ignore both priorities and
 key values. For the maximum, we follow right children instead.
 
-*** Next and previous element
+*** Next and Previous Element
 
 The next and previous operations are complementary, just like rotations or the
 min and max operations. We obtain the next element of a node X by finding its

@@ -1,9 +1,9 @@
 :PROPERTIES:
-:ID:       230f8f42-5b86-4fe5-823d-ea257cc14e8a
+:ID:       aes-groebner-experiments
 :END:
-#+title: AES + Gröbner bases = ♡
+#+title: AES + Gröbner Bases = ♡
 #+date: [2020-11-24 Tue]
-#+hugo_lastmod: [2026-03-13 Fri 15:12]
+#+hugo_lastmod: [2026-08-19 Wed 23:50]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: crypto
@@ -48,7 +48,7 @@ which also uses Python 3.7.3 and PolyBoRi [cite:@polybori]. The systems were
 solved in Magma V2.25-5 [cite:@magma] and CryptoMiniSat [cite:@cryptominisat].
 The source code for the experiments can be found at
 https://github.com/upbqdn/yaac. The generation and preprocessing of the
-polynomial systems was parallelized across all 24 available cores. Magma,
+polynomial systems were parallelized across all 24 available cores. Magma,
 however, could only solve one system on a single core, so to keep the comparison
 fair, we explicitly restricted CryptoMiniSat to one core as well.
 
@@ -85,8 +85,8 @@ The average number of [[file:polynomial.org::.def-b4][monomials]] per polynomial
 is between 6 and 8 when \(e = 4\) and between 18 and 20 when \(e = 8\). Both the
 average and highest degrees of monomials are equal to two, so all polynomials are
 quadratic or linear. In our experiments, we do not consider the ciphers with
-\(r < 2\) or \(c < 2\) as these have the matrices for MixColumns and ShiftRows
-reduced to \((1)\). Recall that the dimensions of the state array \(r\) and \(c\)
+\(r < 2\) or \(c < 2\) as these have the matrix for MixColumns or ShiftRows
+reduced to the identity. Recall that the dimensions of the state array \(r\) and \(c\)
 are restricted to the values 1, 2, and 4; the exponent \(e\) can be either 4 or
 8; and for the number of rounds \(n\), we have \(1 \le n \le 10\).
 
@@ -164,7 +164,7 @@ number due to limited time resources.
 
 The column named AMP contains the average number of monomials per polynomial in
 the whole system. This number grows rapidly as \(n\) increases. The maximal limit
-of the number of monomials in one polynomial is \(2^k - 1\). When \(n = 1\) and
+of the number of monomials in one polynomial is \(2^k\). When \(n = 1\) and
 \(e = 4\), the average degree of monomials is 2 and the highest degree is 3. When
 \(n = 2\), the average and highest degrees are 5 and 9, respectively. Note that
 the average degree has its maximum at \(\frac{k}{2}\). We were not able to
@@ -367,7 +367,7 @@ the reduction (AMPR) does not differ from the AMP value in the previous table. O
 the other hand, for \(\mathrm{SR}(2, 4, 2, 4)\) and \(l = 5\), AMPR is reduced
 by 86%. Unfortunately, we could still not compute the solution. For
 \(\mathrm{SR}(2, 2, 4, 4)\) and \(l = 5\), the reduction allowed us to solve the
-system, but for \(l = 2\), it did so only for the SAT solver. For
+system, but for \(l = 1\), it did so only for the SAT solver. For
 \(\mathrm{SR}(2, 2, 2, 4)\), the reduction shortened the computation time. We
 note that we considered only the ciphers that required more than five seconds to
 solve in [[.tab-ra][Table ra]]. The number of polynomial systems for reduction
@@ -387,7 +387,7 @@ and that other techniques might provide better results.
 
 #+BEGIN_tab
 #+begin_center
-<<.tab-r4>> *[[.tab-r4][Table r4]]*. Experiments with reduced polynomial systems. PT is the preprocessing time required to obtain the system. AMPR is the average number of monomials per polynomial after reduction. \(l\) is the size of the reduction set.
+<<.tab-r4>> *[[.tab-r4][Table r4]]*. Experiments with reduced polynomial systems. PT is the preprocessing time required to obtain the system. AMPR is the average number of monomials per polynomial after reduction. The value \(l\) is the size of the reduction set.
 #+end_center
 #+begin_export html
 <div style="font-size:0.8em; text-align:center">
@@ -434,7 +434,7 @@ The results are in [[.tab-r7][Table r7]]. We were able to obtain the solution fo
 other two ciphers. Note that the F4 algorithm outperforms the SAT solver. Also
 observe that the preprocessing time for \(\mathrm{SR}(3, 2, 2, 4)\) is much
 longer. This is caused by counting the frequencies since each of the 16
-polynomials has around \(2^{14}\) monomials. We have also tried guessing eight of
+polynomials has around \(2^{15}\) monomials. We have also tried guessing eight of
 the least frequent variables and were not able to obtain the solutions for
 \(\mathrm{SR}(2, 4, 2, 4)\) and \(\mathrm{SR}(2, 2, 4, 4)\) even though we
 solved the system for \(\mathrm{SR}(2, 2, 4, 4)\) in [[.tab-r4][Table r4]]. This
@@ -453,16 +453,18 @@ many threads. On the other hand, we were often unable to obtain the solutions fo
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-r5>> *[[.fig-r5][Figure r5]]*. Frequencies of the key variables for five instances of \(\mathrm{SR}(2, 2, 4, 4)\). The variables are ordered according to their frequency.
-#+end_center
+<<.fig-r5>>
 [[file:/data/aes/freq_2244.png]]
+*[[.fig-r5][Figure r5]]*. Frequencies of the key variables for five instances of \(\mathrm{SR}(2, 2, 4, 4)\). The variables are ordered according to their frequency.
+#+end_center
 #+END_fig
 
 #+BEGIN_fig
 #+begin_center
-<<.fig-rh>> *[[.fig-rh][Figure rh]]*. Frequencies of the key variables for five instances of \(\mathrm{SR}(2, 4, 2, 4)\). The variables are ordered according to their frequency.
-#+end_center
+<<.fig-rh>>
 [[file:/data/aes/freq_2424.png]]
+*[[.fig-rh][Figure rh]]*. Frequencies of the key variables for five instances of \(\mathrm{SR}(2, 4, 2, 4)\). The variables are ordered according to their frequency.
+#+end_center
 #+END_fig
 
 #+BEGIN_tab
