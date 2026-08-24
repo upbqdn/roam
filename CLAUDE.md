@@ -22,6 +22,9 @@ There is no build/lint/test tooling in this repo. Publishing runs in Emacs
 - `puke-rebuild-notes` — re-export every note, then deploy
 - Deploy pipeline: rsync `data/` into the site's `static/data`, Tailwind CSS
   build, `hugo`, pagefind index, rsync `public/` to the server
+- `puke-pagefind-version` pins the pagefind release. Its docstring states the
+  conditions under which a bump is safe; a bump made outside them breaks
+  search for every returning visitor. Do not change it from memory.
 
 ## File conventions
 
