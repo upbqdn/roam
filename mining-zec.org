@@ -3,18 +3,20 @@
 :END:
 #+title: Mining Zcash
 #+date: [2024-01-13 Sat]
-#+hugo_lastmod: [2026-08-19 Wed 23:50]
+#+hugo_lastmod: [2026-09-23 Wed 16:07]
 #+bibliography: ref.bib
 #+cite_export: csl
 #+hugo_tags: blog
 
 I built this for fun in late 2022.
 
-#+attr_html: :controls t
-#+begin_video
+# Keep the opening video tag on its own line so Hugo preserves the subtitle track.
+#+begin_export html
+<video controls>
 <source src="/data/mining/mining.mp4" type="video/mp4">
-<track src="/data/mining/mining.vtt" label="English" kind="subtitles" srclang="en" default/>
-#+end_video
+<track src="/data/mining/mining.vtt" label="English" kind="subtitles" srclang="en" default>
+</video>
+#+end_export
 
 The rest of this post is a compilation of random posts from social media.
 
